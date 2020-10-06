@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es6",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        },
+        "experimentalDecorators": true
+    },
+    "include": [
+        "src/**/*",
+    ],
+    "exclude": [
+        "tests/**/*.ts"
+    ],
+    "linterOptions": {
+    }
+  }

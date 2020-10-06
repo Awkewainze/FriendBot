@@ -1,0 +1,48 @@
+{
+  "name": "friend_bot",
+  "version": "1.0.0",
+  "description": "Discord bot for a memey server",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "test": "npx jest",
+    "lint": "eslint ./src --ext .ts --quiet --fix",
+    "lint-nofix": "eslint ./src --ext .ts --quiet",
+    "docs": "typedoc --mode file --excludeNotExported --excludePrivate --includeDeclarations --excludeExternals --out docs src"
+  },
+  "author": "A group of friends",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/uws": "^11.149.1",
+    "bufferutil": "^4.0.1",
+    "discord.js": "github:discordjs/discord.js",
+    "erlpack": "github:discordapp/erlpack",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^2.4.0",
+    "libsodium-wrappers": "^0.7.4",
+    "moment": "^2.24.0",
+    "node-opus": "^0.3.3",
+    "opusscript": "0.0.6",
+    "ytdl-core": "^1.0.0",
+    "ytdl-core-discord": "^1.0.3",
+    "zlib-sync": "^0.1.4",
+    "zucc": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/ffmpeg": "^1.0.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^12.12.7",
+    "@types/ws": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2",
+    "source-map-support": "^0.5.16",
+    "ts-jest": "^26.4.1",
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.3"
+  }
+}
