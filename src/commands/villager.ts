@@ -52,7 +52,6 @@ export class VillagerCommand extends Command {
             });
         } catch (err) {
             // connection not found, stop repeating.
-            console.error(err);
             VillagerCommand.guildVillagerStatusEnabled[guildId] = false;
         }
     }

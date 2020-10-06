@@ -31,7 +31,6 @@ export class VoiceConnectionService {
      * @throws If connection does not exist.
      */
     public getConnectionForGuild(guildId: string): ActivityTrackingVoiceConnection {
-        console.log("getConnection", guildId, this.guildConnectionMap, this.guildConnectionMap[guildId]);
         if (!this.guildConnectionMap[guildId]) {
             throw new Error("Not in any channels");
         }
@@ -54,16 +53,13 @@ export class VoiceConnectionService {
         channelToUseIfNotInExisting: VoiceChannel
     ): Promise<ActivityTrackingVoiceConnection> {
         if (!this.guildConnectionMap[guildId]) {
-            console.log("Added to map! ", guildId);
             this.guildConnectionMap[guildId] = ActivityTrackingVoiceConnection.wrapConnection(
                 await channelToUseIfNotInExisting.join()
             ).whenInactiveForSeconds(VoiceConnectionService.DisconnectAfterInactiveForSeconds, self => {
-                console.log("disconnect", this.guildConnectionMap, this.guildConnectionMap[guildId]);
                 self.disconnect();
                 delete this.guildConnectionMap[guildId];
             });
         }
-        console.log("getOrCreate", this.guildConnectionMap, this.guildConnectionMap[guildId]);
         const connection = this.guildConnectionMap[guildId];
         return connection;
     }
