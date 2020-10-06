@@ -1,21 +1,23 @@
 language: node_js
 node_js:
-  - node
+  - 'lts/*'
 os:
-- linux
-dist: trusty
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+  - linux
+dist: xenial
+# env:
+#   - CXX=g++-4.8
+# addons:
+#   apt:
+#     sources:
+#       - ubuntu-toolchain-r-test
+#     packages:
+#       - g++-4.8
+install:
+  - npm install
 script:
-  - npm run build
   - npm run lint-nofix
   - npm run test
+  - npm run build
   - npm run docs
 deploy:
   provider: pages
