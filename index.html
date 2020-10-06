@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>friend_bot</title>
+	<meta name="description" content="Documentation for friend_bot">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">friend_bot</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>friend_bot</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#friendbot" id="friendbot" style="color: inherit; text-decoration: none;">
+					<h1>FriendBot</h1>
+				</a>
+				<p><a href="https://travis-ci.org/Awkewainze/FriendBot"><img src="https://travis-ci.org/Awkewainze/FriendBot.svg?branch=main" alt="Build Status"></a></p>
+				<p>A discord bot for meme purposes and for helping out with some stuff on our server!</p>
+				<a href="#required-external-setup" id="required-external-setup" style="color: inherit; text-decoration: none;">
+					<h2>Required external setup</h2>
+				</a>
+				<ul>
+					<li><a href="https://discord.com/developers">Discord Login Token</a></li>
+					<li>If on Windows, <a href="https://www.npmjs.com/package/windows-build-tools">Windows Build Tools</a>,
+					if you have Visual Studio installed, that should also work.</li>
+					<li>(Optional) VSCode setup makes Typescript development much easier.</li>
+					<li>(Optional) VScode extensions (from most to least recommended):<ul>
+							<li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
+							<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></li>
+							<li><a href="https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest">Jest</a></li>
+							<li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comments</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#npm-commands" id="npm-commands" style="color: inherit; text-decoration: none;">
+					<h2>NPM Commands</h2>
+				</a>
+				<ul>
+					<li>Lint with <code>npm run lint</code><ul>
+							<li>Installing the ESLint and Prettier extensions for VSCode will show and fix errors on save.</li>
+						</ul>
+					</li>
+					<li>Run with <code>npm run start</code></li>
+					<li>Test with <code>npm run test</code></li>
+				</ul>
+				<a href="#discord-commands" id="discord-commands" style="color: inherit; text-decoration: none;">
+					<h2>Discord Commands</h2>
+				</a>
+				<p>Voice commands at this point require $ prefix to make sure they aren&#39;t accidentally triggered, that may change in the future.</p>
+				<ul>
+					<li><code>$ding (start|stop)</code><ul>
+							<li>The Drifter from Destiny 2 plays the song of his people.</li>
+						</ul>
+					</li>
+					<li><code>$villager (start|stop)</code><ul>
+							<li>Play some villager noises for ambience.</li>
+						</ul>
+					</li>
+					<li><code>$goldwatch</code><ul>
+							<li>Christopher Walken makes says his most famous voice line.</li>
+						</ul>
+					</li>
+					<li><code>$disconnect</code><ul>
+							<li>Disconnect the bot from current voice channel.</li>
+						</ul>
+					</li>
+					<li><code>inspect @User</code><ul>
+							<li>Get some useful info about a user.</li>
+						</ul>
+					</li>
+					<li><code>sus</code> in the same sentence as a few user mentions.<ul>
+							<li>ex. <code>I am sus of @Person1 and @Person2</code></li>
+							<li>Starts a vote on who to eject!</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/color.html" class="tsd-kind-icon">Color</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/pronouns.html" class="tsd-kind-icon">Pronouns</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/activitytrackingvoiceconnection.html" class="tsd-kind-icon">Activity<wbr>Tracking<wbr>Voice<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/command.html" class="tsd-kind-icon">Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandservice.html" class="tsd-kind-icon">Command<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dingcommand.html" class="tsd-kind-icon">Ding<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/disconnectcommand.html" class="tsd-kind-icon">Disconnect<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/goldwatchcommand.html" class="tsd-kind-icon">Gold<wbr>Watch<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/lazy.html" class="tsd-kind-icon">Lazy</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/optional.html" class="tsd-kind-icon">Optional</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/preconditions.html" class="tsd-kind-icon">Preconditions</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/suscommand.html" class="tsd-kind-icon">Sus<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/timer.html" class="tsd-kind-icon">Timer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/villagercommand.html" class="tsd-kind-icon">Villager<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#asynccallback" class="tsd-kind-icon">Async<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#asyncconsumer" class="tsd-kind-icon">Async<wbr>Consumer</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#asyncmapper" class="tsd-kind-icon">Async<wbr>Mapper</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#asyncpredicate" class="tsd-kind-icon">Async<wbr>Predicate</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#asyncprovider" class="tsd-kind-icon">Async<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#config" class="tsd-kind-icon">Config</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#mapper" class="tsd-kind-icon">Mapper</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#memberwithextrainfo" class="tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#predicate" class="tsd-kind-icon">Predicate</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#provider" class="tsd-kind-icon">Provider</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#config" class="tsd-kind-icon">CONFIG</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#arraysequal" class="tsd-kind-icon">arrays<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#execute" class="tsd-kind-icon">execute</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getextrainfo" class="tsd-kind-icon">get<wbr>Extra<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getmediadir" class="tsd-kind-icon">get<wbr>Media<wbr>Dir</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getrandomfilefromdir" class="tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#getuniques" class="tsd-kind-icon">get<wbr>Uniques</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#insertinsortedlocation" class="tsd-kind-icon">insert<wbr>InSorted<wbr>Location</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeuniquecolors" class="tsd-kind-icon">make<wbr>Unique<wbr>Colors</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#noop" class="tsd-kind-icon">noop</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#ping" class="tsd-kind-icon">ping</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#provide" class="tsd-kind-icon">provide</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#randint" class="tsd-kind-icon">rand<wbr>Int</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#selectrandom" class="tsd-kind-icon">select<wbr>Random</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#shuffle" class="tsd-kind-icon">shuffle</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
