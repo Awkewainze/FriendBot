@@ -9,12 +9,8 @@ A discord bot for meme purposes and for helping out with some stuff on our serve
 * [Discord Login Token](https://discord.com/developers)
 * If on Windows, [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools),
     if you have Visual Studio installed, that should also work.
-* (Optional) VSCode setup makes Typescript development much easier.
-* (Optional) VScode extensions (from most to least recommended):
-    * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-    * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-    * [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
-    * [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+* (Recommended) VSCode setup makes Typescript development much easier.
+* (Recommended) VScode extensions. VSCode will asks to install them on launching this project.
 
 ## NPM Commands
 
