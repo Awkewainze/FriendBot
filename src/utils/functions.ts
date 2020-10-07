@@ -8,6 +8,7 @@ export function noop(): void {}
 /**
  * Function that returns given value.
  * @param value Value to return.
+ * @typeParam T Type of object that is passed in and returned.
  * @returns Provided value.
  * @category SimpleFunction
  */

@@ -93,7 +93,7 @@ export class Optional<T> {
      * If a value is present, apply the provided {@link Optional}-bearing mapping function to it, return that result,
      * otherwise return an empty {@link Optional}.
      * @param mapper Method to transform the {@link Optional}'s value from and returns an {@link Optional}.
-     * @paramType S The new value's type.
+     * @typeParam S The new value's type.
      * @returns A new {@link Optional} containing the transformed value or empty.
      */
     flatMap<S>(mapper: Mapper<T, Optional<S>>): Optional<S> {
@@ -106,7 +106,7 @@ export class Optional<T> {
      * If a value is present, apply the provided mapping function to it,
      * and if the result is non-null, return an {@link Optional} describing the result.
      * @param mapper Method to transform the {@link Optional}'s value from and returns a new value.
-     * @paramType S The new value's type.
+     * @typeParam S The new value's type.
      * @returns A new {@link Optional} containing the transformed value or empty.
      */
     map<S>(mapper: Mapper<T, S>): Optional<S> {

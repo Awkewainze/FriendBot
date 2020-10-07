@@ -21,6 +21,7 @@ export class Preconditions {
      * Throws if value is `null` or `undefined`.
      * @param value Throws if `null` or `undefined`.
      * @param errorMsg Error message to be used instead of generic.
+     * @typeParam T Type of value being check for null.
      */
     static checkNotNull<T>(value: T, errorMsg?: string): void {
         if (value === null || value === undefined) throw new Error(errorMsg || "Value is null");
@@ -47,6 +48,7 @@ export class Preconditions {
     /**
      * Checks if a value is not `null` or `undefined`.
      * @param value Value to check if not `null` or `undefined`.
+     * @typeParam T Type of the value.
      * @returns `true` if the value is not `null` or `undefined`, otherwise `false`.
      */
     static isNotNull<T>(value: T): boolean {

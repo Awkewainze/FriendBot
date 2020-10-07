@@ -1,6 +1,7 @@
 /**
  * Randomize array in-place using Durstenfeld shuffle algorithm
  * @param array Array to shuffle. Happens in place, so clone if you don't want to lose original order.
+ * @typeParam T Type of values stored in the array.
  * @category Array
  */
 export function shuffle<T>(array: Array<T>): void {
@@ -16,6 +17,7 @@ export function shuffle<T>(array: Array<T>): void {
  * Check if arrays are fully equal.
  * @param a Left array.
  * @param b Right array.
+ * @typeParam T Type of values stored in the arrays.
  * @category Array
  */
 export function arraysEqual<T>(a: Array<T>, b: Array<T>): boolean {
@@ -62,6 +64,7 @@ function sortedIndex(array: Array<number>, value: number): number {
  * @param stopOnUnresolvable If `false`, places `undefined` into output array when no other value can be found.
  * If `true`, will just return current array, this is usually more useful if you have {@link defaultValuesToUse}
  * has all expected values and want to stop once those run out.
+ * @typeParam T Types of values in the sub arrays.
  */
 export function getUniques<T>(
     valueArrays: Array<Array<T>>,

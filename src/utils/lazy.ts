@@ -1,6 +1,6 @@
 /**
  * Gets a value once on call, then returns the same value on subsequent gets.
- * @paramType T Stored value type.
+ * @typeParam T Stored value type.
  * @category Utility
  */
 export class Lazy<T> {
@@ -26,7 +26,7 @@ export class Lazy<T> {
 
 /**
  * Gets an async value once on call, then returns the same value on subsequent gets.
- * @paramType T Stored value type.
+ * @typeParam T Stored value type.
  * @category Utility
  */
 export class AsyncLazy<T> {
