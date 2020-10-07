@@ -4,8 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>friend_bot</title>
-	<meta name="description" content="Documentation for friend_bot">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -52,1427 +53,1703 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>friend_bot</h1>
 		</div>
 	</div>
 </header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
+<div class="container">
+	<div class="row container container-main">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul>
+					<ul class="before-current">
+						<li class=" tsd-kind-enum">
+							<a href="enums/color.html" class="tsd-kind-icon">Color</a>
+						</li>
+						<li class=" tsd-kind-enum">
+							<a href="enums/pronouns.html" class="tsd-kind-icon">Pronouns</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/activitytrackingvoiceconnection.html" class="tsd-kind-icon">Activity<wbr>Tracking<wbr>Voice<wbr>Connection</a>
+						</li>
+						<li class=" tsd-kind-class tsd-has-type-parameter">
+							<a href="classes/asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/command.html" class="tsd-kind-icon">Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/commandservice.html" class="tsd-kind-icon">Command<wbr>Service</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/dingcommand.html" class="tsd-kind-icon">Ding<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/disconnectcommand.html" class="tsd-kind-icon">Disconnect<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/goldwatchcommand.html" class="tsd-kind-icon">Gold<wbr>Watch<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class tsd-has-type-parameter">
+							<a href="classes/lazy.html" class="tsd-kind-icon">Lazy</a>
+						</li>
+						<li class=" tsd-kind-class tsd-has-type-parameter">
+							<a href="classes/optional.html" class="tsd-kind-icon">Optional</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/preconditions.html" class="tsd-kind-icon">Preconditions</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/suscommand.html" class="tsd-kind-icon">Sus<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/timer.html" class="tsd-kind-icon">Timer</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/villagercommand.html" class="tsd-kind-icon">Villager<wbr>Command</a>
+						</li>
+						<li class=" tsd-kind-class">
+							<a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
+						</li>
+						<li class=" tsd-kind-type-alias">
+							<a href="globals.html#asynccallback" class="tsd-kind-icon">Async<wbr>Callback</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#asyncconsumer" class="tsd-kind-icon">Async<wbr>Consumer</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#asyncmapper" class="tsd-kind-icon">Async<wbr>Mapper</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#asyncpredicate" class="tsd-kind-icon">Async<wbr>Predicate</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#asyncprovider" class="tsd-kind-icon">Async<wbr>Provider</a>
+						</li>
+						<li class=" tsd-kind-type-alias">
+							<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
+						</li>
+						<li class=" tsd-kind-type-alias">
+							<a href="globals.html#config" class="tsd-kind-icon">Config</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#mapper" class="tsd-kind-icon">Mapper</a>
+						</li>
+						<li class=" tsd-kind-type-alias">
+							<a href="globals.html#memberwithextrainfo" class="tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#predicate" class="tsd-kind-icon">Predicate</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#provider" class="tsd-kind-icon">Provider</a>
+						</li>
+						<li class=" tsd-kind-variable">
+							<a href="globals.html#config" class="tsd-kind-icon">CONFIG</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#arraysequal" class="tsd-kind-icon">arrays<wbr>Equal</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#execute" class="tsd-kind-icon">execute</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#getextrainfo" class="tsd-kind-icon">get<wbr>Extra<wbr>Info</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#getmediadir" class="tsd-kind-icon">get<wbr>Media<wbr>Dir</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#getrandomfilefromdir" class="tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#getuniques" class="tsd-kind-icon">get<wbr>Uniques</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#insertinsortedlocation" class="tsd-kind-icon">insert<wbr>InSorted<wbr>Location</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#makeuniquecolors" class="tsd-kind-icon">make<wbr>Unique<wbr>Colors</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#noop" class="tsd-kind-icon">noop</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#ping" class="tsd-kind-icon">ping</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#provide" class="tsd-kind-icon">provide</a>
+						</li>
+						<li class=" tsd-kind-function">
+							<a href="globals.html#randint" class="tsd-kind-icon">rand<wbr>Int</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#selectrandom" class="tsd-kind-icon">select<wbr>Random</a>
+						</li>
+						<li class=" tsd-kind-function tsd-has-type-parameter">
+							<a href="globals.html#shuffle" class="tsd-kind-icon">shuffle</a>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<li>📑 Index</li>
+					<li><br></li>
+					<li class="current ">
+						<a href="globals.html">Globals</a>
+				</li>                </ul>
+			</nav>
+		</div>
+		<div class="col-9 col-content">
 			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Color Enumerations</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum"><a href="enums/color.html" class="tsd-kind-icon">Color</a></li>
-							</ul>
-							<h3>Pronouns Enumerations</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum"><a href="enums/pronouns.html" class="tsd-kind-icon">Pronouns</a></li>
-							</ul>
+							<h3>Enumerations</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-enum">
+										<a href="enums/color.html" class="tsd-kind-icon">Color</a>
+										<ul>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#blue" class="tsd-kind-icon">Blue</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#green" class="tsd-kind-icon">Green</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#orange" class="tsd-kind-icon">Orange</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#pink" class="tsd-kind-icon">Pink</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#purple" class="tsd-kind-icon">Purple</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#red" class="tsd-kind-icon">Red</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/color.html#yellow" class="tsd-kind-icon">Yellow</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-enum">
+										<a href="enums/pronouns.html" class="tsd-kind-icon">Pronouns</a>
+										<ul>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/pronouns.html#feminine" class="tsd-kind-icon">FEMININE</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/pronouns.html#masculine" class="tsd-kind-icon">MASCULINE</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/pronouns.html#name" class="tsd-kind-icon">NAME</a>
+											</li>
+											<li class="tsd-kind-enum-member tsd-parent-kind-enum">
+												<a href="enums/pronouns.html#neutral" class="tsd-kind-icon">NEUTRAL</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Color Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a></li>
-							</ul>
-							<h3>Command Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/command.html" class="tsd-kind-icon">Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/dingcommand.html" class="tsd-kind-icon">Ding<wbr>Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/disconnectcommand.html" class="tsd-kind-icon">Disconnect<wbr>Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/goldwatchcommand.html" class="tsd-kind-icon">Gold<wbr>Watch<wbr>Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/suscommand.html" class="tsd-kind-icon">Sus<wbr>Command</a></li>
-								<li class="tsd-kind-class"><a href="classes/villagercommand.html" class="tsd-kind-icon">Villager<wbr>Command</a></li>
-							</ul>
-							<h3>Other Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/activitytrackingvoiceconnection.html" class="tsd-kind-icon">Activity<wbr>Tracking<wbr>Voice<wbr>Connection</a></li>
-								<li class="tsd-kind-class"><a href="classes/timer.html" class="tsd-kind-icon">Timer</a></li>
-							</ul>
-							<h3>Pronouns Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a></li>
-							</ul>
-							<h3>Service Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/commandservice.html" class="tsd-kind-icon">Command<wbr>Service</a></li>
-								<li class="tsd-kind-class"><a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a></li>
-							</ul>
-							<h3>Utility Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/lazy.html" class="tsd-kind-icon">Lazy</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/optional.html" class="tsd-kind-icon">Optional</a></li>
-								<li class="tsd-kind-class"><a href="classes/preconditions.html" class="tsd-kind-icon">Preconditions</a></li>
-							</ul>
+							<h3>Classes</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/activitytrackingvoiceconnection.html" class="tsd-kind-icon">Activity<wbr>Tracking<wbr>Voice<wbr>Connection</a>
+										<ul>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#connection" class="tsd-kind-icon">connection</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#lastactivity" class="tsd-kind-icon">last<wbr>Activity</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#disconnect" class="tsd-kind-icon">disconnect</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#on" class="tsd-kind-icon">on</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#once" class="tsd-kind-icon">once</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#play" class="tsd-kind-icon">play</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#setspeaking" class="tsd-kind-icon">set<wbr>Speaking</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/activitytrackingvoiceconnection.html#wheninactiveforseconds" class="tsd-kind-icon">when<wbr>Inactive<wbr>For<wbr>Seconds</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/activitytrackingvoiceconnection.html#wrapconnection" class="tsd-kind-icon">wrap<wbr>Connection</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class tsd-has-type-parameter">
+										<a href="classes/asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a>
+										<ul>
+											<li class="tsd-kind-constructor tsd-parent-kind-class">
+												<a href="classes/asynclazy.html#constructor" class="tsd-kind-icon">constructor</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/asynclazy.html#get" class="tsd-kind-icon">get</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/basecolor.html#getamongusdefaultemojisnowflake" class="tsd-kind-icon">get<wbr>Among<wbr>UsDefault<wbr>Emoji<wbr>Snowflake</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/basecolor.html#getcolorenum" class="tsd-kind-icon">get<wbr>Color<wbr>Enum</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/basecolor.html#getstring" class="tsd-kind-icon">get<wbr>String</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/basecolor.html#getcolor" class="tsd-kind-icon">get<wbr>Color</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/basecolor.html#getcolorfromrole" class="tsd-kind-icon">get<wbr>Color<wbr>From<wbr>Role</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/command.html" class="tsd-kind-icon">Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/command.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/command.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/command.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/command.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/commandservice.html" class="tsd-kind-icon">Command<wbr>Service</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/commandservice.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/commandservice.html#registercommand" class="tsd-kind-icon">register<wbr>Command</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/dingcommand.html" class="tsd-kind-icon">Ding<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/dingcommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/dingcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/dingcommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/dingcommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/disconnectcommand.html" class="tsd-kind-icon">Disconnect<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/disconnectcommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/disconnectcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/disconnectcommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/disconnectcommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/goldwatchcommand.html" class="tsd-kind-icon">Gold<wbr>Watch<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/goldwatchcommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/goldwatchcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/goldwatchcommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/goldwatchcommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/inspectcommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/inspectcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/inspectcommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/inspectcommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class tsd-has-type-parameter">
+										<a href="classes/lazy.html" class="tsd-kind-icon">Lazy</a>
+										<ul>
+											<li class="tsd-kind-constructor tsd-parent-kind-class">
+												<a href="classes/lazy.html#constructor" class="tsd-kind-icon">constructor</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/lazy.html#get" class="tsd-kind-icon">get</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class tsd-has-type-parameter">
+										<a href="classes/optional.html" class="tsd-kind-icon">Optional</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#filter" class="tsd-kind-icon">filter</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+												<a href="classes/optional.html#flatmap" class="tsd-kind-icon">flat<wbr>Map</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#get" class="tsd-kind-icon">get</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#ifpresent" class="tsd-kind-icon">if<wbr>Present</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#ispresent" class="tsd-kind-icon">is<wbr>Present</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+												<a href="classes/optional.html#map" class="tsd-kind-icon">map</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#orelse" class="tsd-kind-icon">or<wbr>Else</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#orelseget" class="tsd-kind-icon">or<wbr>Else<wbr>Get</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/optional.html#orelsethrow" class="tsd-kind-icon">or<wbr>Else<wbr>Throw</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+												<a href="classes/optional.html#empty" class="tsd-kind-icon">empty</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+												<a href="classes/optional.html#of" class="tsd-kind-icon">of</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/preconditions.html" class="tsd-kind-icon">Preconditions</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/preconditions.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/preconditions.html#checknotnegative" class="tsd-kind-icon">check<wbr>Not<wbr>Negative</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+												<a href="classes/preconditions.html#checknotnull" class="tsd-kind-icon">check<wbr>Not<wbr>Null</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/preconditions.html#checkpositive" class="tsd-kind-icon">check<wbr>Positive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/preconditions.html#isnotnegative" class="tsd-kind-icon">is<wbr>Not<wbr>Negative</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+												<a href="classes/preconditions.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/preconditions.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
+										<ul>
+											<li class="tsd-kind-constructor tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#constructor" class="tsd-kind-icon">constructor</a>
+											</li>
+											<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+												<a href="classes/pronouninfo.html#_name" class="tsd-kind-icon">_name</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#name" class="tsd-kind-icon">name</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#objective" class="tsd-kind-icon">objective</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#plural" class="tsd-kind-icon">plural</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#possessivedeterminer" class="tsd-kind-icon">possessive<wbr>Determiner</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#possessivename" class="tsd-kind-icon">possessive<wbr>Name</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#possessivepronoun" class="tsd-kind-icon">possessive<wbr>Pronoun</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#pronoundisplayname" class="tsd-kind-icon">pronoun<wbr>Display<wbr>Name</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#pronounsenum" class="tsd-kind-icon">pronouns<wbr>Enum</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#reflexive" class="tsd-kind-icon">reflexive</a>
+											</li>
+											<li class="tsd-kind-get-signature tsd-parent-kind-class">
+												<a href="classes/pronouninfo.html#subjective" class="tsd-kind-icon">subjective</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/pronouninfo.html#getfrompronounsenum" class="tsd-kind-icon">get<wbr>From<wbr>Pronouns<wbr>Enum</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/pronouninfo.html#getfromrole" class="tsd-kind-icon">get<wbr>From<wbr>Role</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/suscommand.html" class="tsd-kind-icon">Sus<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/suscommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/suscommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/suscommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/suscommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/timer.html" class="tsd-kind-icon">Timer</a>
+										<ul>
+											<li class="tsd-kind-constructor tsd-parent-kind-class">
+												<a href="classes/timer.html#constructor" class="tsd-kind-icon">constructor</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/timer.html#addcallback" class="tsd-kind-icon">add<wbr>Callback</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/timer.html#asawaitable" class="tsd-kind-icon">as<wbr>Awaitable</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/timer.html#reset" class="tsd-kind-icon">reset</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/timer.html#start" class="tsd-kind-icon">start</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/timer.html#stop" class="tsd-kind-icon">stop</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/villagercommand.html" class="tsd-kind-icon">Villager<wbr>Command</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/villagercommand.html#check" class="tsd-kind-icon">check</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/villagercommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+												<a href="classes/villagercommand.html#execute" class="tsd-kind-icon">execute</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+												<a href="classes/villagercommand.html#priority" class="tsd-kind-icon">priority</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-class">
+										<a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
+										<ul>
+											<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static">
+												<a href="classes/voiceconnectionservice.html#disconnectafterinactiveforseconds" class="tsd-kind-icon">Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Seconds</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/voiceconnectionservice.html#disconnect" class="tsd-kind-icon">disconnect</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/voiceconnectionservice.html#getconnectionforguild" class="tsd-kind-icon">get<wbr>Connection<wbr>For<wbr>Guild</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/voiceconnectionservice.html#getorcreateconnectionforguild" class="tsd-kind-icon">get<wbr>OrCreate<wbr>Connection<wbr>For<wbr>Guild</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class">
+												<a href="classes/voiceconnectionservice.html#subscribetodisconnect" class="tsd-kind-icon">subscribe<wbr>ToDisconnect</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+												<a href="classes/voiceconnectionservice.html#getvoiceconnectionservice" class="tsd-kind-icon">get<wbr>Voice<wbr>Connection<wbr>Service</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Other Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias"><a href="globals.html#config" class="tsd-kind-icon">Config</a></li>
-								<li class="tsd-kind-type-alias"><a href="globals.html#memberwithextrainfo" class="tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info</a></li>
-							</ul>
-							<h3>SimpleFunction Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias"><a href="globals.html#asynccallback" class="tsd-kind-icon">Async<wbr>Callback</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#asyncconsumer" class="tsd-kind-icon">Async<wbr>Consumer</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#asyncmapper" class="tsd-kind-icon">Async<wbr>Mapper</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#asyncpredicate" class="tsd-kind-icon">Async<wbr>Predicate</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#asyncprovider" class="tsd-kind-icon">Async<wbr>Provider</a></li>
-								<li class="tsd-kind-type-alias"><a href="globals.html#callback" class="tsd-kind-icon">Callback</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#mapper" class="tsd-kind-icon">Mapper</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#predicate" class="tsd-kind-icon">Predicate</a></li>
-								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#provider" class="tsd-kind-icon">Provider</a></li>
-							</ul>
+							<h3>Type aliases</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias">
+										<a href="globals.html#asynccallback" class="tsd-kind-icon">Async<wbr>Callback</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#asyncconsumer" class="tsd-kind-icon">Async<wbr>Consumer</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#asyncmapper" class="tsd-kind-icon">Async<wbr>Mapper</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#asyncpredicate" class="tsd-kind-icon">Async<wbr>Predicate</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#asyncprovider" class="tsd-kind-icon">Async<wbr>Provider</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias">
+										<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias">
+										<a href="globals.html#config" class="tsd-kind-icon">Config</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#mapper" class="tsd-kind-icon">Mapper</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias">
+										<a href="globals.html#memberwithextrainfo" class="tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#predicate" class="tsd-kind-icon">Predicate</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#provider" class="tsd-kind-icon">Provider</a>
+									</li>
+								</ul>
+							</div>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable"><a href="globals.html#config" class="tsd-kind-icon">CONFIG</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Array Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#arraysequal" class="tsd-kind-icon">arrays<wbr>Equal</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#insertinsortedlocation" class="tsd-kind-icon">insert<wbr>InSorted<wbr>Location</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#shuffle" class="tsd-kind-icon">shuffle</a></li>
-							</ul>
-							<h3>Color Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#makeuniquecolors" class="tsd-kind-icon">make<wbr>Unique<wbr>Colors</a></li>
-							</ul>
-							<h3>File Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#getmediadir" class="tsd-kind-icon">get<wbr>Media<wbr>Dir</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#getrandomfilefromdir" class="tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir</a></li>
-							</ul>
-							<h3>Math Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#randint" class="tsd-kind-icon">rand<wbr>Int</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#selectrandom" class="tsd-kind-icon">select<wbr>Random</a></li>
-							</ul>
-							<h3>Other Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#getextrainfo" class="tsd-kind-icon">get<wbr>Extra<wbr>Info</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#getuniques" class="tsd-kind-icon">get<wbr>Uniques</a></li>
-							</ul>
-							<h3>SimpleFunction Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#execute" class="tsd-kind-icon">execute</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#noop" class="tsd-kind-icon">noop</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#ping" class="tsd-kind-icon">ping</a></li>
-								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#provide" class="tsd-kind-icon">provide</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="config" class="tsd-anchor"></a>
-					<h3>Config</h3>
-					<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>DISCORD<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>LOGIN_TOKEN<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/config.ts#L4">src/config.ts:4</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>DISCORD<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>LOGIN_TOKEN<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
-								<ul class="tsd-parameters">
-									<li class="tsd-parameter">
-										<h5>LOGIN_<wbr>TOKEN<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-variable">
+										<a href="globals.html#config" class="tsd-kind-icon">CONFIG</a>
 									</li>
 								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="memberwithextrainfo" class="tsd-anchor"></a>
-					<h3>Member<wbr>With<wbr>Extra<wbr>Info</h3>
-					<div class="tsd-signature tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>colors<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/basecolor.html" class="tsd-signature-type">BaseColor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span>member<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>pronouns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/pronouninfo.html" class="tsd-signature-type">PronounInfo</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/discord.ts#L7">src/utils/discord.ts:7</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Some extra info alongside the GuildMember, like info that is extracted from roles.</p>
-						</div>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>colors<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/basecolor.html" class="tsd-signature-type">BaseColor</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Colors user has selected, may be empty.</p>
-									</div>
-								</div>
-							</li>
-							<li class="tsd-parameter">
-								<h5>member<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Underlying <a href="https://discord.js.org/#/docs/main/stable/class/GuildMember">GuildMember</a>.</p>
-									</div>
-								</div>
-							</li>
-							<li class="tsd-parameter">
-								<h5>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Name to use for referencing user, tries to use nickname, falls back to user name.</p>
-									</div>
-								</div>
-							</li>
-							<li class="tsd-parameter">
-								<h5>pronouns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/pronouninfo.html" class="tsd-signature-type">PronounInfo</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Pronouns member uses, this will always have at least 1 value (They/Them being the default).</p>
-									</div>
-								</div>
-							</li>
-						</ul>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#arraysequal" class="tsd-kind-icon">arrays<wbr>Equal</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#execute" class="tsd-kind-icon">execute</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#getextrainfo" class="tsd-kind-icon">get<wbr>Extra<wbr>Info</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#getmediadir" class="tsd-kind-icon">get<wbr>Media<wbr>Dir</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#getrandomfilefromdir" class="tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#getuniques" class="tsd-kind-icon">get<wbr>Uniques</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#insertinsortedlocation" class="tsd-kind-icon">insert<wbr>InSorted<wbr>Location</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#makeuniquecolors" class="tsd-kind-icon">make<wbr>Unique<wbr>Colors</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#noop" class="tsd-kind-icon">noop</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#ping" class="tsd-kind-icon">ping</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#provide" class="tsd-kind-icon">provide</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function">
+										<a href="globals.html#randint" class="tsd-kind-icon">rand<wbr>Int</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#selectrandom" class="tsd-kind-icon">select<wbr>Random</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-function tsd-has-type-parameter">
+										<a href="globals.html#shuffle" class="tsd-kind-icon">shuffle</a>
+									</li>
+								</ul>
+							</div>
+						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>SimpleFunction Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-descriptions">
 					<a name="asynccallback" class="tsd-anchor"></a>
 					<h3>Async<wbr>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">Async<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L40">src/types/function.d.ts:40</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
+					<div class="tsd-signature tsd-kind-icon">AsyncCallback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Async trivial method containing logic.</p>
 						</div>
 					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="asyncconsumer" class="tsd-anchor"></a>
-					<h3>Async<wbr>Consumer</h3>
-					<div class="tsd-signature tsd-kind-icon">Async<wbr>Consumer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L62">src/types/function.d.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L40">src/types/function.d.ts:40</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="asyncconsumer" class="tsd-anchor"></a>
+					<h3>Async<wbr>Consumer</h3>
+					<div class="tsd-signature tsd-kind-icon">AsyncConsumer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Async method that has a single parameter and does not return a value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value that the method takes in.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value provided.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value that the method takes in.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Type of the value provided.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="asyncmapper" class="tsd-anchor"></a>
-					<h3>Async<wbr>Mapper</h3>
-					<div class="tsd-signature tsd-kind-icon">Async<wbr>Mapper&lt;T, S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L70">src/types/function.d.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L62">src/types/function.d.ts:62</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="asyncmapper" class="tsd-anchor"></a>
+					<h3>Async<wbr>Mapper</h3>
+					<div class="tsd-signature tsd-kind-icon">AsyncMapper&lt;T, S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Async method that transforms a value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value to be transformed.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Input value&#39;s type.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>U Output value&#39;s type.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 						<li>
-							<h4>S</h4>
-						</li>
+						<span class="name">S</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value to be transformed.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Input value&#39;s type.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>U Output value&#39;s type.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="asyncpredicate" class="tsd-anchor"></a>
-					<h3>Async<wbr>Predicate</h3>
-					<div class="tsd-signature tsd-kind-icon">Async<wbr>Predicate&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L48">src/types/function.d.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L70">src/types/function.d.ts:70</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="asyncpredicate" class="tsd-anchor"></a>
+					<h3>Async<wbr>Predicate</h3>
+					<div class="tsd-signature tsd-kind-icon">AsyncPredicate&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Async method that defines a set of criteria and determines whether the specified value meets those criteria.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value to compare against within this method.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value to compare.</p>
-							</dd>
-							<dt>returns</dt>
-							<dd><p>A promise that returns <code>true</code> if value meets criteria defined within this method, otherwise <code>false</code>.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value to compare against within this method.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Type of the value to compare.</p>
+						</p>
+						<h4>returns</h4>
+						<p><p>A promise that returns <code>true</code> if value meets criteria defined within this method, otherwise <code>false</code>.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="asyncprovider" class="tsd-anchor"></a>
-					<h3>Async<wbr>Provider</h3>
-					<div class="tsd-signature tsd-kind-icon">Async<wbr>Provider&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L55">src/types/function.d.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L48">src/types/function.d.ts:48</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="asyncprovider" class="tsd-anchor"></a>
+					<h3>Async<wbr>Provider</h3>
+					<div class="tsd-signature tsd-kind-icon">AsyncProvider&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Async method that returns a single value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value that will be returned.</p>
-							</dd>
-							<dt>returns</dt>
-							<dd><p>Value.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>paramtype</h4>
+						<p><p>T Type of the value that will be returned.</p>
+						</p>
+						<h4>returns</h4>
+						<p><p>Value.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="callback" class="tsd-anchor"></a>
-					<h3>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L5">src/types/function.d.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L55">src/types/function.d.ts:55</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-descriptions">
+					<a name="callback" class="tsd-anchor"></a>
+					<h3>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Trivial method containing logic.</p>
 						</div>
 					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="consumer" class="tsd-anchor"></a>
-					<h3>Consumer</h3>
-					<div class="tsd-signature tsd-kind-icon">Consumer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L27">src/types/function.d.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L5">src/types/function.d.ts:5</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-descriptions">
+					<a name="config" class="tsd-anchor"></a>
+					<h3>Config</h3>
+					<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/config.ts#L4">src/config.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="consumer" class="tsd-anchor"></a>
+					<h3>Consumer</h3>
+					<div class="tsd-signature tsd-kind-icon">Consumer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Encapsulates a method that has a single parameter and does not return a value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value that the method takes in.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value provided.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value that the method takes in.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Type of the value provided.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="mapper" class="tsd-anchor"></a>
-					<h3>Mapper</h3>
-					<div class="tsd-signature tsd-kind-icon">Mapper&lt;T, U&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">U</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L35">src/types/function.d.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L27">src/types/function.d.ts:27</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="mapper" class="tsd-anchor"></a>
+					<h3>Mapper</h3>
+					<div class="tsd-signature tsd-kind-icon">Mapper&lt;T, U&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Method that transforms a value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value to be transformed.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Input value&#39;s type.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>U Output value&#39;s type.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 						<li>
-							<h4>U</h4>
-						</li>
+						<span class="name">U</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">U</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value to be transformed.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Input value&#39;s type.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>U Output value&#39;s type.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="predicate" class="tsd-anchor"></a>
-					<h3>Predicate</h3>
-					<div class="tsd-signature tsd-kind-icon">Predicate&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L13">src/types/function.d.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L35">src/types/function.d.ts:35</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-descriptions">
+					<a name="memberwithextrainfo" class="tsd-anchor"></a>
+					<h3>Member<wbr>With<wbr>Extra<wbr>Info</h3>
+					<div class="tsd-signature tsd-kind-icon">MemberWithExtraInfo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Some extra info alongside the GuildMember, like info that is extracted from roles.</p>
+						</div>
+					</div>
+					<div class="tsd-comment">
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/discord.ts#L7">src/utils/discord.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="predicate" class="tsd-anchor"></a>
+					<h3>Predicate</h3>
+					<div class="tsd-signature tsd-kind-icon">Predicate&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Represents the method that defines a set of criteria and determines whether the specified value meets those criteria.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>Value to compare against within this method.</p>
-							</dd>
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value to compare.</p>
-							</dd>
-							<dt>returns</dt>
-							<dd><p><code>true</code> if value meets criteria defined within this method, otherwise <code>false</code>.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>value: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>param</h4>
+						<p><p>Value to compare against within this method.</p>
+						</p>
+						<h4>paramtype</h4>
+						<p><p>T Type of the value to compare.</p>
+						</p>
+						<h4>returns</h4>
+						<p><p><code>true</code> if value meets criteria defined within this method, otherwise <code>false</code>.</p>
+						</p>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-					<a name="provider" class="tsd-anchor"></a>
-					<h3>Provider</h3>
-					<div class="tsd-signature tsd-kind-icon">Provider&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/types/function.d.ts#L20">src/types/function.d.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L13">src/types/function.d.ts:13</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="provider" class="tsd-anchor"></a>
+					<h3>Provider</h3>
+					<div class="tsd-signature tsd-kind-icon">Provider&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-comment">
 						<div class="lead">
 							<p>Represents a method that returns a single value.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>paramtype</dt>
-							<dd><p>T Type of the value that will be returned.</p>
-							</dd>
-							<dt>returns</dt>
-							<dd><p>Value.</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T</h4>
-						</li>
+						<span class="name">T</span>                    </li>
 					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<div class="tsd-comment">
+						<h4>paramtype</h4>
+						<p><p>T Type of the value that will be returned.</p>
+						</p>
+						<h4>returns</h4>
+						<p><p>Value.</p>
+						</p>
 					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/types/function.d.ts#L20">src/types/function.d.ts:20</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable">
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-descriptions">
 					<a name="config" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> CONFIG</h3>
 					<div class="tsd-signature tsd-kind-icon">CONFIG<span class="tsd-signature-symbol">:</span> <a href="globals.html#config" class="tsd-signature-type">Config</a><span class="tsd-signature-symbol"> = require(&quot;../config.json&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/config.ts#L2">src/config.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/config.ts#L2">src/config.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Array Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
 					<a name="arraysequal" class="tsd-anchor"></a>
 					<h3>arrays<wbr>Equal</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">arrays<wbr>Equal&lt;T&gt;<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/array.ts#L21">src/utils/array.ts:21</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Check if arrays are fully equal.</p>
-								</div>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Check if arrays are fully equal.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">a</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Left array.</p>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>a: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Left array.</p>
-									</div>
-								</li>
-								<li>
-									<h5>b: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Right array.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+						<li>
+							<span class="name">b</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Right array.</p>
+							</div>
 						</li>
 					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/array.ts#L21">src/utils/array.ts:21</a></li>
+						</ul>
+					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="insertinsortedlocation" class="tsd-anchor"></a>
-					<h3>insert<wbr>InSorted<wbr>Location</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">insert<wbr>InSorted<wbr>Location&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, getIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/array.ts#L32">src/utils/array.ts:32</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Insert a value into a sorted array without having to fully re-sort.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to add item into.</p>
-									</div>
-								</li>
-								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Item to add into the array.</p>
-									</div>
-								</li>
-								<li>
-									<h5>getIndex: <span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Method that converts the item into a sortable index (number).</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>item: <span class="tsd-signature-type">T</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="shuffle" class="tsd-anchor"></a>
-					<h3>shuffle</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">shuffle&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/array.ts#L6">src/utils/array.ts:6</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Randomize array in-place using Durstenfeld shuffle algorithm</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>array: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to shuffle. Happens in place, so clone if you don&#39;t want to lose original order.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Color Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="makeuniquecolors" class="tsd-anchor"></a>
-					<h3>make<wbr>Unique<wbr>Colors</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>Unique<wbr>Colors<span class="tsd-signature-symbol">(</span>colors<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/colors.ts#L197">src/utils/colors.ts:197</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Will get an array of non duplicate colors, attempting to prioritize early indices and prefer
-										using colors in provided array. See <a href="globals.html#getuniques">getUniques</a> and it&#39;s tests for more info.
-										If a sub array is out of colors, will see if a previous array is willing to switch colors so both can be valid.
-										If not possible, will chose a random color instead.
-									If there are no more colors left, will delete the rest of the array.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>colors: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array of <a href="enums/color.html">Color</a>s to ensure there are no duplicates,
-											each sub array representing an acceptable color for use in array.
-										If none are left in array, a random color will be chosen instead.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An array of unique <a href="enums/color.html">Color</a>s, best matching possible.</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>File Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="getmediadir" class="tsd-anchor"></a>
-					<h3>get<wbr>Media<wbr>Dir</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Media<wbr>Dir<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/file.ts#L35">src/utils/file.ts:35</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets the path to the media directory.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The path to media directory.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="getrandomfilefromdir" class="tsd-anchor"></a>
-					<h3>get<wbr>Random<wbr>File<wbr>From<wbr>Dir</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir<span class="tsd-signature-symbol">(</span>directory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, regex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/file.ts#L13">src/utils/file.ts:13</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Chooses a random files from a directory (with optional regex pattern), throws error if no files exist.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>directory: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Folder path to search through for random file.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> regex: <span class="tsd-signature-type">RegExp</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Filter for which files to return.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The found file path, if it exists.</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Math Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="randint" class="tsd-anchor"></a>
-					<h3>rand<wbr>Int</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">rand<wbr>Int<span class="tsd-signature-symbol">(</span>max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/math.ts#L6">src/utils/math.ts:6</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets a random number from zero (inclusive) to max (exclusive)</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>max: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Max number exclusive</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="selectrandom" class="tsd-anchor"></a>
-					<h3>select<wbr>Random</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">select<wbr>Random&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/math.ts#L15">src/utils/math.ts:15</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get a random element from given array</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>arr: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array to select from</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="getextrainfo" class="tsd-anchor"></a>
-					<h3>get<wbr>Extra<wbr>Info</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Extra<wbr>Info<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#memberwithextrainfo" class="tsd-signature-type">MemberWithExtraInfo</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/discord.ts#L22">src/utils/discord.ts:22</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets some extra info for this user.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>member: <span class="tsd-signature-type">GuildMember</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Member to get extra info for.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="globals.html#memberwithextrainfo" class="tsd-signature-type">MemberWithExtraInfo</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="getuniques" class="tsd-anchor"></a>
-					<h3>get<wbr>Uniques</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Uniques&lt;T&gt;<span class="tsd-signature-symbol">(</span>valueArrays<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, defaultValuesToUse<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, stopOnUnresolvable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/array.ts#L66">src/utils/array.ts:66</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes in an array of arrays and tries to find a unique value from as many arrays as possible,
-										prioritizing keeping earlier values without falling back to {@link defaultValuesToUse}.
-									This function is a bit hard to describe, but you can look in the tests for examples.</p>
-								</div>
-								<p>!(DANGER) This method is very expensive, I&#39;m sure it could be better optimized to use more memory,
-								!(DANGER) but I only plan on using it for small arrays, be careful!</p>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>valueArrays: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Arrays to flatten into unique values.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultValuesToUse: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Values to use if it is not possible to find a value for output array.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> stopOnUnresolvable: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If <code>false</code>, places <code>undefined</code> into output array when no other value can be found.
-											If <code>true</code>, will just return current array, this is usually more useful if you have {@link defaultValuesToUse}
-										has all expected values and want to stop once those run out.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>SimpleFunction Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
 					<a name="execute" class="tsd-anchor"></a>
 					<h3>execute</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">execute&lt;T&gt;<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/functions.ts#L38">src/utils/functions.ts:38</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Calls a given function and returns it&#39;s result. This is pretty useful for an array of methods.</p>
-								</div>
-								<p>i.e. <code>[doThing1, doThing2.bind(this), () =&gt; doThing3()].forEach(execute);</code> (usually with a more dynamic list)</p>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Calls a given function and returns it&#39;s result. This is pretty useful for an array of methods.</p>
+						</div>
+						<p>i.e. <code>[doThing1, doThing2.bind(this), () =&gt; doThing3()].forEach(execute);</code> (usually with a more dynamic list)</p>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<span class="name">T</span>                    <div class="tsd-comment">
+								<p>Type that will be returned from provider, could be void.</p>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-									<div class="tsd-comment tsd-typography">
-										<p>Type that will be returned from provider, could be void.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>provider: <a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Method that will return a value (or void).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>The result of the method.</p>
 						</li>
 					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">provider</span>: <a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Method that will return a value (or void).</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>    </h4>
+					<p>The result of the method.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/functions.ts#L38">src/utils/functions.ts:38</a></li>
+						</ul>
+					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
+					<a name="getextrainfo" class="tsd-anchor"></a>
+					<h3>get<wbr>Extra<wbr>Info</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Extra<wbr>Info<span class="tsd-signature-symbol">(</span>member<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#memberwithextrainfo" class="tsd-signature-type">MemberWithExtraInfo</a></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Gets some extra info for this user.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">member</span>: <span class="tsd-signature-type">GuildMember</span>
+							<div class="tsd-comment">
+								<p>Member to get extra info for.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="globals.html#memberwithextrainfo" class="tsd-signature-type">MemberWithExtraInfo</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/discord.ts#L22">src/utils/discord.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
+					<a name="getmediadir" class="tsd-anchor"></a>
+					<h3>get<wbr>Media<wbr>Dir</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Media<wbr>Dir<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Gets the path to the media directory.</p>
+						</div>
+					</div>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>    </h4>
+					<p>The path to media directory.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/file.ts#L35">src/utils/file.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
+					<a name="getrandomfilefromdir" class="tsd-anchor"></a>
+					<h3>get<wbr>Random<wbr>File<wbr>From<wbr>Dir</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir<span class="tsd-signature-symbol">(</span>directory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, regex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Chooses a random files from a directory (with optional regex pattern), throws error if no files exist.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">directory</span>: <span class="tsd-signature-type">string</span>
+							<div class="tsd-comment">
+								<p>Folder path to search through for random file.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">regex</span>: <span class="tsd-signature-type">RegExp</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<div class="tsd-comment">
+								<p>Filter for which files to return.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<p>The found file path, if it exists.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/file.ts#L13">src/utils/file.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
+					<a name="getuniques" class="tsd-anchor"></a>
+					<h3>get<wbr>Uniques</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Uniques&lt;T&gt;<span class="tsd-signature-symbol">(</span>valueArrays<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, defaultValuesToUse<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, stopOnUnresolvable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Takes in an array of arrays and tries to find a unique value from as many arrays as possible,
+								prioritizing keeping earlier values without falling back to {@link defaultValuesToUse}.
+							This function is a bit hard to describe, but you can look in the tests for examples.</p>
+						</div>
+						<p>!(DANGER) This method is very expensive, I&#39;m sure it could be better optimized to use more memory,
+						!(DANGER) but I only plan on using it for small arrays, be careful!</p>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">valueArrays</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Arrays to flatten into unique values.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">defaultValuesToUse</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span> <span class="tsd-flag ts-flagDefault value">Default value</span>
+							<div class="tsd-comment">
+								<p>Values to use if it is not possible to find a value for output array.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">stopOnUnresolvable</span>: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span> <span class="tsd-flag ts-flagDefault value">Default value</span>
+							<div class="tsd-comment">
+								<p>If <code>false</code>, places <code>undefined</code> into output array when no other value can be found.
+									If <code>true</code>, will just return current array, this is usually more useful if you have {@link defaultValuesToUse}
+								has all expected values and want to stop once those run out.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/array.ts#L66">src/utils/array.ts:66</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
+					<a name="insertinsortedlocation" class="tsd-anchor"></a>
+					<h3>insert<wbr>InSorted<wbr>Location</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">insert<wbr>InSorted<wbr>Location&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, getIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Insert a value into a sorted array without having to fully re-sort.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">array</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Array to add item into.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">item</span>: <span class="tsd-signature-type">T</span>
+							<div class="tsd-comment">
+								<p>Item to add into the array.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">getIndex</span>: <span class="tsd-signature-type">function</span>
+							<div class="tsd-comment">
+								<p>Method that converts the item into a sortable index (number).</p>
+							</div>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<span class="name">item</span>: <span class="tsd-signature-type">T</span>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/array.ts#L32">src/utils/array.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
+					<a name="makeuniquecolors" class="tsd-anchor"></a>
+					<h3>make<wbr>Unique<wbr>Colors</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Unique<wbr>Colors<span class="tsd-signature-symbol">(</span>colors<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Will get an array of non duplicate colors, attempting to prioritize early indices and prefer
+								using colors in provided array. See <a href="globals.html#getuniques">getUniques</a> and it&#39;s tests for more info.
+								If a sub array is out of colors, will see if a previous array is willing to switch colors so both can be valid.
+								If not possible, will chose a random color instead.
+							If there are no more colors left, will delete the rest of the array.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">colors</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Array of <a href="enums/color.html">Color</a>s to ensure there are no duplicates,
+									each sub array representing an acceptable color for use in array.
+								If none are left in array, a random color will be chosen instead.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="enums/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<p>An array of unique <a href="enums/color.html">Color</a>s, best matching possible.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/colors.ts#L197">src/utils/colors.ts:197</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
 					<a name="noop" class="tsd-anchor"></a>
 					<h3>noop</h3>
 					<ul class="tsd-signatures tsd-kind-function">
 						<li class="tsd-signature tsd-kind-icon">noop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/functions.ts#L6">src/utils/functions.ts:6</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>No operation, a method that does nothing. More useful than you would think, especially for testing.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>No operation, a method that does nothing. More useful than you would think, especially for testing.</p>
+						</div>
+					</div>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
 					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/functions.ts#L6">src/utils/functions.ts:6</a></li>
+						</ul>
+					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
 					<a name="ping" class="tsd-anchor"></a>
 					<h3>ping</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">ping&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/functions.ts#L14">src/utils/functions.ts:14</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Function that returns given value.</p>
-								</div>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Function that returns given value.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
+							<div class="tsd-comment">
+								<p>Value to return.</p>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Value to return.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>Provided value.</p>
 						</li>
 					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>    </h4>
+					<p>Provided value.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/functions.ts#L14">src/utils/functions.ts:14</a></li>
+						</ul>
+					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
 					<a name="provide" class="tsd-anchor"></a>
 					<h3>provide</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">provide&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/42125be/src/utils/functions.ts#L25">src/utils/functions.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Wraps an value and returns it when the returned method is called.</p>
-								</div>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Wraps an value and returns it when the returned method is called.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<span class="name">T</span>                    <div class="tsd-comment">
+								<p>Type that will be returned from provider.</p>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-									<div class="tsd-comment tsd-typography">
-										<p>Type that will be returned from provider.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Value to return.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Provider which returns the given value.</p>
 						</li>
 					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
+							<div class="tsd-comment">
+								<p>Value to return.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="globals.html#provider" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					<p>Provider which returns the given value.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/functions.ts#L25">src/utils/functions.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-descriptions">
+					<a name="randint" class="tsd-anchor"></a>
+					<h3>rand<wbr>Int</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">rand<wbr>Int<span class="tsd-signature-symbol">(</span>max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Gets a random number from zero (inclusive) to max (exclusive)</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">max</span>: <span class="tsd-signature-type">number</span>
+							<div class="tsd-comment">
+								<p>Max number exclusive</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/math.ts#L6">src/utils/math.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
+					<a name="selectrandom" class="tsd-anchor"></a>
+					<h3>select<wbr>Random</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">select<wbr>Random&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Get a random element from given array</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">arr</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Array to select from</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/math.ts#L15">src/utils/math.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter tsd-descriptions">
+					<a name="shuffle" class="tsd-anchor"></a>
+					<h3>shuffle</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">shuffle&lt;T&gt;<span class="tsd-signature-symbol">(</span>array<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Randomize array in-place using Durstenfeld shuffle algorithm</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">array</span>: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+							<div class="tsd-comment">
+								<p>Array to shuffle. Happens in place, so clone if you don&#39;t want to lose original order.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/38dcf38/src/utils/array.ts#L6">src/utils/array.ts:6</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals current ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/color.html" class="tsd-kind-icon">Color</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="enums/pronouns.html" class="tsd-kind-icon">Pronouns</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/activitytrackingvoiceconnection.html" class="tsd-kind-icon">Activity<wbr>Tracking<wbr>Voice<wbr>Connection</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/command.html" class="tsd-kind-icon">Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/commandservice.html" class="tsd-kind-icon">Command<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/dingcommand.html" class="tsd-kind-icon">Ding<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/disconnectcommand.html" class="tsd-kind-icon">Disconnect<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/goldwatchcommand.html" class="tsd-kind-icon">Gold<wbr>Watch<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/lazy.html" class="tsd-kind-icon">Lazy</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/optional.html" class="tsd-kind-icon">Optional</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/preconditions.html" class="tsd-kind-icon">Preconditions</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/suscommand.html" class="tsd-kind-icon">Sus<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/timer.html" class="tsd-kind-icon">Timer</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/villagercommand.html" class="tsd-kind-icon">Villager<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#asynccallback" class="tsd-kind-icon">Async<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#asyncconsumer" class="tsd-kind-icon">Async<wbr>Consumer</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#asyncmapper" class="tsd-kind-icon">Async<wbr>Mapper</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#asyncpredicate" class="tsd-kind-icon">Async<wbr>Predicate</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#asyncprovider" class="tsd-kind-icon">Async<wbr>Provider</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#config" class="tsd-kind-icon">Config</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#mapper" class="tsd-kind-icon">Mapper</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#memberwithextrainfo" class="tsd-kind-icon">Member<wbr>With<wbr>Extra<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#predicate" class="tsd-kind-icon">Predicate</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#provider" class="tsd-kind-icon">Provider</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#config" class="tsd-kind-icon">CONFIG</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#arraysequal" class="tsd-kind-icon">arrays<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#execute" class="tsd-kind-icon">execute</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#getextrainfo" class="tsd-kind-icon">get<wbr>Extra<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#getmediadir" class="tsd-kind-icon">get<wbr>Media<wbr>Dir</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#getrandomfilefromdir" class="tsd-kind-icon">get<wbr>Random<wbr>File<wbr>From<wbr>Dir</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#getuniques" class="tsd-kind-icon">get<wbr>Uniques</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#insertinsortedlocation" class="tsd-kind-icon">insert<wbr>InSorted<wbr>Location</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#makeuniquecolors" class="tsd-kind-icon">make<wbr>Unique<wbr>Colors</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#noop" class="tsd-kind-icon">noop</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#ping" class="tsd-kind-icon">ping</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#provide" class="tsd-kind-icon">provide</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#randint" class="tsd-kind-icon">rand<wbr>Int</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#selectrandom" class="tsd-kind-icon">select<wbr>Random</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#shuffle" class="tsd-kind-icon">shuffle</a>
-					</li>
-				</ul>
-			</nav>
+			<footer class="with-border-bottom">
+				<div class="tsd-legend-group">
+					<ul class="tsd-legend">
+						<li class="tsd-is-inherited"><span class="tsd-kind-icon">Inherited</span></li>
+						<li class="tsd-is-protected"><span class="tsd-kind-icon">Protected</span></li>
+						<li class="tsd-is-private"><span class="tsd-kind-icon">Private</span></li>
+						<li class="tsd-is-static"><span class="tsd-kind-icon">Static</span></li>
+					</ul>
+					<ul class="tsd-legend">
+						<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+						<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object</span></li>
+						<li class="tsd-kind-property"><span class="tsd-kind-icon">Property</span></li>
+					</ul>
+					<ul class="tsd-legend">
+						<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+						<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+						<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index</span></li>
+					</ul>
+					<ul class="tsd-legend">
+						<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type</span></li>
+						<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+						<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+					</ul>
+					<ul class="tsd-legend">
+						<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enum</span></li>
+						<li class="tsd-kind-constructor"><span class="tsd-kind-icon">Constructor</span></li>
+						<li class="tsd-kind-accessor"><span class="tsd-kind-icon">Getter/Setter</span></li>
+					</ul>
+				</div>
+			</footer>
+			<div>Made with ❤️ by <a href="https://github.com/pirix-gh/eledoc" target="_blank">pirix-gh</a>. Documentation generated by <a href="http://typedoc.org/" target="_blank">TypeDoc.</a></div>
 		</div>
 	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
