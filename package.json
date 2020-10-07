@@ -8,7 +8,7 @@
     "test": "npx jest",
     "lint": "eslint ./src --ext .ts --quiet --fix",
     "lint-nofix": "eslint ./src --ext .ts --quiet",
-    "docs": "typedoc --mode file --excludeNotExported --excludePrivate --includeDeclarations --excludeExternals --out docs src"
+    "docs": "typedoc --mode file --excludeNotExported --excludePrivate --includeDeclarations --excludeExternals --out docs src --theme node_modules/eledoc/bin/default/"
   },
   "author": "A group of friends",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "@types/node": "^12.12.7",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
+    "eledoc": "^0.2.1",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
