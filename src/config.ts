@@ -9,7 +9,7 @@ try {
     } else {
         config = {
             DISCORD: {
-                LOGIN_TOKEN: process.env.NODE_ENV["DISCORD_LOGIN_TOKEN"]
+                LOGIN_TOKEN: process.env["DISCORD_LOGIN_TOKEN"]
             }
         };
     }

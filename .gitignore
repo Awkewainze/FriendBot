@@ -1,7 +1,7 @@
 
 # Added manually
 dist
-config.json
+*.config.json
 docs
 
 # Created by https://www.gitignore.io/api/node,code,java,linux,macos,windows,intellij+all
