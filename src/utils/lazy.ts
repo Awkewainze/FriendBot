@@ -19,7 +19,10 @@ export class Lazy<T> {
      * @category Lazy
      */
     get(): T {
-        if (!this.instantiated) this.value = this.provider();
+        if (!this.instantiated) {
+            this.value = this.provider();
+            this.instantiated = true;
+        }
         return this.value;
     }
 }
@@ -45,7 +48,10 @@ export class AsyncLazy<T> {
      * @category Lazy
      */
     async get(): Promise<T> {
-        if (!this.instantiated) this.value = await this.provider();
+        if (!this.instantiated) {
+            this.value = await this.provider();
+            this.instantiated = true;
+        }
         return Promise.resolve(this.value);
     }
 }

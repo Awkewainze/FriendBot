@@ -13,9 +13,9 @@ export class VoiceConnectionService {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
 
-    private static lazyVoiceConnectionService: Lazy<VoiceConnectionService> = new Lazy(
-        () => new VoiceConnectionService()
-    );
+    private static lazyVoiceConnectionService: Lazy<VoiceConnectionService> = new Lazy(() => {
+        return new VoiceConnectionService();
+    });
 
     /** Gets the existing {@link VoiceConnectionService} or makes a new one. */
     public static getVoiceConnectionService(): VoiceConnectionService {
@@ -60,8 +60,7 @@ export class VoiceConnectionService {
                 delete this.guildConnectionMap[guildId];
             });
         }
-        const connection = this.guildConnectionMap[guildId];
-        return connection;
+        return this.guildConnectionMap[guildId];
     }
 
     /**
