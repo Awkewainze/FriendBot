@@ -1,4 +1,5 @@
 import { getUniques } from "./array";
+import { Emojis } from "./discord";
 
 /**
  * Color enum.
@@ -94,7 +95,7 @@ export abstract class BaseColor {
 /** @ignore */
 class Red extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761513028994465792";
+        return Emojis.Red.snowflake;
     }
     getString(): string {
         return "Red";
@@ -107,7 +108,7 @@ class Red extends BaseColor {
 /** @ignore */
 class Orange extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761568194971959317";
+        return Emojis.Orange.snowflake;
     }
     getString(): string {
         return "Orange";
@@ -120,7 +121,7 @@ class Orange extends BaseColor {
 /** @ignore */
 class Yellow extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761568298961338369";
+        return Emojis.Yellow.snowflake;
     }
     getString(): string {
         return "Yellow";
@@ -133,7 +134,7 @@ class Yellow extends BaseColor {
 /** @ignore */
 class Green extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761568153637093437";
+        return Emojis.Green.snowflake;
     }
     getString(): string {
         return "Green";
@@ -146,7 +147,7 @@ class Green extends BaseColor {
 /** @ignore */
 class Blue extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761513078499967036";
+        return Emojis.Blue.snowflake;
     }
     getString(): string {
         return "Blue";
@@ -159,7 +160,7 @@ class Blue extends BaseColor {
 /** @ignore */
 class Purple extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761568553480355870";
+        return Emojis.Purple.snowflake;
     }
     getString(): string {
         return "Purple";
@@ -172,7 +173,7 @@ class Purple extends BaseColor {
 /** @ignore */
 class Pink extends BaseColor {
     getAmongUsDefaultEmojiSnowflake(): string {
-        return "761568242908135467";
+        return Emojis.Pink.snowflake;
     }
     getString(): string {
         return "Pink";

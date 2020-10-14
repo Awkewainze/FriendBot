@@ -56,3 +56,61 @@ export function stripQuotes(message: string): string {
         .filter(x => !x.startsWith(">"))
         .join("\n");
 }
+
+/** @ignore */
+declare type StaticEmoji = {
+    name: string;
+    snowflake: string;
+};
+
+/** A collection of useable emojis by the bot. */
+export class Emojis {
+    static get Red(): StaticEmoji {
+        return {
+            name: "red",
+            snowflake: "761513028994465792"
+        };
+    }
+    static get Orange(): StaticEmoji {
+        return {
+            name: "orange",
+            snowflake: "761568194971959317"
+        };
+    }
+    static get Yellow(): StaticEmoji {
+        return {
+            name: "yellow",
+            snowflake: "761568298961338369"
+        };
+    }
+    static get Green(): StaticEmoji {
+        return {
+            name: "green",
+            snowflake: "761568153637093437"
+        };
+    }
+    static get Blue(): StaticEmoji {
+        return {
+            name: "blue",
+            snowflake: "761513078499967036"
+        };
+    }
+    static get Purple(): StaticEmoji {
+        return {
+            name: "purple",
+            snowflake: "761568553480355870"
+        };
+    }
+    static get Pink(): StaticEmoji {
+        return {
+            name: "pink",
+            snowflake: "761568242908135467"
+        };
+    }
+    static get SkipVote(): StaticEmoji {
+        return {
+            name: "skipvote",
+            snowflake: "765852438716350484"
+        };
+    }
+}
