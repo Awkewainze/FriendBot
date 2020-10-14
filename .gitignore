@@ -1,6 +1,7 @@
 
 # Added manually
 dist
+config.json
 *.config.json
 docs
 
