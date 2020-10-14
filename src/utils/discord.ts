@@ -44,3 +44,15 @@ export function getExtraInfo(member: GuildMember): MemberWithExtraInfo {
 
     return value;
 }
+
+/**
+ * Removes quotes from a message (lines that begin with `>`). This is useful for making sure not to double execute commands within a quote.
+ * @param message Message to remove quotes from (lines that begin with `>`).
+ * @returns The given message without quotes.
+ */
+export function stripQuotes(message: string): string {
+    return message
+        .split("\n")
+        .filter(x => !x.startsWith(">"))
+        .join("\n");
+}

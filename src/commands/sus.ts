@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
-import { BaseColor, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, Timer } from "../utils";
+import { BaseColor, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes, Timer } from "../utils";
 import { Command } from "./command";
 
 /**
@@ -11,7 +11,7 @@ export class SusCommand extends Command {
     /** Trigger by a message containing the word `sus` and at least one user mention. */
     check(message: Message): boolean {
         return (
-            !!(/\bsus\b/i.test(message.content) && message.mentions.users.size > 0) &&
+            !!(/\bsus\b/i.test(stripQuotes(message.content)) && message.mentions.users.size > 0) &&
             message.mentions.users.first().id !== message.author.id
         );
     }

@@ -10,6 +10,7 @@ import {
     SusCommand,
     VillagerCommand
 } from "./commands";
+import { DebugCommand } from "./commands/debug";
 import { CONFIG } from "./config";
 import { CommandService } from "./services";
 
@@ -23,6 +24,7 @@ function main() {
     commandService.registerCommand(new VillagerCommand());
     commandService.registerCommand(new SusCommand());
     commandService.registerCommand(new InspectCommand());
+    commandService.registerCommand(new DebugCommand());
 
     client.on("ready", async () => {
         // eslint-disable-next-line no-console

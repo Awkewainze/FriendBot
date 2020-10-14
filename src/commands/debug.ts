@@ -9,6 +9,6 @@ export class DebugCommand extends Command {
 
     async execute(message: Message): Promise<void> {
         // eslint-disable-next-line no-console
-        console.log(message);
+        console.log(message.content);
     }
 }

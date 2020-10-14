@@ -3,7 +3,7 @@ import * as path from "path";
 
 let config: Config;
 try {
-    if (fs.existsSync(path.join(__dirname, "config.json"))) {
+    if (fs.existsSync(path.join(__dirname, "..", "config.json"))) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         config = require("../config.json");
     } else {
