@@ -1,4 +1,5 @@
 export * from "./command";
+export * from "./debug";
 export * from "./ding";
 export * from "./disconnect";
 export * from "./goldwatch";
