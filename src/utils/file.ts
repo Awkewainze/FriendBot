@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
+import { Check } from "./check";
 import { selectRandom } from "./math";
-import { Preconditions } from "./preconditions";
 
 /**
  * Chooses a random files from a directory (with optional regex pattern), throws error if no files exist.
@@ -11,7 +11,7 @@ import { Preconditions } from "./preconditions";
  * @category File
  */
 export async function getRandomFileFromDir(directory: string, regex?: RegExp): Promise<string> {
-    Preconditions.checkNotNull(directory);
+    Check.verifyNotNull(directory);
     let files: Array<string> = await new Promise((resolve, reject) => {
         fs.readdir(directory, (err, files) => {
             if (err) return reject(err);
@@ -19,11 +19,11 @@ export async function getRandomFileFromDir(directory: string, regex?: RegExp): P
         });
     });
 
-    if (Preconditions.isNotNull(regex)) {
+    if (Check.isNotNull(regex)) {
         files = files.filter(file => regex.test(file));
     }
 
-    Preconditions.checkPositive(files.length, "No matching files in folder");
+    Check.verifyPositive(files.length, "No matching files in folder");
     return path.join(directory, selectRandom(files));
 }
 

@@ -8,8 +8,8 @@ import {
 } from "discord.js";
 import moment, { Moment } from "moment";
 import { Readable } from "stream";
+import { Check } from "./check";
 import { noop } from "./functions";
-import { Preconditions } from "./preconditions";
 import { Timer } from "./timer";
 
 /**
@@ -124,7 +124,7 @@ export class ActivityTrackingVoiceConnection {
      * @param consumer Method to be provided with the connection once inactive for long enough.
      */
     public whenInactiveForSeconds(seconds: number, consumer: Consumer<ActivityTrackingVoiceConnection>): this {
-        if (Preconditions.isNotNull(this.timer)) {
+        if (Check.isNotNull(this.timer)) {
             throw new Error("Cannot create additional timers, submit a bug if you want this.");
         }
         this.timer = new Timer(seconds * 1000);

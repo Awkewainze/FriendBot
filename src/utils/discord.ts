@@ -1,6 +1,6 @@
 import { GuildMember } from "discord.js";
+import { Check } from "./check";
 import { BaseColor } from "./colors";
-import { Preconditions } from "./preconditions";
 import { PronounInfo, Pronouns } from "./pronouns";
 
 /** Some extra info alongside the GuildMember, like info that is extracted from roles. */
@@ -30,10 +30,10 @@ export function getExtraInfo(member: GuildMember): MemberWithExtraInfo {
         const role = member.roles.cache.get(key);
         const pronounInfo = PronounInfo.getFromRole(value.name, role.name);
         const color = BaseColor.getColorFromRole(role.name);
-        if (Preconditions.isNotNull(pronounInfo)) {
+        if (Check.isNotNull(pronounInfo)) {
             value.pronouns.push(pronounInfo);
         }
-        if (Preconditions.isNotNull(color)) {
+        if (Check.isNotNull(color)) {
             value.colors.push(color);
         }
     }

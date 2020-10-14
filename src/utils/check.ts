@@ -1,19 +1,19 @@
 /**
  * Class contain methods for checking conditions.
  *
- * Based heavily on [Guava's Preconditions]{@link https://guava.dev/releases/19.0/api/docs/com/google/common/base/Preconditions.html}.
+ * Based on [Guava's Preconditions]{@link https://guava.dev/releases/19.0/api/docs/com/google/common/base/Preconditions.html}. But a bit simpler.
  *
- * Methods starting with `check` throw on failure, while methods starting with `is` return `boolean`.
+ * Methods starting with `verify` throw on failure, while methods starting with `is` return `boolean`.
  * @category Utility
  */
 
-export class Preconditions {
+export class Check {
     /**
      * Throws if condition is false
      * @param condition Throws if false.
      * @param errorMsg Error message to be used instead of generic.
      */
-    static check(condition: boolean, errorMsg?: string): void {
+    static verify(condition: boolean, errorMsg?: string): void {
         if (!condition) throw new Error(errorMsg || "Condition failed");
     }
 
@@ -23,7 +23,7 @@ export class Preconditions {
      * @param errorMsg Error message to be used instead of generic.
      * @typeParam T Type of value being check for null.
      */
-    static checkNotNull<T>(value: T, errorMsg?: string): void {
+    static verifyNotNull<T>(value: T, errorMsg?: string): void {
         if (value === null || value === undefined) throw new Error(errorMsg || "Value is null");
     }
 
@@ -32,7 +32,7 @@ export class Preconditions {
      * @param value Throws if not a number, zero, or negative.
      * @param errorMsg Error message to be used instead of generic.
      */
-    static checkPositive(value: number, errorMsg?: string): void {
+    static verifyPositive(value: number, errorMsg?: string): void {
         if (typeof value !== "number" || value <= 0) throw new Error(errorMsg || "Value is not positive");
     }
 
@@ -41,7 +41,7 @@ export class Preconditions {
      * @param value Throws if not a number or negative.
      * @param errorMsg Error message to be used instead of generic.
      */
-    static checkNotNegative(value: number, errorMsg?: string): void {
+    static verifyNotNegative(value: number, errorMsg?: string): void {
         if (typeof value !== "number" || value < 0) throw new Error(errorMsg || "Value is negative");
     }
 
