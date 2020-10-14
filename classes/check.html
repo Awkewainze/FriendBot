@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Preconditions | friend_bot</title>
+	<title>Check | friend_bot</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="preconditions.html">Preconditions</a>
+					<a href="check.html">Check</a>
 				</li>
 			</ul>
 		</div>
@@ -68,28 +68,28 @@
 					</ul>
 					<ul class="current">
 						<li class="current tsd-kind-class">
-							<a href="preconditions.html" class="tsd-kind-icon">Preconditions</a>
+							<a href="check.html" class="tsd-kind-icon">Check</a>
 							<ul>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-									<a href="preconditions.html#check" class="tsd-kind-icon">check</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-									<a href="preconditions.html#checknotnegative" class="tsd-kind-icon">check<wbr>Not<wbr>Negative</a>
+									<a href="check.html#isnotnegative" class="tsd-kind-icon">is<wbr>Not<wbr>Negative</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-									<a href="preconditions.html#checknotnull" class="tsd-kind-icon">check<wbr>Not<wbr>Null</a>
+									<a href="check.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-									<a href="preconditions.html#checkpositive" class="tsd-kind-icon">check<wbr>Positive</a>
+									<a href="check.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-									<a href="preconditions.html#isnotnegative" class="tsd-kind-icon">is<wbr>Not<wbr>Negative</a>
+									<a href="check.html#verify" class="tsd-kind-icon">verify</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+									<a href="check.html#verifynotnegative" class="tsd-kind-icon">verify<wbr>Not<wbr>Negative</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-									<a href="preconditions.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
+									<a href="check.html#verifynotnull" class="tsd-kind-icon">verify<wbr>Not<wbr>Null</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-									<a href="preconditions.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
+									<a href="check.html#verifypositive" class="tsd-kind-icon">verify<wbr>Positive</a>
 								</li>
 							</ul>
 						</li>
@@ -111,15 +111,15 @@
 					<div class="lead">
 						<p>Class contain methods for checking conditions.</p>
 					</div>
-					<p>Based heavily on <a href="https://guava.dev/releases/19.0/api/docs/com/google/common/base/Preconditions.html" class="external">Guava&#39;s Preconditions</a>.</p>
-					<p>Methods starting with <code>check</code> throw on failure, while methods starting with <code>is</code> return <code>boolean</code>.</p>
+					<p>Based on <a href="https://guava.dev/releases/19.0/api/docs/com/google/common/base/Preconditions.html" class="external">Guava&#39;s Preconditions</a>. But a bit simpler.</p>
+					<p>Methods starting with <code>verify</code> throw on failure, while methods starting with <code>is</code> return <code>boolean</code>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Preconditions</span>
+						<span class="target">Check</span>
 					</li>
 				</ul>
 			</section>
@@ -131,49 +131,49 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-										<a href="preconditions.html#check" class="tsd-kind-icon">check</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-										<a href="preconditions.html#checknotnegative" class="tsd-kind-icon">check<wbr>Not<wbr>Negative</a>
+										<a href="check.html#isnotnegative" class="tsd-kind-icon">is<wbr>Not<wbr>Negative</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-										<a href="preconditions.html#checknotnull" class="tsd-kind-icon">check<wbr>Not<wbr>Null</a>
+										<a href="check.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-										<a href="preconditions.html#checkpositive" class="tsd-kind-icon">check<wbr>Positive</a>
+										<a href="check.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-										<a href="preconditions.html#isnotnegative" class="tsd-kind-icon">is<wbr>Not<wbr>Negative</a>
+										<a href="check.html#verify" class="tsd-kind-icon">verify</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+										<a href="check.html#verifynotnegative" class="tsd-kind-icon">verify<wbr>Not<wbr>Negative</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-										<a href="preconditions.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
+										<a href="check.html#verifynotnull" class="tsd-kind-icon">verify<wbr>Not<wbr>Null</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
-										<a href="preconditions.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
+										<a href="check.html#verifypositive" class="tsd-kind-icon">verify<wbr>Positive</a>
 									</li>
 								</ul>
 							</div>
@@ -183,150 +183,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
-					<a name="check" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> check</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>condition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Throws if condition is false</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">condition</span>: <span class="tsd-signature-type">boolean</span>
-							<div class="tsd-comment">
-								<p>Throws if false.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
-							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L16">src/utils/preconditions.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
-					<a name="checknotnegative" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> check<wbr>Not<wbr>Negative</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Not<wbr>Negative<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Throws if value is not a number or negative.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">value</span>: <span class="tsd-signature-type">number</span>
-							<div class="tsd-comment">
-								<p>Throws if not a number or negative.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
-							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L44">src/utils/preconditions.ts:44</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static tsd-descriptions">
-					<a name="checknotnull" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> check<wbr>Not<wbr>Null</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Not<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Throws if value is <code>null</code> or <code>undefined</code>.</p>
-						</div>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<span class="name">T</span>                    <div class="tsd-comment">
-								<p>Type of value being check for null.</p>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
-							<div class="tsd-comment">
-								<p>Throws if <code>null</code> or <code>undefined</code>.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
-							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L26">src/utils/preconditions.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
-					<a name="checkpositive" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> check<wbr>Positive</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Positive<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Throws if value is not a number, zero, or negative.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">value</span>: <span class="tsd-signature-type">number</span>
-							<div class="tsd-comment">
-								<p>Throws if not a number, zero, or negative.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
-							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L35">src/utils/preconditions.ts:35</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
 					<a name="isnotnegative" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Not<wbr>Negative</h3>
@@ -352,7 +208,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L72">src/utils/preconditions.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L72">src/utils/check.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -389,7 +245,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L54">src/utils/preconditions.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L54">src/utils/check.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -418,7 +274,151 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/d4160b6/src/utils/preconditions.ts#L63">src/utils/preconditions.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L63">src/utils/check.ts:63</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
+					<a name="verify" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>condition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Throws if condition is false</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">condition</span>: <span class="tsd-signature-type">boolean</span>
+							<div class="tsd-comment">
+								<p>Throws if false.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<div class="tsd-comment">
+								<p>Error message to be used instead of generic.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L16">src/utils/check.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
+					<a name="verifynotnegative" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Not<wbr>Negative</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Negative<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Throws if value is not a number or negative.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">number</span>
+							<div class="tsd-comment">
+								<p>Throws if not a number or negative.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<div class="tsd-comment">
+								<p>Error message to be used instead of generic.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L44">src/utils/check.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static tsd-descriptions">
+					<a name="verifynotnull" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Not<wbr>Null</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Throws if value is <code>null</code> or <code>undefined</code>.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<span class="name">T</span>                    <div class="tsd-comment">
+								<p>Type of value being check for null.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
+							<div class="tsd-comment">
+								<p>Throws if <code>null</code> or <code>undefined</code>.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<div class="tsd-comment">
+								<p>Error message to be used instead of generic.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L26">src/utils/check.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
+					<a name="verifypositive" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Positive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Positive<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Throws if value is not a number, zero, or negative.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">number</span>
+							<div class="tsd-comment">
+								<p>Throws if not a number, zero, or negative.</p>
+							</div>
+						</li>
+						<li>
+							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<div class="tsd-comment">
+								<p>Error message to be used instead of generic.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/28a7041/src/utils/check.ts#L35">src/utils/check.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
