@@ -1,14 +1,24 @@
+import { Duration } from "./duration";
+
 /** A simple and smart wrapper around [NodeJS.Timeout]{@link https://nodejs.org/api/timers.html#timers_class_timeout} */
 export class Timer {
     private timeout: NodeJS.Timeout;
     private callbacks: Array<() => void> = [];
 
     /**
-     * Create a new timer, does not start until {@link start} method is called.
-     * @param timeInMs Time in milliseconds this {@link Timer} will wait for.
+     * Creates a new timer, does not start until {@link start} method is called.
+     * @param duration {@link Duration} this {@link Timer} will wait for.
      */
-    public constructor(private readonly timeInMs: number) {
+    protected constructor(private readonly duration: Duration) {
         this.resetPromise();
+    }
+
+    /**
+     * Creates a new timer, does not start until {@link start} method is called.
+     * @param duration {@link Duration} this {@link Timer} will wait for.
+     */
+    public static for(duration: Duration): Timer {
+        return new Timer(duration);
     }
 
     /**
@@ -17,7 +27,7 @@ export class Timer {
      */
     public start(): this {
         if (this.timeout) return this;
-        this.timeout = setTimeout(() => this.timeReached(), this.timeInMs);
+        this.timeout = setTimeout(() => this.timeReached(), this.duration.toMilliseconds());
         return this;
     }
 
@@ -34,6 +44,7 @@ export class Timer {
 
     /**
      * Resets the {@link Timer} and starts it.
+     * *(WARNING) This method cannot be used in tests as Jest mocks `timeout`s based on browser specs. They claim changing the testEnv to node fixes it, but it still doesn't recognize the `timeout.refresh()` as a method that exists.
      * @returns This currently running {@link Timer}.
      */
     public reset(): this {

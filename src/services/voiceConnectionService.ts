@@ -1,5 +1,5 @@
 import { VoiceChannel } from "discord.js";
-import { ActivityTrackingVoiceConnection, execute, Lazy } from "../utils";
+import { ActivityTrackingVoiceConnection, Duration, execute, Lazy } from "../utils";
 
 /**
  * Manages mapping guild to it's respective voice connection.
@@ -38,13 +38,13 @@ export class VoiceConnectionService {
         return connection;
     }
 
-    /** How many seconds of inactivity before the service closes the connection. */
-    static readonly DisconnectAfterInactiveForSeconds: number = 300;
+    /** How long before the service closes the connection. */
+    static readonly DisconnectAfterInactiveForDuration: Duration = Duration.fromMinutes(5);
 
     /**
      * Gets or creates an existing voice channel.
      *
-     * Will disconnect if inactive for {@link DisconnectAfterInactiveForSeconds} seconds.
+     * Will disconnect if inactive for {@link DisconnectAfterInactiveForDuration} seconds.
      * @param guildId Guild id to lookup voice connection for.
      * @param channelToUseIfNotInExisting Channel to join if connection does not exist.
      */
@@ -55,7 +55,7 @@ export class VoiceConnectionService {
         if (!this.guildConnectionMap[guildId]) {
             this.guildConnectionMap[guildId] = ActivityTrackingVoiceConnection.wrapConnection(
                 await channelToUseIfNotInExisting.join()
-            ).whenInactiveForSeconds(VoiceConnectionService.DisconnectAfterInactiveForSeconds, self => {
+            ).whenInactiveForDuration(VoiceConnectionService.DisconnectAfterInactiveForDuration, self => {
                 self.disconnect();
                 delete this.guildConnectionMap[guildId];
             });

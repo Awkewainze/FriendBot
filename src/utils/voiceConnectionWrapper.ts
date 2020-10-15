@@ -9,6 +9,7 @@ import {
 import moment, { Moment } from "moment";
 import { Readable } from "stream";
 import { Check } from "./check";
+import { Duration } from "./duration";
 import { noop } from "./functions";
 import { Timer } from "./timer";
 
@@ -120,15 +121,14 @@ export class ActivityTrackingVoiceConnection {
      *
      * ![WARNING] For simplicity's sake, only 1 listener can exist, so if this method is called more than once, an error will throw.
      * ![WARNING] This may change in the future.
-     * @param seconds Time in seconds of inactivity to wait for to call provided consumer.
+     * @param duration Duration of inactivity to wait for to call provided consumer.
      * @param consumer Method to be provided with the connection once inactive for long enough.
      */
-    public whenInactiveForSeconds(seconds: number, consumer: Consumer<ActivityTrackingVoiceConnection>): this {
+    public whenInactiveForDuration(duration: Duration, consumer: Consumer<ActivityTrackingVoiceConnection>): this {
         if (Check.isNotNull(this.timer)) {
             throw new Error("Cannot create additional timers, submit a bug if you want this.");
         }
-        this.timer = new Timer(seconds * 1000);
-        this.timer.addCallback(() => {
+        this.timer = Timer.for(duration).addCallback(() => {
             consumer(this);
         });
         return this;

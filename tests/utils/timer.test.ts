@@ -1,10 +1,11 @@
+import { Duration } from "../../src/utils/duration";
 import { Timer } from "../../src/utils/timer";
 
 describe("timer", () => {
     it("should callback at the end of the timer", () => {
         jest.useFakeTimers();
         const mockFn = jest.fn();
-        new Timer(1000).addCallback(mockFn).start();
+        Timer.for(Duration.fromSeconds(1)).addCallback(mockFn).start();
 
         expect(mockFn).not.toBeCalled();
         jest.runAllTimers();
@@ -13,7 +14,7 @@ describe("timer", () => {
     it("should not callback when not started", () => {
         jest.useFakeTimers();
         const mockFn = jest.fn();
-        new Timer(1000).addCallback(mockFn);
+        Timer.for(Duration.fromSeconds(1)).addCallback(mockFn);
 
         expect(mockFn).not.toBeCalled();
         jest.runAllTimers();
@@ -22,7 +23,7 @@ describe("timer", () => {
     it("should not callback when stopped", () => {
         jest.useFakeTimers();
         const mockFn = jest.fn();
-        const timer = new Timer(1000).addCallback(mockFn).start();
+        const timer = Timer.for(Duration.fromSeconds(1)).addCallback(mockFn).start();
         jest.runTimersToTime(500);
         timer.stop();
         jest.runAllTimers();
@@ -33,7 +34,7 @@ describe("timer", () => {
         jest.useFakeTimers();
         const mockFn1 = jest.fn();
         const mockFn2 = jest.fn();
-        new Timer(1000).addCallback(mockFn1).addCallback(mockFn2).start();
+        Timer.for(Duration.fromSeconds(1)).addCallback(mockFn1).addCallback(mockFn2).start();
 
         expect(mockFn1).not.toBeCalled();
         expect(mockFn2).not.toBeCalled();

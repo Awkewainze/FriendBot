@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
-import { BaseColor, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes, Timer } from "../utils";
+import { BaseColor, Duration, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes, Timer } from "../utils";
 import { Command } from "./command";
 
 /**
@@ -31,7 +31,9 @@ export class SusCommand extends Command {
             )
         );
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));
-        new Timer(120000).addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg)).start();
+        Timer.for(Duration.fromMinutes(2))
+            .addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg))
+            .start();
     }
 
     private getUniqueMentions(
