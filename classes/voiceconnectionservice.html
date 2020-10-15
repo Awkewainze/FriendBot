@@ -71,7 +71,7 @@
 							<a href="voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
 							<ul>
 								<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-									<a href="voiceconnectionservice.html#disconnectafterinactiveforseconds" class="tsd-kind-icon">Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Seconds</a>
+									<a href="voiceconnectionservice.html#disconnectafterinactiveforduration" class="tsd-kind-icon">Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Duration</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
 									<a href="voiceconnectionservice.html#disconnect" class="tsd-kind-icon">disconnect</a>
@@ -127,7 +127,7 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static">
-										<a href="voiceconnectionservice.html#disconnectafterinactiveforseconds" class="tsd-kind-icon">Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Seconds</a>
+										<a href="voiceconnectionservice.html#disconnectafterinactiveforduration" class="tsd-kind-icon">Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Duration</a>
 									</li>
 								</ul>
 							</div>
@@ -176,19 +176,19 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-descriptions">
-					<a name="disconnectafterinactiveforseconds" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Seconds</h3>
-					<div class="tsd-signature tsd-kind-icon">DisconnectAfterInactiveForSeconds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 300</span></div>
+					<a name="disconnectafterinactiveforduration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> Disconnect<wbr>After<wbr>Inactive<wbr>For<wbr>Duration</h3>
+					<div class="tsd-signature tsd-kind-icon">DisconnectAfterInactiveForDuration<span class="tsd-signature-symbol">:</span> <a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol"> = Duration.fromMinutes(5)</span></div>
 					<div class="tsd-comment">
 						<div class="lead">
-							<p>How many seconds of inactivity before the service closes the connection.</p>
+							<p>How long before the service closes the connection.</p>
 						</div>
 					</div>
 					<div class="tsd-comment">
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L42">src/services/voiceConnectionService.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L42">src/services/voiceConnectionService.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -219,7 +219,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L70">src/services/voiceConnectionService.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L70">src/services/voiceConnectionService.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +251,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L33">src/services/voiceConnectionService.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L33">src/services/voiceConnectionService.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +265,7 @@
 						<div class="lead">
 							<p>Gets or creates an existing voice channel.</p>
 						</div>
-						<p>Will disconnect if inactive for <a href="voiceconnectionservice.html#disconnectafterinactiveforseconds">DisconnectAfterInactiveForSeconds</a> seconds.</p>
+						<p>Will disconnect if inactive for <a href="voiceconnectionservice.html#disconnectafterinactiveforduration">DisconnectAfterInactiveForDuration</a> seconds.</p>
 					</div>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
@@ -286,7 +286,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L51">src/services/voiceConnectionService.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L51">src/services/voiceConnectionService.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +320,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L86">src/services/voiceConnectionService.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L86">src/services/voiceConnectionService.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -339,7 +339,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/services/voiceConnectionService.ts#L21">src/services/voiceConnectionService.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/services/voiceConnectionService.ts#L21">src/services/voiceConnectionService.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>

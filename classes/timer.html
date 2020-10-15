@@ -70,7 +70,7 @@
 						<li class="current tsd-kind-class">
 							<a href="timer.html" class="tsd-kind-icon">Timer</a>
 							<ul>
-								<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
 									<a href="timer.html#constructor" class="tsd-kind-icon">constructor</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -87,6 +87,9 @@
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
 									<a href="timer.html#stop" class="tsd-kind-icon">stop</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+									<a href="timer.html#for" class="tsd-kind-icon">for</a>
 								</li>
 							</ul>
 						</li>
@@ -121,11 +124,11 @@
 			<section class="tsd-panel-group tsd-index-group">
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Constructors</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-constructor tsd-parent-kind-class">
+									<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
 										<a href="timer.html#constructor" class="tsd-kind-icon">constructor</a>
 									</li>
 								</ul>
@@ -168,30 +171,37 @@
 									</li>
 								</ul>
 							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+										<a href="timer.html#for" class="tsd-kind-icon">for</a>
+									</li>
+								</ul>
+							</div>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-protected tsd-descriptions">
 					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>timeInMs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="timer.html" class="tsd-signature-type">Timer</a></li>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>duration<span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="timer.html" class="tsd-signature-type">Timer</a></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
-							<p>Create a new timer, does not start until <a href="timer.html#start">start</a> method is called.</p>
+							<p>Creates a new timer, does not start until <a href="timer.html#start">start</a> method is called.</p>
 						</div>
 					</div>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
 						<li>
-							<span class="name">timeInMs</span>: <span class="tsd-signature-type">number</span>
+							<span class="name">duration</span>: <a href="duration.html" class="tsd-signature-type">Duration</a>
 							<div class="tsd-comment">
 								<div class="lead">
-									<p>Time in milliseconds this <a href="timer.html">Timer</a> will wait for.</p>
+									<p><a href="duration.html">Duration</a> this <a href="timer.html">Timer</a> will wait for.</p>
 								</div>
 							</div>
 						</li>
@@ -202,7 +212,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L4">src/utils/timer.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L6">src/utils/timer.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +244,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L52">src/utils/timer.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L63">src/utils/timer.ts:63</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +265,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L62">src/utils/timer.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L73">src/utils/timer.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +277,8 @@
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
-							<p>Resets the <a href="timer.html">Timer</a> and starts it.</p>
+							<p>Resets the <a href="timer.html">Timer</a> and starts it.
+							*(WARNING) This method cannot be used in tests as Jest mocks <code>timeout</code>s based on browser specs. They claim changing the testEnv to node fixes it, but it still doesn&#39;t recognize the <code>timeout.refresh()</code> as a method that exists.</p>
 						</div>
 					</div>
 					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span>    </h4>
@@ -275,7 +286,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L39">src/utils/timer.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L50">src/utils/timer.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -295,7 +306,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L18">src/utils/timer.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L28">src/utils/timer.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -315,7 +326,35 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/9976fd7/src/utils/timer.ts#L28">src/utils/timer.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L38">src/utils/timer.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
+					<a name="for" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> for</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">for<span class="tsd-signature-symbol">(</span>duration<span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="timer.html" class="tsd-signature-type">Timer</a></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Creates a new timer, does not start until <a href="timer.html#start">start</a> method is called.</p>
+						</div>
+					</div>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">duration</span>: <a href="duration.html" class="tsd-signature-type">Duration</a>
+							<div class="tsd-comment">
+								<p><a href="duration.html">Duration</a> this <a href="timer.html">Timer</a> will wait for.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="timer.html" class="tsd-signature-type">Timer</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/timer.ts#L20">src/utils/timer.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
