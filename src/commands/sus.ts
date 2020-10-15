@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
-import { BaseColor, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes, Timer } from "../utils";
+import { BaseColor, Emojis, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes, Timer } from "../utils";
 import { Command } from "./command";
 
 /**
@@ -31,6 +31,7 @@ export class SusCommand extends Command {
             )
         );
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));
+        await voteMsg.react(Emojis.SkipVote.snowflake);
         new Timer(120000).addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg)).start();
     }
 
@@ -95,15 +96,26 @@ export class SusCommand extends Command {
                 return prev;
             }, [] as Array<ReactionInfo>);
 
-        const isImposter = Math.random() < 0.5;
         const ejected = mostVotes.length === 1 ? mostVotes[0].person : null;
-        const firstLine = `${ejected !== null ? ejected.name : "No one"} was ejected.`;
-        const secondLine =
-            ejected !== null
-                ? `${ejected.pronouns[0].subjective} ${ejected.pronouns[0].plural ? "were" : "was"}${
-                      isImposter ? " " : " not "
-                  }the Imposter.`
-                : "";
+        let firstLine: string, secondLine: string;
+        if (ejected !== null) {
+            firstLine = `${ejected.name} was ejected.`;
+            const isImposter = Math.random() < 0.5;
+            secondLine = `${ejected.pronouns[0].subjective} ${ejected.pronouns[0].plural ? "were" : "was"}${
+                isImposter ? " " : " not "
+            }the Imposter.`;
+        } else {
+            const skipVotes = msg.reactions.resolve(Emojis.SkipVote.snowflake).count;
+            let reason: string;
+            if (skipVotes >= mostVotes[0].count) {
+                reason = "Skipped";
+            } else if (mostVotes.length > 0) {
+                reason = "Tied";
+            }
+            firstLine = `No one was ejected. (${reason})`;
+            secondLine = "";
+        }
+
         msg.channel.send(
             new MessageEmbed().setTitle("Emergency meeting results!").setDescription(firstLine + "\n" + secondLine)
         );
