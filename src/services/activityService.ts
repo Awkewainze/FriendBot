@@ -9,11 +9,20 @@ type ActivityChoices = {
 const CHOICES: Array<ActivityChoices> = [
     {
         activity: "WATCHING",
-        options: ["you", `nothing, don't worry about it!`]
+        options: [
+            "you",
+            "Jan Quadrant Vincent 16",
+            "Adventures of Baby Legs and Regular Legs",
+            "Avatar 86: This Time The Trees Are Real Mad"
+        ]
     },
     {
         activity: "PLAYING",
-        options: ["Starcraft 6", "Starfox 65"]
+        options: ["Starcraft 6", "Starfox 65", "Phasmophob - OH SHIT HIDE", "Bird Law Simulator 2037"]
+    },
+    {
+        activity: "LISTENING",
+        options: ["Nefertiti's Fjord", "We Didn't Start The Fire, but at 50% speed", "John Malkovich gurgling marbles"]
     }
 ];
 
