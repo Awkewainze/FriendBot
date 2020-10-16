@@ -71,6 +71,15 @@
 							<a href="duration.html" class="tsd-kind-icon">Duration</a>
 							<ul>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
+									<a href="duration.html#add" class="tsd-kind-icon">add</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class">
+									<a href="duration.html#isforever" class="tsd-kind-icon">is<wbr>Forever</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class">
+									<a href="duration.html#multiply" class="tsd-kind-icon">multiply</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class">
 									<a href="duration.html#todays" class="tsd-kind-icon">to<wbr>Days</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -84,6 +93,9 @@
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
 									<a href="duration.html#toseconds" class="tsd-kind-icon">to<wbr>Seconds</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+									<a href="duration.html#forever" class="tsd-kind-icon">forever</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 									<a href="duration.html#fromdays" class="tsd-kind-icon">from<wbr>Days</a>
@@ -119,8 +131,11 @@
 				<div class="tsd-comment">
 					<div class="lead">
 						<p>Translate times between each other easier for cleaner code. I.e. <code>Duration.fromMinutes(27).toSeconds();</code>
-						!(DANGER) This should not be used with real Dates. In the real world, not every day has 24 hours, and time is weird. This is just a simple abstraction.</p>
+							!(DANGER) This should not be used with real Dates. In the real world, not every day has 24 hours, and time is weird. This is just a simple abstraction.
+						If you want real time adding on Dates, use Moment or similar library.</p>
 					</div>
+					<p>Can be used for simple conversions, I recommend going from bigger to smaller because of floating point errors though i.e. <code>Duration.fromDays().toSeconds();</code>
+					I also recommend checking <a href="duration.html#isforever">isForever</a> for unique cases.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -136,6 +151,27 @@
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class">
+										<a href="duration.html#add" class="tsd-kind-icon">add</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class">
+										<a href="duration.html#isforever" class="tsd-kind-icon">is<wbr>Forever</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class">
+										<a href="duration.html#multiply" class="tsd-kind-icon">multiply</a>
+									</li>
+								</ul>
+							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
@@ -168,6 +204,13 @@
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
 										<a href="duration.html#toseconds" class="tsd-kind-icon">to<wbr>Seconds</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
+										<a href="duration.html#forever" class="tsd-kind-icon">forever</a>
 									</li>
 								</ul>
 							</div>
@@ -213,6 +256,60 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>duration<span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a></li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">duration</span>: <a href="duration.html" class="tsd-signature-type">Duration</a>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="duration.html" class="tsd-signature-type">Duration</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L33">src/utils/duration.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+					<a name="isforever" class="tsd-anchor"></a>
+					<h3>is<wbr>Forever</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Forever<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L30">src/utils/duration.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+					<a name="multiply" class="tsd-anchor"></a>
+					<h3>multiply</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span>times<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a></li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">times</span>: <span class="tsd-signature-type">number</span>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="duration.html" class="tsd-signature-type">Duration</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L36">src/utils/duration.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
 					<a name="todays" class="tsd-anchor"></a>
 					<h3>to<wbr>Days</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -222,7 +319,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L19">src/utils/duration.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L27">src/utils/duration.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +333,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L16">src/utils/duration.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L24">src/utils/duration.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +347,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L7">src/utils/duration.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L15">src/utils/duration.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +361,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L13">src/utils/duration.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L21">src/utils/duration.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -278,7 +375,21 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L10">src/utils/duration.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L18">src/utils/duration.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-descriptions">
+					<a name="forever" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> forever</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">forever<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="duration.html" class="tsd-signature-type">Duration</a></li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="duration.html" class="tsd-signature-type">Duration</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L54">src/utils/duration.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -298,7 +409,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L34">src/utils/duration.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L51">src/utils/duration.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -318,7 +429,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L31">src/utils/duration.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L48">src/utils/duration.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -338,7 +449,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L22">src/utils/duration.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L39">src/utils/duration.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -358,7 +469,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L28">src/utils/duration.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L45">src/utils/duration.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -378,7 +489,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/duration.ts#L25">src/utils/duration.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/duration.ts#L42">src/utils/duration.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>

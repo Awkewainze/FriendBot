@@ -76,6 +76,9 @@
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 									<a href="check.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
 								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+									<a href="check.html#isnull" class="tsd-kind-icon">is<wbr>Null</a>
+								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 									<a href="check.html#ispositive" class="tsd-kind-icon">is<wbr>Positive</a>
 								</li>
@@ -139,6 +142,13 @@
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 										<a href="check.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+										<a href="check.html#isnull" class="tsd-kind-icon">is<wbr>Null</a>
 									</li>
 								</ul>
 							</div>
@@ -208,7 +218,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L72">src/utils/check.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L101">src/utils/check.ts:101</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +255,44 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L54">src/utils/check.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L83">src/utils/check.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static tsd-descriptions">
+					<a name="isnull" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Null</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>Checks if a value is <code>null</code> or <code>undefined</code>.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<span class="name">T</span>                    <div class="tsd-comment">
+								<p>Type of the value.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
+							<div class="tsd-comment">
+								<p>Value to check if <code>null</code> or <code>undefined</code>.</p>
+							</div>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					<p><code>true</code> if the value is<code>null</code> or <code>undefined</code>, otherwise <code>false</code>.</p>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L73">src/utils/check.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +321,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L63">src/utils/check.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L92">src/utils/check.ts:92</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +329,7 @@
 					<a name="verify" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>condition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>condition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, errorOrMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
@@ -298,9 +345,9 @@
 							</div>
 						</li>
 						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">errorOrMsg</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
+								<p>Error or message to be used instead of generic.</p>
 							</div>
 						</li>
 					</ul>
@@ -308,7 +355,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L16">src/utils/check.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L16">src/utils/check.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -316,7 +363,7 @@
 					<a name="verifynotnegative" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Not<wbr>Negative</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Negative<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Negative<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorOrMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
@@ -332,9 +379,9 @@
 							</div>
 						</li>
 						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">errorOrMsg</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
+								<p>Error or message to be used instead of generic.</p>
 							</div>
 						</li>
 					</ul>
@@ -342,7 +389,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L44">src/utils/check.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L50">src/utils/check.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -350,7 +397,7 @@
 					<a name="verifynotnull" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Not<wbr>Null</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Not<wbr>Null&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, errorOrMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
@@ -374,9 +421,9 @@
 							</div>
 						</li>
 						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">errorOrMsg</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
+								<p>Error or message to be used instead of generic.</p>
 							</div>
 						</li>
 					</ul>
@@ -384,7 +431,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L26">src/utils/check.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L28">src/utils/check.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -392,7 +439,7 @@
 					<a name="verifypositive" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> verify<wbr>Positive</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">verify<wbr>Positive<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<wbr>Positive<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, errorOrMsg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
@@ -408,9 +455,9 @@
 							</div>
 						</li>
 						<li>
-							<span class="name">errorMsg</span>: <span class="tsd-signature-type">string</span> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">errorOrMsg</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="keynotfounderror.html#error" class="tsd-signature-type">Error</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 							<div class="tsd-comment">
-								<p>Error message to be used instead of generic.</p>
+								<p>Error or message to be used instead of generic.</p>
 							</div>
 						</li>
 					</ul>
@@ -418,7 +465,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/665d45a/src/utils/check.ts#L35">src/utils/check.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/utils/check.ts#L39">src/utils/check.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
