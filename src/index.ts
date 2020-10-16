@@ -6,6 +6,7 @@ import { container } from "tsyringe";
 import { CONFIG } from "./config";
 import "./injects";
 import { CommandService } from "./services";
+import { ActivityService } from "./services/activityService";
 
 /** @ignore */
 function main() {
@@ -14,13 +15,13 @@ function main() {
     client.on("ready", async () => {
         // eslint-disable-next-line no-console
         console.log("Online");
+
+        const activityService: ActivityService = container.resolve(ActivityService);
+        //Initialize activity service and start interval
+        activityService.initializeInterval(client);
         client.user.setPresence({
             status: "online",
-            activity: {
-                name: "you",
-                type: "WATCHING",
-                url: "https://github.com/Awkewainze/FriendBot"
-            }
+            activity: activityService.getCurrentActivity()
         });
     });
 
