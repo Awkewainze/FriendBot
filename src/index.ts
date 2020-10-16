@@ -18,7 +18,7 @@ function main() {
 
         const activityService: ActivityService = container.resolve(ActivityService);
         //Initialize activity service and start interval
-        activityService.initializeInterval(client);
+        activityService.initializeActivityTimeout(client);
         client.user.setPresence({
             status: "online",
             activity: activityService.getCurrentActivity()

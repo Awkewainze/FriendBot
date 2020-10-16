@@ -24,11 +24,24 @@ export class ActivityService {
         this.currentActivity = this.newActivity();
     }
 
-    initializeInterval(client: Client): void {
-        setInterval(async () => {
-            // client.user.setActivity(this.newActivity());
-            await client.user.setActivity(null);
-        }, 5000);
+    initializeActivityTimeout(client: Client): void {
+        setTimeout(async () => {
+            await client.user.setActivity(this.newActivity());
+
+            this.initializeActivityTimeout(client);
+        }, this.generateRandomTimeout());
+    }
+
+    generateRandomTimeout(): number {
+        // At least fifteen minutes between updates
+        const floor = 15;
+        const randomDuration = Math.round(Math.random() * 25);
+
+        if (randomDuration < floor) {
+            return this.generateRandomTimeout();
+        }
+
+        return 1000 * 60 * randomDuration;
     }
 
     getCurrentActivity(): ActivityOptions {
