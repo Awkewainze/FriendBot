@@ -20,7 +20,7 @@ import { Command } from "./command";
 @injectable()
 export class SusCommand extends Command {
     /** Trigger by a message containing the word `sus` and at least one user mention. */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return (
             !!(/\bsus\b/i.test(stripQuotes(message.content)) && message.mentions.users.size > 0) &&
             message.mentions.users.first().id !== message.author.id

@@ -10,7 +10,7 @@ export abstract class Command {
      * @param message Message to check if command should be executed.
      * @returns If this command should be executed.
      */
-    abstract check(message: Message): boolean;
+    abstract check(message: Message): Promise<boolean>;
 
     /**
      * Command to run if parsed message passes.

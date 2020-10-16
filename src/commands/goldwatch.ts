@@ -19,7 +19,7 @@ export class GoldWatchCommand extends Command {
     }
 
     /** Triggered by `$goldwatch`. */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\$goldwatch$/i.test(message.content.trim());
     }
 

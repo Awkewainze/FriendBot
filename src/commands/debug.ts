@@ -10,7 +10,7 @@ export class DebugCommand extends Command {
         super();
         this.index = index.addScope("DebugCommand");
     }
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\s*debug/i.test(message.content);
     }
 

@@ -19,7 +19,7 @@ export class DisconnectCommand extends Command {
     }
 
     /** Triggered by `$disconnect`. */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\$disconnect$/i.test(message.content.trim());
     }
 

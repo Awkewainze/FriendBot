@@ -26,7 +26,7 @@ export class DingCommand extends Command {
     }
 
     /** Triggered by `ding (start|stop)` */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\$ding (start|stop)$/i.test(message.content.trim());
     }
 

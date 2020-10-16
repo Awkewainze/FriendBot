@@ -24,7 +24,7 @@ export class VillagerCommand extends Command {
     }
 
     /** Triggered by `$villager (start|stop)` */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\$villager (start|stop)$/i.test(message.content.trim());
     }
 

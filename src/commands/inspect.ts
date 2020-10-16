@@ -11,7 +11,7 @@ import { Command } from "./command";
 @injectable()
 export class InspectCommand extends Command {
     /** Triggered by `inspect @user`. */
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return /^\s*inspect\b/i.test(message.content) && message.mentions.members.size > 0;
     }
     /** Send user info to message chat */

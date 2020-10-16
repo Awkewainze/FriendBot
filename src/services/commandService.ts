@@ -18,7 +18,7 @@ export class CommandService {
      */
     async execute(message: Message): Promise<void> {
         for (const command of this.commands) {
-            if (command.check(message)) {
+            if (await command.check(message)) {
                 await command.execute(message);
                 if (command.exclusive()) {
                     return;
