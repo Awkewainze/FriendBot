@@ -1,5 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
+import { injectable } from "tsyringe";
 import {
     BaseColor,
     Duration,
@@ -16,6 +17,7 @@ import { Command } from "./command";
  * Starts a vote to eject the imposter(s) from the ship!
  * @category Command
  */
+@injectable()
 export class SusCommand extends Command {
     /** Trigger by a message containing the word `sus` and at least one user mention. */
     check(message: Message): boolean {

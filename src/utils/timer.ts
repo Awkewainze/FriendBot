@@ -1,3 +1,4 @@
+import { Check } from "./check";
 import { Duration } from "./duration";
 
 /** A simple and smart wrapper around [NodeJS.Timeout]{@link https://nodejs.org/api/timers.html#timers_class_timeout} */
@@ -18,6 +19,7 @@ export class Timer {
      * @param duration {@link Duration} this {@link Timer} will wait for.
      */
     public static for(duration: Duration): Timer {
+        Check.verify(!duration.isForever(), new Error("Do not create a timer that lasts forever"));
         return new Timer(duration);
     }
 
@@ -68,6 +70,7 @@ export class Timer {
     /**
      * Returns the awaitable so you can use this {@link Timer} more asynchronously.
      * !(DANGER) Do not await a stopped {@link Timer}, you will be waiting a long time (i.e. forever).
+     * ? Maybe this should make it auto start if it's not already running?
      * @returns Promise that will resolve when {@link Timer} reaches end.
      */
     public asAwaitable(): Promise<void> {

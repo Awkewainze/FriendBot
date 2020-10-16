@@ -1,5 +1,6 @@
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
+import { injectable } from "tsyringe";
 import { getExtraInfo } from "../utils";
 import { Command } from "./command";
 
@@ -7,6 +8,7 @@ import { Command } from "./command";
  * Shows additional info for user in chat.
  * @category Command
  */
+@injectable()
 export class InspectCommand extends Command {
     /** Triggered by `inspect @user`. */
     check(message: Message): boolean {

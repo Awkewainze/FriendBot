@@ -1,5 +1,6 @@
 import { VoiceChannel } from "discord.js";
-import { ActivityTrackingVoiceConnection, Duration, execute, Lazy } from "../utils";
+import { inject, Lifecycle, scoped, singleton } from "tsyringe";
+import { ActivityTrackingVoiceConnection, Duration, execute } from "../utils";
 
 /**
  * Manages mapping guild to it's respective voice connection.
@@ -7,20 +8,12 @@ import { ActivityTrackingVoiceConnection, Duration, execute, Lazy } from "../uti
  * Singleton.
  * @category Service
  */
+@singleton()
 export class VoiceConnectionService {
     private guildConnectionMap: { [id: string]: ActivityTrackingVoiceConnection } = {};
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    private constructor() {}
-
-    private static lazyVoiceConnectionService: Lazy<VoiceConnectionService> = new Lazy(() => {
-        return new VoiceConnectionService();
-    });
-
-    /** Gets the existing {@link VoiceConnectionService} or makes a new one. */
-    public static getVoiceConnectionService(): VoiceConnectionService {
-        return this.lazyVoiceConnectionService.get();
-    }
+    constructor() {}
 
     /**
      * Gets an existing voice connection.
@@ -88,5 +81,29 @@ export class VoiceConnectionService {
             this.guildOnDisconnects[guildId] = [];
         }
         this.guildOnDisconnects[guildId].push(callback);
+    }
+}
+
+@scoped(Lifecycle.ResolutionScoped)
+export class GuildScopedVoiceConnectionService {
+    constructor(
+        @inject(VoiceConnectionService) private readonly voiceConnectionService: VoiceConnectionService,
+        @inject("GuildId") private readonly guildId: string
+    ) {}
+
+    getConnection(): ActivityTrackingVoiceConnection {
+        return this.voiceConnectionService.getConnectionForGuild(this.guildId);
+    }
+
+    getOrCreateConnection(channelToUseIfNotInExisting: VoiceChannel): Promise<ActivityTrackingVoiceConnection> {
+        return this.voiceConnectionService.getOrCreateConnectionForGuild(this.guildId, channelToUseIfNotInExisting);
+    }
+
+    disconnect(): void {
+        this.voiceConnectionService.disconnect(this.guildId);
+    }
+
+    subscribeToDisconnect(callback: Callback): void {
+        this.voiceConnectionService.subscribeToDisconnect(this.guildId, callback);
     }
 }

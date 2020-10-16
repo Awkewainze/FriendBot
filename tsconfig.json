@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "esModuleInterop": true,
-        "target": "es6",
+        "target": "ES2019",
         "noImplicitAny": false,
         "moduleResolution": "node",
         "sourceMap": true,
@@ -13,7 +13,8 @@
                 "node_modules/*"
             ]
         },
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": [
         "src/**/*",

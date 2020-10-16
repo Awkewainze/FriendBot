@@ -1,5 +1,6 @@
 import { Message } from "discord.js";
-import { VoiceConnectionService } from "../services";
+import { inject, injectable } from "tsyringe";
+import { GuildScopedVoiceConnectionService } from "../services";
 import { Command } from "./command";
 
 /**
@@ -8,15 +9,24 @@ import { Command } from "./command";
  * Triggered by message of contents `$disconnect`
  * @category Command
  */
+@injectable()
 export class DisconnectCommand extends Command {
+    constructor(
+        @inject(GuildScopedVoiceConnectionService)
+        private readonly voiceConnectionService: GuildScopedVoiceConnectionService
+    ) {
+        super();
+    }
+
     /** Triggered by `$disconnect`. */
     check(message: Message): boolean {
         return /^\$disconnect$/i.test(message.content.trim());
     }
 
     /** Disconnect from server message was sent in. */
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async execute(message: Message): Promise<void> {
-        VoiceConnectionService.getVoiceConnectionService().disconnect(message.guild.id);
+        this.voiceConnectionService.disconnect();
     }
 
     /** @inheritdoc */

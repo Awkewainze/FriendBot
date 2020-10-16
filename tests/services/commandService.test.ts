@@ -9,7 +9,7 @@ class MockCommand implements Command {
         private readonly onExecute: () => void,
         private readonly priorityCon: number,
         private readonly exclusiveCon: boolean
-    ) {}
+    ) { }
     check(message: Message): boolean {
         return this.shouldCheck;
     }
@@ -26,43 +26,33 @@ class MockCommand implements Command {
 
 describe("commandService", () => {
     it("should order commands by priority", async () => {
-        const commandService = new CommandService();
         let hitFirst = false;
-        commandService.registerCommand(
-            new MockCommand(
-                true,
-                () => {
-                    expect(hitFirst).toBe(true);
-                },
-                1,
-                false
-            )
-        );
-        commandService.registerCommand(
-            new MockCommand(
-                true,
-                () => {
-                    hitFirst = true;
-                },
-                2,
-                false
-            )
-        );
+        const commandService = new CommandService([new MockCommand(
+            true,
+            () => {
+                expect(hitFirst).toBe(true);
+            },
+            1,
+            false
+        ), new MockCommand(
+            true,
+            () => {
+                hitFirst = true;
+            },
+            2,
+            false
+        )]);
         await commandService.execute(null);
     });
     it("should not run a command after exclusive command hit", async () => {
-        const commandService = new CommandService();
-        commandService.registerCommand(
-            new MockCommand(
-                true,
-                () => {
-                    fail("should not reach run");
-                },
-                1,
-                false
-            )
-        );
-        commandService.registerCommand(new MockCommand(true, noop, 10, true));
+        const commandService = new CommandService([new MockCommand(
+            true,
+            () => {
+                fail("should not reach run");
+            },
+            1,
+            false
+        ), new MockCommand(true, noop, 10, true)]);
         await commandService.execute(null);
     });
 });

@@ -1,30 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("source-map-support").install();
-
 import { Client as DiscordClient } from "discord.js";
-import {
-    DebugCommand,
-    DingCommand,
-    DisconnectCommand,
-    GoldWatchCommand,
-    InspectCommand,
-    SusCommand,
-    VillagerCommand
-} from "./commands";
+import "reflect-metadata";
+import { container } from "tsyringe";
 import { CONFIG } from "./config";
+import "./injects";
 import { CommandService } from "./services";
 
 /** @ignore */
 function main() {
     const client = new DiscordClient();
-    const commandService = new CommandService();
-    commandService.registerCommand(new DingCommand());
-    commandService.registerCommand(new DisconnectCommand());
-    commandService.registerCommand(new GoldWatchCommand());
-    commandService.registerCommand(new VillagerCommand());
-    commandService.registerCommand(new SusCommand());
-    commandService.registerCommand(new InspectCommand());
-    commandService.registerCommand(new DebugCommand());
 
     client.on("ready", async () => {
         // eslint-disable-next-line no-console
@@ -41,7 +26,13 @@ function main() {
 
     client.on("message", async message => {
         if (message.author.bot) return;
-        commandService.execute(message);
+        if (message.guild) {
+            container
+                .createChildContainer()
+                .register("GuildId", { useValue: message.guild.id })
+                .resolve(CommandService)
+                .execute(message);
+        }
     });
 
     client.login(CONFIG.DISCORD.LOGIN_TOKEN);

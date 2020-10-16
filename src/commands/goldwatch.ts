@@ -1,6 +1,7 @@
 import { Message } from "discord.js";
 import * as path from "path";
-import { VoiceConnectionService } from "../services";
+import { inject, injectable } from "tsyringe";
+import { GuildScopedVoiceConnectionService } from "../services";
 import { getMediaDir } from "../utils";
 import { Command } from "./command";
 
@@ -8,7 +9,15 @@ import { Command } from "./command";
  * Plays [Christopher Walken's Pulp Fiction Speech](https://www.youtube.com/watch?v=kWp6hZ-5ndc).
  * @category Command
  */
+@injectable()
 export class GoldWatchCommand extends Command {
+    constructor(
+        @inject(GuildScopedVoiceConnectionService)
+        private readonly voiceConnectionService: GuildScopedVoiceConnectionService
+    ) {
+        super();
+    }
+
     /** Triggered by `$goldwatch`. */
     check(message: Message): boolean {
         return /^\$goldwatch$/i.test(message.content.trim());
@@ -20,10 +29,7 @@ export class GoldWatchCommand extends Command {
         if (!currentUserVoiceChannel) return;
 
         const audioFileToPlay = path.join(getMediaDir(), "sounds", "misc", "goldwatch.mp3");
-        const connection = await VoiceConnectionService.getVoiceConnectionService().getOrCreateConnectionForGuild(
-            message.guild.id,
-            currentUserVoiceChannel
-        );
+        const connection = await this.voiceConnectionService.getOrCreateConnection(currentUserVoiceChannel);
         connection.play(audioFileToPlay, {
             volume: 0.6
         });
