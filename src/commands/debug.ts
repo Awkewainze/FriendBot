@@ -16,6 +16,6 @@ export class DebugCommand extends Command {
 
     async execute(message: Message): Promise<void> {
         // eslint-disable-next-line no-console
-        console.log(this.index.getKey("fakeKey"), message.content);
+        await message.channel.send(message.content);
     }
 }

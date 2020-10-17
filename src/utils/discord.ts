@@ -113,4 +113,8 @@ export class Emojis {
             snowflake: "765852438716350484"
         };
     }
+
+    static get PositiveReactionCharacters(): Array<string> {
+        return ["😍", "🤩", "❤️", "💕", "😻"];
+    }
 }
