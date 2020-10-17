@@ -10,19 +10,32 @@ const CHOICES: Array<ActivityChoices> = [
     {
         activity: "WATCHING",
         options: [
-            "you",
+            "you... FROM INSIDE THE HOUSE",
             "Jan Quadrant Vincent 16",
             "Adventures of Baby Legs and Regular Legs",
-            "Avatar 86: This Time The Trees Are Real Mad"
+            "Avatar 86: This Time The Trees Are Real Mad",
+            "Seinfeld with Abyssal dub"
         ]
     },
     {
         activity: "PLAYING",
-        options: ["Starcraft 6", "Starfox 65", "Phasmophob - OH SHIT HIDE", "Bird Law Simulator 2037"]
+        options: [
+            "Starcraft 6",
+            "Starfox 65",
+            "Phasmophob - OH SHIT HIDE",
+            "Bird Law Simulator 2037",
+            "Call Of Dookie",
+            "Sturgeon Simulator",
+            "Untitled Spruce Game"
+        ]
     },
     {
         activity: "LISTENING",
         options: ["Nefertiti's Fjord", "We Didn't Start The Fire, but at 50% speed", "John Malkovich gurgling marbles"]
+    },
+    {
+        activity: "STREAMING",
+        options: ["a literal stream", "ice cubes melting in the sun", "my neighbor napping in a hammock"]
     }
 ];
 
@@ -50,7 +63,9 @@ export class ActivityService {
             return this.generateRandomTimeout();
         }
 
-        return 1000 * 60 * randomDuration;
+        return 1000 * 3;
+
+        // return 1000 * 60 * randomDuration;
     }
 
     getCurrentActivity(): ActivityOptions {
