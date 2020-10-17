@@ -26,12 +26,18 @@ const CHOICES: Array<ActivityChoices> = [
             "Bird Law Simulator 2037",
             "Call Of Dookie",
             "Sturgeon Simulator",
-            "Untitled Spruce Game"
+            "Untitled Spruce Game",
+            "Pumpkin Carving Simulator 2020"
         ]
     },
     {
         activity: "LISTENING",
-        options: ["Nefertiti's Fjord", "We Didn't Start The Fire, but at 50% speed", "John Malkovich gurgling marbles"]
+        options: [
+            "Nefertiti's Fjord",
+            "We Didn't Start The Fire, but at 50% speed",
+            "John Malkovich gurgling marbles",
+            "Spooky Scary Skeletons"
+        ]
     },
     {
         activity: "STREAMING",
