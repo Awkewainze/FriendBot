@@ -63,9 +63,7 @@ export class ActivityService {
             return this.generateRandomTimeout();
         }
 
-        return 1000 * 3;
-
-        // return 1000 * 60 * randomDuration;
+        return 1000 * 60 * randomDuration;
     }
 
     getCurrentActivity(): ActivityOptions {
