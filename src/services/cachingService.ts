@@ -21,6 +21,24 @@ export class GuildScopedIndex extends Index {
     }
 }
 
+@scoped(Lifecycle.ResolutionScoped)
+export class GuildAndMemberScopedIndex extends Index {
+    constructor(@inject("GuildId") guildId: string, @inject("GuildMemberId") memberId: string) {
+        super([guildId, memberId]);
+    }
+}
+
+@scoped(Lifecycle.ResolutionScoped)
+export class GuildMemberAndChannelScopedIndex extends Index {
+    constructor(
+        @inject("GuildId") guildId: string,
+        @inject("GuildMemberId") memberId: string,
+        @inject("MessageChannelId") channelId: string
+    ) {
+        super([guildId, memberId, channelId]);
+    }
+}
+
 export abstract class CachingService {
     get type(): "Persistent" | "Nonpersistent" {
         return "Nonpersistent";

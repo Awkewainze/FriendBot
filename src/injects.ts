@@ -6,6 +6,7 @@ import {
     GoldWatchCommand,
     InspectCommand,
     MultipartExampleCommand,
+    SimpleMultipartExample,
     SusCommand,
     VillagerCommand
 } from "./commands";
@@ -22,7 +23,8 @@ container.register("Command", { useClass: GoldWatchCommand });
 container.register("Command", { useClass: InspectCommand });
 container.register("Command", { useClass: SusCommand });
 container.register("Command", { useClass: VillagerCommand });
-container.register("Command", { useClass: MultipartExampleCommand });
 
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });
+container.register("xCommand", { useClass: MultipartExampleCommand });
+container.register("Command", { useClass: SimpleMultipartExample });

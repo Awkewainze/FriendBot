@@ -30,6 +30,8 @@ function main() {
             container
                 .createChildContainer()
                 .register("GuildId", { useValue: message.guild.id })
+                .register("GuildMemberId", { useValue: message.member.id })
+                .register("MessageChannelId", { useValue: message.channel.id })
                 .resolve(CommandService)
                 .execute(message);
         }
