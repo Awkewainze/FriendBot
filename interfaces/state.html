@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AsyncLazy | friend_bot</title>
+	<title>State | friend_bot</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="asynclazy.html">AsyncLazy</a>
+					<a href="state.html">State</a>
 				</li>
 			</ul>
 		</div>
@@ -67,14 +67,14 @@
 					<ul class="before-current">
 					</ul>
 					<ul class="current">
-						<li class="current tsd-kind-class tsd-has-type-parameter">
-							<a href="asynclazy.html" class="tsd-kind-icon">Async<wbr>Lazy</a>
+						<li class="current tsd-kind-interface">
+							<a href="state.html" class="tsd-kind-icon">State</a>
 							<ul>
-								<li class=" tsd-kind-constructor tsd-parent-kind-class">
-									<a href="asynclazy.html#constructor" class="tsd-kind-icon">constructor</a>
+								<li class=" tsd-kind-property tsd-parent-kind-interface">
+									<a href="state.html#firstname" class="tsd-kind-icon">first<wbr>Name</a>
 								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="asynclazy.html#get" class="tsd-kind-icon">get</a>
+								<li class=" tsd-kind-property tsd-parent-kind-interface">
+									<a href="state.html#step" class="tsd-kind-icon">step</a>
 								</li>
 							</ul>
 						</li>
@@ -91,30 +91,11 @@
 			</nav>
 		</div>
 		<div class="col-9 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment">
-					<div class="lead">
-						<p>Gets an async value once on call, then returns the same value on subsequent gets.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<span class="name">T</span>                    <div class="tsd-comment">
-							<div class="lead">
-								<p>Stored value type.</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AsyncLazy</span>
+						<span class="target">State</span>
 					</li>
 				</ul>
 			</section>
@@ -122,21 +103,18 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Properties</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-constructor tsd-parent-kind-class">
-										<a href="asynclazy.html#constructor" class="tsd-kind-icon">constructor</a>
+									<li class="tsd-kind-property tsd-parent-kind-interface">
+										<a href="state.html#firstname" class="tsd-kind-icon">first<wbr>Name</a>
 									</li>
 								</ul>
 							</div>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="asynclazy.html#get" class="tsd-kind-icon">get</a>
+									<li class="tsd-kind-property tsd-parent-kind-interface">
+										<a href="state.html#step" class="tsd-kind-icon">step</a>
 									</li>
 								</ul>
 							</div>
@@ -145,56 +123,24 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-descriptions">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Async<wbr>Lazy<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="../globals.html#asyncprovider" class="tsd-signature-type">AsyncProvider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asynclazy.html" class="tsd-signature-type">AsyncLazy</a></li>
-					</ul>
-					<div class="tsd-comment">
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">provider</span>: <a href="../globals.html#asyncprovider" class="tsd-signature-type">AsyncProvider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
-							<div class="tsd-comment">
-								<div class="lead">
-									<p>Method that is called once on first <a href="asynclazy.html#get">get</a>.</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <a href="asynclazy.html" class="tsd-signature-type">AsyncLazy</a></h4>
-					</ul>
-					<div class="tsd-comment">
-					</div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-descriptions">
+					<a name="firstname" class="tsd-anchor"></a>
+					<h3>first<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">firstName<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/utils/lazy.ts#L37">src/utils/lazy.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/simpleMultipartExample.ts#L14">src/commands/simpleMultipartExample.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
-					<a name="get" class="tsd-anchor"></a>
-					<h3>get</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Gets the value, only calls provider on first call.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
-					<p>The value from the provider.</p>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-descriptions">
+					<a name="step" class="tsd-anchor"></a>
+					<h3>step</h3>
+					<div class="tsd-signature tsd-kind-icon">step<span class="tsd-signature-symbol">:</span> <a href="../enums/step.html" class="tsd-signature-type">Step</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/utils/lazy.ts#L50">src/utils/lazy.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/simpleMultipartExample.ts#L13">src/commands/simpleMultipartExample.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>

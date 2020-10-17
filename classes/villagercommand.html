@@ -173,7 +173,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Villager<wbr>Command<span class="tsd-signature-symbol">(</span>voiceConnectionService<span class="tsd-signature-symbol">: </span><a href="guildscopedvoiceconnectionservice.html" class="tsd-signature-type">GuildScopedVoiceConnectionService</a>, cachingService<span class="tsd-signature-symbol">: </span><a href="../interfaces/cachingservice.html" class="tsd-signature-type">CachingService</a>, index<span class="tsd-signature-symbol">: </span><a href="index.html" class="tsd-signature-type">Index</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="villagercommand.html" class="tsd-signature-type">VillagerCommand</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Villager<wbr>Command<span class="tsd-signature-symbol">(</span>voiceConnectionService<span class="tsd-signature-symbol">: </span><a href="guildscopedvoiceconnectionservice.html" class="tsd-signature-type">GuildScopedVoiceConnectionService</a>, cachingService<span class="tsd-signature-symbol">: </span><a href="cachingservice.html" class="tsd-signature-type">CachingService</a>, index<span class="tsd-signature-symbol">: </span><a href="index.html" class="tsd-signature-type">Index</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="villagercommand.html" class="tsd-signature-type">VillagerCommand</a></li>
 					</ul>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
@@ -181,7 +181,7 @@
 							<span class="name">voiceConnectionService</span>: <a href="guildscopedvoiceconnectionservice.html" class="tsd-signature-type">GuildScopedVoiceConnectionService</a>
 						</li>
 						<li>
-							<span class="name">cachingService</span>: <a href="../interfaces/cachingservice.html" class="tsd-signature-type">CachingService</a>
+							<span class="name">cachingService</span>: <a href="cachingservice.html" class="tsd-signature-type">CachingService</a>
 						</li>
 						<li>
 							<span class="name">index</span>: <a href="index.html" class="tsd-signature-type">Index</a>
@@ -191,7 +191,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/commands/villager.ts#L14">src/commands/villager.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/villager.ts#L14">src/commands/villager.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -202,7 +202,7 @@
 					<a name="check" class="tsd-anchor"></a>
 					<h3>check</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<div class="tsd-comment">
 						<div class="lead">
@@ -215,12 +215,12 @@
 							<span class="name">message</span>: <span class="tsd-signature-type">Message</span>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="command.html">Command</a>.<a href="command.html#check">check</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/commands/villager.ts#L27">src/commands/villager.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/villager.ts#L27">src/commands/villager.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +245,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="command.html">Command</a>.<a href="command.html#exclusive">exclusive</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/commands/command.ts#L36">src/commands/command.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/command.ts#L36">src/commands/command.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +271,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="command.html">Command</a>.<a href="command.html#execute">execute</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/commands/villager.ts#L32">src/commands/villager.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/villager.ts#L32">src/commands/villager.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +292,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="command.html">Command</a>.<a href="command.html#priority">priority</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/commands/command.ts#L25">src/commands/command.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/command.ts#L25">src/commands/command.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>

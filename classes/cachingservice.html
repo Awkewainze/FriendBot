@@ -67,16 +67,22 @@
 					<ul class="before-current">
 					</ul>
 					<ul class="current">
-						<li class="current tsd-kind-interface">
+						<li class="current tsd-kind-class">
 							<a href="cachingservice.html" class="tsd-kind-icon">Caching<wbr>Service</a>
 							<ul>
-								<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+								<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+									<a href="cachingservice.html#type" class="tsd-kind-icon">type</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class">
+									<a href="cachingservice.html#exists" class="tsd-kind-icon">exists</a>
+								</li>
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 									<a href="cachingservice.html#get" class="tsd-kind-icon">get</a>
 								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 									<a href="cachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
 								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+								<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 									<a href="cachingservice.html#set" class="tsd-kind-icon">set</a>
 								</li>
 							</ul>
@@ -99,38 +105,56 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">CachingService</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="persistentcachingservice.html" class="tsd-signature-type">PersistentCachingService</a>
+							</li>
+							<li>
+								<a href="inmemorycachingservice.html" class="tsd-signature-type">InMemoryCachingService</a>
+							</li>
+						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/inmemorycachingservice.html" class="tsd-signature-type">InMemoryCachingService</a></li>
-					<li><a href="../classes/rediscachingservice.html" class="tsd-signature-type">RedisCachingService</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-get-signature tsd-parent-kind-class">
+										<a href="cachingservice.html#type" class="tsd-kind-icon">type</a>
+									</li>
+								</ul>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+									<li class="tsd-kind-method tsd-parent-kind-class">
+										<a href="cachingservice.html#exists" class="tsd-kind-icon">exists</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 										<a href="cachingservice.html#get" class="tsd-kind-icon">get</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 										<a href="cachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 										<a href="cachingservice.html#set" class="tsd-kind-icon">set</a>
 									</li>
 								</ul>
@@ -140,11 +164,50 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-descriptions">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Persistent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Nonpersistent"</span></li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"Persistent"</span>
+						<span class="tsd-signature-symbol"> | </span>
+						<span class="tsd-signature-type">"Nonpersistent"</span>
+					</h4>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L43">src/services/cachingService.ts:43</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+					<a name="exists" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> exists</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">exists<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">key</span>: <span class="tsd-signature-type">string</span>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					</ul>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L48">src/services/cachingService.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-descriptions">
 					<a name="get" class="tsd-anchor"></a>
-					<h3>get</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -162,15 +225,15 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/services/cachingService.ts#L25">src/services/cachingService.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L46">src/services/cachingService.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-descriptions">
 					<a name="getoradd" class="tsd-anchor"></a>
-					<h3>get<wbr>OrAdd</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>OrAdd&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cacheTime<span class="tsd-signature-symbol">?: </span><a href="../classes/duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>OrAdd</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>OrAdd&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cacheTime<span class="tsd-signature-symbol">?: </span><a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -186,22 +249,22 @@
 							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
 						</li>
 						<li>
-							<span class="name">cacheTime</span>: <a href="../classes/duration.html" class="tsd-signature-type">Duration</a> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">cacheTime</span>: <a href="duration.html" class="tsd-signature-type">Duration</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 						</li>
 					</ul>
 					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/services/cachingService.ts#L26">src/services/cachingService.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L47">src/services/cachingService.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-descriptions">
 					<a name="set" class="tsd-anchor"></a>
-					<h3>set</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">set&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cacheTime<span class="tsd-signature-symbol">?: </span><a href="../classes/duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> set</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">set&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cacheTime<span class="tsd-signature-symbol">?: </span><a href="duration.html" class="tsd-signature-type">Duration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -217,14 +280,14 @@
 							<span class="name">value</span>: <span class="tsd-signature-type">T</span>
 						</li>
 						<li>
-							<span class="name">cacheTime</span>: <a href="../classes/duration.html" class="tsd-signature-type">Duration</a> <span class="tsd-flag ts-flagOptional">Optional</span>
+							<span class="name">cacheTime</span>: <a href="duration.html" class="tsd-signature-type">Duration</a> <span class="tsd-flag ts-flagOptional">Optional</span>
 						</li>
 					</ul>
 					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/e748afc/src/services/cachingService.ts#L27">src/services/cachingService.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L49">src/services/cachingService.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>

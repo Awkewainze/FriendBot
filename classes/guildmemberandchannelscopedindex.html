@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>InspectCommand | friend_bot</title>
+	<title>GuildMemberAndChannelScopedIndex | friend_bot</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="inspectcommand.html">InspectCommand</a>
+					<a href="guildmemberandchannelscopedindex.html">GuildMemberAndChannelScopedIndex</a>
 				</li>
 			</ul>
 		</div>
@@ -68,19 +68,16 @@
 					</ul>
 					<ul class="current">
 						<li class="current tsd-kind-class">
-							<a href="inspectcommand.html" class="tsd-kind-icon">Inspect<wbr>Command</a>
+							<a href="guildmemberandchannelscopedindex.html" class="tsd-kind-icon">Guild<wbr>Member<wbr>And<wbr>Channel<wbr>Scoped<wbr>Index</a>
 							<ul>
-								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-									<a href="inspectcommand.html#check" class="tsd-kind-icon">check</a>
+								<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+									<a href="guildmemberandchannelscopedindex.html#constructor" class="tsd-kind-icon">constructor</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-									<a href="inspectcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-									<a href="inspectcommand.html#execute" class="tsd-kind-icon">execute</a>
+									<a href="guildmemberandchannelscopedindex.html#addscope" class="tsd-kind-icon">add<wbr>Scope</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-									<a href="inspectcommand.html#priority" class="tsd-kind-icon">priority</a>
+									<a href="guildmemberandchannelscopedindex.html#getkey" class="tsd-kind-icon">get<wbr>Key</a>
 								</li>
 							</ul>
 						</li>
@@ -97,21 +94,14 @@
 			</nav>
 		</div>
 		<div class="col-9 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment">
-					<div class="lead">
-						<p>Shows additional info for user in chat.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="command.html" class="tsd-signature-type">Command</a>
+						<a href="index.html" class="tsd-signature-type">Index</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">InspectCommand</span>
+								<span class="target">GuildMemberAndChannelScopedIndex</span>
 							</li>
 						</ul>
 					</li>
@@ -121,32 +111,28 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+										<a href="guildmemberandchannelscopedindex.html#constructor" class="tsd-kind-icon">constructor</a>
+									</li>
+								</ul>
+							</div>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-										<a href="inspectcommand.html#check" class="tsd-kind-icon">check</a>
+									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+										<a href="guildmemberandchannelscopedindex.html#addscope" class="tsd-kind-icon">add<wbr>Scope</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-										<a href="inspectcommand.html#exclusive" class="tsd-kind-icon">exclusive</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-										<a href="inspectcommand.html#execute" class="tsd-kind-icon">execute</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-										<a href="inspectcommand.html#priority" class="tsd-kind-icon">priority</a>
+										<a href="guildmemberandchannelscopedindex.html#getkey" class="tsd-kind-icon">get<wbr>Key</a>
 									</li>
 								</ul>
 							</div>
@@ -155,102 +141,76 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-descriptions">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Member<wbr>And<wbr>Channel<wbr>Scoped<wbr>Index<span class="tsd-signature-symbol">(</span>guildId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, memberId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, channelId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildmemberandchannelscopedindex.html" class="tsd-signature-type">GuildMemberAndChannelScopedIndex</a></li>
+					</ul>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<span class="name">guildId</span>: <span class="tsd-signature-type">string</span>
+						</li>
+						<li>
+							<span class="name">memberId</span>: <span class="tsd-signature-type">string</span>
+						</li>
+						<li>
+							<span class="name">channelId</span>: <span class="tsd-signature-type">string</span>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <a href="guildmemberandchannelscopedindex.html" class="tsd-signature-type">GuildMemberAndChannelScopedIndex</a></h4>
+					</ul>
+					<aside class="tsd-sources">
+						<p>Overrides <a href="index.html">Index</a>.<a href="index.html#constructor">constructor</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L32">src/services/cachingService.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-descriptions">
-					<a name="check" class="tsd-anchor"></a>
-					<h3>check</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-descriptions">
+					<a name="addscope" class="tsd-anchor"></a>
+					<h3>add<wbr>Scope</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Scope<span class="tsd-signature-symbol">(</span>scope<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="index.html" class="tsd-signature-type">Index</a></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Triggered by <code>inspect @user</code>.</p>
-						</div>
-					</div>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
 						<li>
-							<span class="name">message</span>: <span class="tsd-signature-type">Message</span>
+							<span class="name">scope</span>: <span class="tsd-signature-type">string</span>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <a href="index.html" class="tsd-signature-type">Index</a></h4>
 					</ul>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="command.html">Command</a>.<a href="command.html#check">check</a></p>
+						<p>Inherited from <a href="index.html">Index</a>.<a href="index.html#addscope">addScope</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/inspect.ts#L14">src/commands/inspect.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L8">src/services/cachingService.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-descriptions">
-					<a name="exclusive" class="tsd-anchor"></a>
-					<h3>exclusive</h3>
+					<a name="getkey" class="tsd-anchor"></a>
+					<h3>get<wbr>Key</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">exclusive<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Key<span class="tsd-signature-symbol">(</span>keyName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>If other commands should not be parsed/executed if this command is triggered.</p>
-						</div>
-						<ul>
-							<li>Note: Does not stop higher priority commands.</li>
-						</ul>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
-					<p>Whether or not this command is exclusive
-					(i.e. stops other commands from running, doesn&#39;t stop higher priority commands).</p>
-					</ul>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="command.html">Command</a>.<a href="command.html#exclusive">exclusive</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/command.ts#L36">src/commands/command.ts:36</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-descriptions">
-					<a name="execute" class="tsd-anchor"></a>
-					<h3>execute</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Send user info to message chat</p>
-						</div>
-					</div>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
 						<li>
-							<span class="name">message</span>: <span class="tsd-signature-type">Message</span>
+							<span class="name">keyName</span>: <span class="tsd-signature-type">string</span>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="command.html">Command</a>.<a href="command.html#execute">execute</a></p>
+						<p>Inherited from <a href="index.html">Index</a>.<a href="index.html#getkey">getKey</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/inspect.ts#L18">src/commands/inspect.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-descriptions">
-					<a name="priority" class="tsd-anchor"></a>
-					<h3>priority</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">priority<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Where the command should be sorted relative to other commands.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
-					<p>Priority of command, with higher number being higher priority.</p>
-					</ul>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="command.html">Command</a>.<a href="command.html#priority">priority</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/commands/command.ts#L25">src/commands/command.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/916f66b/src/services/cachingService.ts#L12">src/services/cachingService.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
