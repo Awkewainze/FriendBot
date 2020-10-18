@@ -45,6 +45,8 @@ export class SusCommand extends Command {
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));
         await voteMsg.react(Emojis.SkipVote.snowflake);
         const userVotedFor = new Map<string, Snowflake>();
+
+        // Only allow 1 vote per person by removing previous votes.
         const callback = async (reaction: MessageReaction, user: User) => {
             if (reaction.message.id === voteMsg.id) {
                 if (userVotedFor.has(user.id)) {
@@ -54,6 +56,7 @@ export class SusCommand extends Command {
             }
         };
         message.client.on("messageReactionAdd", callback);
+
         Timer.for(Duration.fromMinutes(2))
             .addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg))
             .addCallback(() => message.client.off("messageReactionAdd", callback))
@@ -124,6 +127,7 @@ export class SusCommand extends Command {
         const ejected = mostVotes.length === 1 ? mostVotes[0].person : null;
         let firstLine: string, secondLine: string;
         if (ejected !== null) {
+            await ejected.member.guild.members.resolve(ejected.member)?.voice.kick("User was kinda sus");
             firstLine = `${ejected.name} was ejected.`;
             const isImposter = Math.random() < 0.5;
             secondLine = `${ejected.pronouns[0].subjective} ${ejected.pronouns[0].plural ? "were" : "was"}${
