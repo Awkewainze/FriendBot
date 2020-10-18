@@ -7,7 +7,7 @@ import {
     InspectCommand,
     MultipartExampleCommand,
     ReactToPetsCommand,
-    SimpleMultipartExample,
+    SimpleMultipartExampleCommand,
     SusCommand,
     VillagerCommand
 } from "./commands";
@@ -29,4 +29,4 @@ container.register("Command", { useClass: ReactToPetsCommand });
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });
 container.register("xCommand", { useClass: MultipartExampleCommand });
-container.register("xCommand", { useClass: SimpleMultipartExample });
+container.register("xCommand", { useClass: SimpleMultipartExampleCommand });

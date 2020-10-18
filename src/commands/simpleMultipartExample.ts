@@ -19,8 +19,9 @@ interface PersistentState {
     name: string;
 }
 
+/** This is the more complicated and more direct way of setting state, look at {@link SimpleMultipartExample} for simpler way. */
 @injectable()
-export class SimpleMultipartExample extends StatefulCommand<State, PersistentState> {
+export class SimpleMultipartExampleCommand extends StatefulCommand<State, PersistentState> {
     constructor(
         @inject("CachingService") cachingService: CachingService,
         @inject("PersistentCachingService") persistentCachingService: PersistentCachingService,
