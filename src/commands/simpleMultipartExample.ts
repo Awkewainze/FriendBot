@@ -9,15 +9,15 @@ import {
 } from "../services";
 import { StatefulCommand } from "./statefulCommand";
 
-interface State {
+type State = {
     step: Step;
     firstName: string;
-}
+};
 
-interface PersistentState {
+type PersistentState = {
     nameSet: boolean;
     name: string;
-}
+};
 
 /** This is the more complicated and more direct way of setting state, look at {@link SimpleMultipartExample} for simpler way. */
 @injectable()
