@@ -1,4 +1,4 @@
-import { Message, MessageEmbed } from "discord.js";
+import { Message, MessageEmbed, MessageReaction, Snowflake, User } from "discord.js";
 import moment from "moment";
 import { injectable } from "tsyringe";
 import {
@@ -22,7 +22,8 @@ export class SusCommand extends Command {
     /** Trigger by a message containing the word `sus` and at least one user mention. */
     async check(message: Message): Promise<boolean> {
         return (
-            !!(/\bsus\b/i.test(stripQuotes(message.content)) && message.mentions.users.size > 0) &&
+            /\bsus\b/i.test(stripQuotes(message.content)) &&
+            message.mentions.users.size > 0 &&
             message.mentions.users.first().id !== message.author.id
         );
     }
@@ -43,8 +44,19 @@ export class SusCommand extends Command {
         );
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));
         await voteMsg.react(Emojis.SkipVote.snowflake);
+        const userVotedFor = new Map<string, Snowflake>();
+        const callback = async (reaction: MessageReaction, user: User) => {
+            if (reaction.message.id === voteMsg.id) {
+                if (userVotedFor.has(user.id)) {
+                    await voteMsg.reactions.resolve(userVotedFor.get(user.id)).users.remove(user.id);
+                }
+                userVotedFor.set(user.id, reaction.emoji.id);
+            }
+        };
+        message.client.on("messageReactionAdd", callback);
         Timer.for(Duration.fromMinutes(2))
             .addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg))
+            .addCallback(() => message.client.off("messageReactionAdd", callback))
             .start();
     }
 

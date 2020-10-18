@@ -2,10 +2,9 @@
 require("source-map-support").install();
 import { Client as DiscordClient } from "discord.js";
 import "reflect-metadata";
-import { container } from "tsyringe";
 import { CONFIG } from "./config";
+import { OnGuildMemberAdd, OnMessage } from "./events";
 import "./injects";
-import { CommandService } from "./services";
 
 /** @ignore */
 function main() {
@@ -24,18 +23,8 @@ function main() {
         });
     });
 
-    client.on("message", async message => {
-        if (message.author.bot) return;
-        if (message.guild) {
-            container
-                .createChildContainer()
-                .register("GuildId", { useValue: message.guild.id })
-                .register("GuildMemberId", { useValue: message.member.id })
-                .register("MessageChannelId", { useValue: message.channel.id })
-                .resolve(CommandService)
-                .execute(message);
-        }
-    });
+    client.on("guildMemberAdd", OnGuildMemberAdd);
+    client.on("message", OnMessage);
 
     client.login(CONFIG.DISCORD.LOGIN_TOKEN);
 }

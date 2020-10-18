@@ -11,11 +11,13 @@ export class DebugCommand extends Command {
         this.index = index.addScope("DebugCommand");
     }
     async check(message: Message): Promise<boolean> {
-        return /^\s*debug/i.test(message.content);
+        return /^debug/i.test(message.content);
     }
 
     async execute(message: Message): Promise<void> {
         // eslint-disable-next-line no-console
-        await message.channel.send(message.content);
+        console.log(message.guild.id);
+        console.log(message.member.id);
+        console.log(message.member.user.id);
     }
 }
