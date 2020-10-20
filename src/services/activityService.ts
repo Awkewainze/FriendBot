@@ -55,7 +55,7 @@ export class ActivityService {
         this.currentActivity = this.newActivity();
     }
 
-    async initializeActivityTimeout(): Promise<void> {
+    async initializeActivityRandomization(): Promise<void> {
         if (this.running) {
             return;
         }
