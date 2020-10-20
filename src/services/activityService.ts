@@ -1,5 +1,6 @@
 import { ActivityOptions, ActivityType, Client } from "discord.js";
-import { selectRandom } from "../utils";
+import { Duration, selectRandom, Timer } from "../utils";
+import { inject, singleton } from "tsyringe";
 
 type ActivityChoices = {
     activity: ActivityType;
@@ -45,31 +46,27 @@ const CHOICES: Array<ActivityChoices> = [
     }
 ];
 
+@singleton()
 export class ActivityService {
     private currentActivity: ActivityOptions = null;
+    private running = false;
 
-    constructor() {
+    constructor(@inject("DiscordClient") private readonly client: Client) {
         this.currentActivity = this.newActivity();
     }
 
-    initializeActivityTimeout(client: Client): void {
-        setTimeout(async () => {
-            await client.user.setActivity(this.newActivity());
-
-            this.initializeActivityTimeout(client);
-        }, this.generateRandomTimeout());
-    }
-
-    generateRandomTimeout(): number {
-        // At least fifteen minutes between updates
-        const floor = 15;
-        const randomDuration = Math.round(Math.random() * 25);
-
-        if (randomDuration < floor) {
-            return this.generateRandomTimeout();
+    async initializeActivityTimeout(): Promise<void> {
+        if (this.running) {
+            return;
         }
 
-        return 1000 * 60 * randomDuration;
+        this.running = true;
+        while (this.running) {
+            await this.client.user.setActivity(this.newActivity());
+            await Timer.for(Duration.between(Duration.fromSeconds(2), Duration.fromSeconds(5)))
+                .start()
+                .asAwaitable();
+        }
     }
 
     getCurrentActivity(): ActivityOptions {
