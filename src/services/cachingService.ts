@@ -21,6 +21,24 @@ export class GuildScopedIndex extends Index {
     }
 }
 
+@scoped(Lifecycle.ResolutionScoped)
+export class GuildAndMemberScopedIndex extends Index {
+    constructor(@inject("GuildId") guildId: string, @inject("GuildMemberId") memberId: string) {
+        super([guildId, memberId]);
+    }
+}
+
+@scoped(Lifecycle.ResolutionScoped)
+export class GuildMemberAndChannelScopedIndex extends Index {
+    constructor(
+        @inject("GuildId") guildId: string,
+        @inject("GuildMemberId") memberId: string,
+        @inject("MessageChannelId") channelId: string
+    ) {
+        super([guildId, memberId, channelId]);
+    }
+}
+
 export abstract class CachingService {
     get type(): "Persistent" | "Nonpersistent" {
         return "Nonpersistent";
@@ -31,6 +49,10 @@ export abstract class CachingService {
     abstract set<T>(key: string, value: T, cacheTime?: Duration): Promise<void>;
 }
 
+/**
+ * Holds value even if bot is restarted
+ * * Values must be serializable!
+ */
 export abstract class PersistentCachingService extends CachingService {
     get type(): "Persistent" | "Nonpersistent" {
         return "Persistent";
@@ -48,17 +70,17 @@ export class KeyNotFoundError extends Error {
 
 @singleton()
 export class InMemoryCachingService extends CachingService {
-    private readonly localCache: { [key: string]: string } = {};
+    private readonly localCache: { [key: string]: unknown } = {};
     private readonly cacheTimers: { [key: string]: Timer } = {};
 
     async get<T>(key: string): Promise<T> {
         Check.verifyNotNull(this.localCache[key], new KeyNotFoundError(key));
-        return JSON.parse(this.localCache[key]);
+        return this.localCache[key] as T;
     }
 
     async getOrAdd<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<T> {
         if (Check.isNull(this.localCache[key])) {
-            this.localCache[key] = JSON.stringify(value);
+            this.localCache[key] = value;
             if (!cacheTime.isForever()) {
                 if (Check.isNotNull(this.cacheTimers[key])) {
                     this.cacheTimers[key].stop();
@@ -69,7 +91,7 @@ export class InMemoryCachingService extends CachingService {
             }
         }
 
-        return JSON.parse(this.localCache[key]);
+        return this.localCache[key] as T;
     }
 
     async exists(key: string): Promise<boolean> {
@@ -77,7 +99,7 @@ export class InMemoryCachingService extends CachingService {
     }
 
     async set<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
-        this.localCache[key] = JSON.stringify(value);
+        this.localCache[key] = value;
         if (Check.isNotNull(this.cacheTimers[key])) {
             this.cacheTimers[key].stop();
             delete this.cacheTimers[key];

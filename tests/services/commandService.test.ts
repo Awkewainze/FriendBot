@@ -10,7 +10,7 @@ class MockCommand implements Command {
         private readonly priorityCon: number,
         private readonly exclusiveCon: boolean
     ) { }
-    check(message: Message): boolean {
+    async check(message: Message): Promise<boolean> {
         return this.shouldCheck;
     }
     async execute(message: Message): Promise<void> {

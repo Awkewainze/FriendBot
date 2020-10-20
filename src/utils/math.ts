@@ -10,7 +10,7 @@ export function randInt(max: number): number {
 /**
  * Get a random element from given array.
  * @param arr Array to select from.
- * @ typeParam T Type of values in array.
+ * @typeParam T Type of values in array.
  * @category Math
  */
 export function selectRandom<T>(arr: Array<T>): T {
