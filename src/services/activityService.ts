@@ -63,7 +63,7 @@ export class ActivityService {
         this.running = true;
         while (this.running) {
             await this.client.user.setActivity(this.newActivity());
-            await Timer.for(Duration.between(Duration.fromSeconds(2), Duration.fromSeconds(5)))
+            await Timer.for(Duration.between(Duration.fromMinutes(15), Duration.fromMinutes(60)))
                 .start()
                 .asAwaitable();
         }
