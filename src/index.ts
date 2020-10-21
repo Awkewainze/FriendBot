@@ -2,9 +2,10 @@
 require("source-map-support").install();
 import { Client as DiscordClient } from "discord.js";
 import "reflect-metadata";
+import { container } from "tsyringe";
 import { CONFIG } from "./config";
 import { OnGuildMemberAdd, OnMessage } from "./events";
-import { container } from "tsyringe";
+import "./injects";
 import { ActivityService } from "./services";
 
 /** @ignore */
