@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GuildScopedVoiceConnectionService | friend_bot</title>
+	<title>ActivityService | friend_bot</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="guildscopedvoiceconnectionservice.html">GuildScopedVoiceConnectionService</a>
+					<a href="activityservice.html">ActivityService</a>
 				</li>
 			</ul>
 		</div>
@@ -68,22 +68,22 @@
 					</ul>
 					<ul class="current">
 						<li class="current tsd-kind-class">
-							<a href="guildscopedvoiceconnectionservice.html" class="tsd-kind-icon">Guild<wbr>Scoped<wbr>Voice<wbr>Connection<wbr>Service</a>
+							<a href="activityservice.html" class="tsd-kind-icon">Activity<wbr>Service</a>
 							<ul>
 								<li class=" tsd-kind-constructor tsd-parent-kind-class">
-									<a href="guildscopedvoiceconnectionservice.html#constructor" class="tsd-kind-icon">constructor</a>
+									<a href="activityservice.html#constructor" class="tsd-kind-icon">constructor</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="guildscopedvoiceconnectionservice.html#disconnect" class="tsd-kind-icon">disconnect</a>
+									<a href="activityservice.html#getcurrentactivity" class="tsd-kind-icon">get<wbr>Current<wbr>Activity</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="guildscopedvoiceconnectionservice.html#getconnection" class="tsd-kind-icon">get<wbr>Connection</a>
+									<a href="activityservice.html#initializeactivityrandomization" class="tsd-kind-icon">initialize<wbr>Activity<wbr>Randomization</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="guildscopedvoiceconnectionservice.html#getorcreateconnection" class="tsd-kind-icon">get<wbr>OrCreate<wbr>Connection</a>
+									<a href="activityservice.html#iscurrentactivity" class="tsd-kind-icon">is<wbr>Current<wbr>Activity</a>
 								</li>
 								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="guildscopedvoiceconnectionservice.html#subscribetodisconnect" class="tsd-kind-icon">subscribe<wbr>ToDisconnect</a>
+									<a href="activityservice.html#newactivity" class="tsd-kind-icon">new<wbr>Activity</a>
 								</li>
 							</ul>
 						</li>
@@ -104,7 +104,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GuildScopedVoiceConnectionService</span>
+						<span class="target">ActivityService</span>
 					</li>
 				</ul>
 			</section>
@@ -116,7 +116,7 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-constructor tsd-parent-kind-class">
-										<a href="guildscopedvoiceconnectionservice.html#constructor" class="tsd-kind-icon">constructor</a>
+										<a href="activityservice.html#constructor" class="tsd-kind-icon">constructor</a>
 									</li>
 								</ul>
 							</div>
@@ -126,28 +126,28 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="guildscopedvoiceconnectionservice.html#disconnect" class="tsd-kind-icon">disconnect</a>
+										<a href="activityservice.html#getcurrentactivity" class="tsd-kind-icon">get<wbr>Current<wbr>Activity</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="guildscopedvoiceconnectionservice.html#getconnection" class="tsd-kind-icon">get<wbr>Connection</a>
+										<a href="activityservice.html#initializeactivityrandomization" class="tsd-kind-icon">initialize<wbr>Activity<wbr>Randomization</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="guildscopedvoiceconnectionservice.html#getorcreateconnection" class="tsd-kind-icon">get<wbr>OrCreate<wbr>Connection</a>
+										<a href="activityservice.html#iscurrentactivity" class="tsd-kind-icon">is<wbr>Current<wbr>Activity</a>
 									</li>
 								</ul>
 							</div>
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="guildscopedvoiceconnectionservice.html#subscribetodisconnect" class="tsd-kind-icon">subscribe<wbr>ToDisconnect</a>
+										<a href="activityservice.html#newactivity" class="tsd-kind-icon">new<wbr>Activity</a>
 									</li>
 								</ul>
 							</div>
@@ -161,22 +161,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Scoped<wbr>Voice<wbr>Connection<wbr>Service<span class="tsd-signature-symbol">(</span>voiceConnectionService<span class="tsd-signature-symbol">: </span><a href="voiceconnectionservice.html" class="tsd-signature-type">VoiceConnectionService</a>, guildId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildscopedvoiceconnectionservice.html" class="tsd-signature-type">GuildScopedVoiceConnectionService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Activity<wbr>Service<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="activityservice.html" class="tsd-signature-type">ActivityService</a></li>
 					</ul>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
 						<li>
-							<span class="name">voiceConnectionService</span>: <a href="voiceconnectionservice.html" class="tsd-signature-type">VoiceConnectionService</a>
-						</li>
-						<li>
-							<span class="name">guildId</span>: <span class="tsd-signature-type">string</span>
+							<span class="name">client</span>: <span class="tsd-signature-type">Client</span>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <a href="guildscopedvoiceconnectionservice.html" class="tsd-signature-type">GuildScopedVoiceConnectionService</a></h4>
+					<h4 class="tsd-returns-title">Returns <a href="activityservice.html" class="tsd-signature-type">ActivityService</a></h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/voiceConnectionService.ts#L88">src/services/voiceConnectionService.ts:88</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L52">src/services/activityService.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,70 +181,70 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
-					<a name="disconnect" class="tsd-anchor"></a>
-					<h3>disconnect</h3>
+					<a name="getcurrentactivity" class="tsd-anchor"></a>
+					<h3>get<wbr>Current<wbr>Activity</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">disconnect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Current<wbr>Activity<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ActivityOptions</span></li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ActivityOptions</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/voiceConnectionService.ts#L102">src/services/voiceConnectionService.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L72">src/services/activityService.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
-					<a name="getconnection" class="tsd-anchor"></a>
-					<h3>get<wbr>Connection</h3>
+					<a name="initializeactivityrandomization" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Activity<wbr>Randomization</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Connection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="activitytrackingvoiceconnection.html" class="tsd-signature-type">ActivityTrackingVoiceConnection</a></li>
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Activity<wbr>Randomization<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <a href="activitytrackingvoiceconnection.html" class="tsd-signature-type">ActivityTrackingVoiceConnection</a></h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/voiceConnectionService.ts#L94">src/services/voiceConnectionService.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L58">src/services/activityService.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
-					<a name="getorcreateconnection" class="tsd-anchor"></a>
-					<h3>get<wbr>OrCreate<wbr>Connection</h3>
+					<a name="iscurrentactivity" class="tsd-anchor"></a>
+					<h3>is<wbr>Current<wbr>Activity</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>OrCreate<wbr>Connection<span class="tsd-signature-symbol">(</span>channelToUseIfNotInExisting<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">VoiceChannel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="activitytrackingvoiceconnection.html" class="tsd-signature-type">ActivityTrackingVoiceConnection</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Current<wbr>Activity<span class="tsd-signature-symbol">(</span>activity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ActivityType</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<h4 class="tsd-parameters-title">Parameters</h4>
 					<ul class="tsd-parameters">
 						<li>
-							<span class="name">channelToUseIfNotInExisting</span>: <span class="tsd-signature-type">VoiceChannel</span>
+							<span class="name">activity</span>: <span class="tsd-signature-type">ActivityType</span>
+						</li>
+						<li>
+							<span class="name">name</span>: <span class="tsd-signature-type">string</span>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="activitytrackingvoiceconnection.html" class="tsd-signature-type">ActivityTrackingVoiceConnection</a><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/voiceConnectionService.ts#L98">src/services/voiceConnectionService.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L76">src/services/activityService.ts:76</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
-					<a name="subscribetodisconnect" class="tsd-anchor"></a>
-					<h3>subscribe<wbr>ToDisconnect</h3>
+					<a name="newactivity" class="tsd-anchor"></a>
+					<h3>new<wbr>Activity</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToDisconnect<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#callback" class="tsd-signature-type">Callback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">new<wbr>Activity<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ActivityOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">callback</span>: <a href="../globals.html#callback" class="tsd-signature-type">Callback</a>
-						</li>
-					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ActivityOptions</span>
+						<span class="tsd-signature-symbol"> | </span>
+						<span class="tsd-signature-type">null</span>
+					</h4>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/voiceConnectionService.ts#L106">src/services/voiceConnectionService.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L86">src/services/activityService.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
