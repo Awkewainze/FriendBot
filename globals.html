@@ -84,9 +84,6 @@
 							<a href="classes/basecolor.html" class="tsd-kind-icon">Base<wbr>Color</a>
 						</li>
 						<li class=" tsd-kind-class">
-							<a href="classes/cachingservice.html" class="tsd-kind-icon">Caching<wbr>Service</a>
-						</li>
-						<li class=" tsd-kind-class">
 							<a href="classes/check.html" class="tsd-kind-icon">Check</a>
 						</li>
 						<li class=" tsd-kind-class">
@@ -144,9 +141,6 @@
 							<a href="classes/optional.html" class="tsd-kind-icon">Optional</a>
 						</li>
 						<li class=" tsd-kind-class">
-							<a href="classes/persistentcachingservice.html" class="tsd-kind-icon">Persistent<wbr>Caching<wbr>Service</a>
-						</li>
-						<li class=" tsd-kind-class">
 							<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
 						</li>
 						<li class=" tsd-kind-class">
@@ -172,6 +166,12 @@
 						</li>
 						<li class=" tsd-kind-class">
 							<a href="classes/voiceconnectionservice.html" class="tsd-kind-icon">Voice<wbr>Connection<wbr>Service</a>
+						</li>
+						<li class=" tsd-kind-interface">
+							<a href="interfaces/cachingservice.html" class="tsd-kind-icon">Caching<wbr>Service</a>
+						</li>
+						<li class=" tsd-kind-interface">
+							<a href="interfaces/persistentcachingservice.html" class="tsd-kind-icon">Persistent<wbr>Caching<wbr>Service</a>
 						</li>
 						<li class=" tsd-kind-type-alias">
 							<a href="globals.html#activitychoices" class="tsd-kind-icon">Activity<wbr>Choices</a>
@@ -199,6 +199,9 @@
 						</li>
 						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 							<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
+						</li>
+						<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+							<a href="globals.html#isjsonserializable" class="tsd-kind-icon">Is<wbr>Json<wbr>Serializable</a>
 						</li>
 						<li class=" tsd-kind-type-alias">
 							<a href="globals.html#jsonserializable" class="tsd-kind-icon">Json<wbr>Serializable</a>
@@ -228,7 +231,19 @@
 							<a href="globals.html#config" class="tsd-kind-icon">CONFIG</a>
 						</li>
 						<li class=" tsd-kind-variable">
+							<a href="globals.html#cachingservice" class="tsd-kind-icon">caching<wbr>Service</a>
+						</li>
+						<li class=" tsd-kind-variable">
+							<a href="globals.html#client" class="tsd-kind-icon">client</a>
+						</li>
+						<li class=" tsd-kind-variable">
 							<a href="globals.html#config" class="tsd-kind-icon">config</a>
+						</li>
+						<li class=" tsd-kind-variable">
+							<a href="globals.html#connected" class="tsd-kind-icon">connected</a>
+						</li>
+						<li class=" tsd-kind-variable">
+							<a href="globals.html#logwarningonce" class="tsd-kind-icon">log<wbr>Warning<wbr>Once</a>
 						</li>
 						<li class=" tsd-kind-function">
 							<a href="globals.html#onguildmemberadd" class="tsd-kind-icon">On<wbr>Guild<wbr>Member<wbr>Add</a>
@@ -466,30 +481,6 @@
 											</li>
 											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static">
 												<a href="classes/basecolor.html#getcolorfromrole" class="tsd-kind-icon">get<wbr>Color<wbr>From<wbr>Role</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-class">
-										<a href="classes/cachingservice.html" class="tsd-kind-icon">Caching<wbr>Service</a>
-										<ul>
-											<li class="tsd-kind-get-signature tsd-parent-kind-class">
-												<a href="classes/cachingservice.html#type" class="tsd-kind-icon">type</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class">
-												<a href="classes/cachingservice.html#exists" class="tsd-kind-icon">exists</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-												<a href="classes/cachingservice.html#get" class="tsd-kind-icon">get</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-												<a href="classes/cachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-												<a href="classes/cachingservice.html#set" class="tsd-kind-icon">set</a>
 											</li>
 										</ul>
 									</li>
@@ -809,19 +800,16 @@
 									<li class="tsd-kind-class">
 										<a href="classes/inmemorycachingservice.html" class="tsd-kind-icon">In<wbr>Memory<wbr>Caching<wbr>Service</a>
 										<ul>
-											<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-												<a href="classes/inmemorycachingservice.html#type" class="tsd-kind-icon">type</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class">
 												<a href="classes/inmemorycachingservice.html#exists" class="tsd-kind-icon">exists</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/inmemorycachingservice.html#get" class="tsd-kind-icon">get</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/inmemorycachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/inmemorycachingservice.html#set" class="tsd-kind-icon">set</a>
 											</li>
 										</ul>
@@ -978,30 +966,6 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-class">
-										<a href="classes/persistentcachingservice.html" class="tsd-kind-icon">Persistent<wbr>Caching<wbr>Service</a>
-										<ul>
-											<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
-												<a href="classes/persistentcachingservice.html#type" class="tsd-kind-icon">type</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-												<a href="classes/persistentcachingservice.html#exists" class="tsd-kind-icon">exists</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-												<a href="classes/persistentcachingservice.html#get" class="tsd-kind-icon">get</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-												<a href="classes/persistentcachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
-											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-												<a href="classes/persistentcachingservice.html#set" class="tsd-kind-icon">set</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-class">
 										<a href="classes/pronouninfo.html" class="tsd-kind-icon">Pronoun<wbr>Info</a>
 										<ul>
 											<li class="tsd-kind-constructor tsd-parent-kind-class">
@@ -1076,19 +1040,19 @@
 									<li class="tsd-kind-class">
 										<a href="classes/rediscachingservice.html" class="tsd-kind-icon">Redis<wbr>Caching<wbr>Service</a>
 										<ul>
-											<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-												<a href="classes/rediscachingservice.html#type" class="tsd-kind-icon">type</a>
+											<li class="tsd-kind-constructor tsd-parent-kind-class">
+												<a href="classes/rediscachingservice.html#constructor" class="tsd-kind-icon">constructor</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class">
 												<a href="classes/rediscachingservice.html#exists" class="tsd-kind-icon">exists</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/rediscachingservice.html#get" class="tsd-kind-icon">get</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/rediscachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
 											</li>
-											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
+											<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 												<a href="classes/rediscachingservice.html#set" class="tsd-kind-icon">set</a>
 											</li>
 										</ul>
@@ -1271,6 +1235,51 @@
 							</div>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-interface">
+										<a href="interfaces/cachingservice.html" class="tsd-kind-icon">Caching<wbr>Service</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-interface">
+												<a href="interfaces/cachingservice.html#exists" class="tsd-kind-icon">exists</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/cachingservice.html#get" class="tsd-kind-icon">get</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/cachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/cachingservice.html#set" class="tsd-kind-icon">set</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-interface">
+										<a href="interfaces/persistentcachingservice.html" class="tsd-kind-icon">Persistent<wbr>Caching<wbr>Service</a>
+										<ul>
+											<li class="tsd-kind-method tsd-parent-kind-interface">
+												<a href="interfaces/persistentcachingservice.html#exists" class="tsd-kind-icon">exists</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/persistentcachingservice.html#get" class="tsd-kind-icon">get</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/persistentcachingservice.html#getoradd" class="tsd-kind-icon">get<wbr>OrAdd</a>
+											</li>
+											<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
+												<a href="interfaces/persistentcachingservice.html#set" class="tsd-kind-icon">set</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<div class="tsd-navigation secondary">
 								<ul>
@@ -1332,6 +1341,13 @@
 								<ul>
 									<li class="tsd-kind-type-alias tsd-has-type-parameter">
 										<a href="globals.html#consumer" class="tsd-kind-icon">Consumer</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-type-alias tsd-has-type-parameter">
+										<a href="globals.html#isjsonserializable" class="tsd-kind-icon">Is<wbr>Json<wbr>Serializable</a>
 									</li>
 								</ul>
 							</div>
@@ -1404,7 +1420,35 @@
 							<div class="tsd-navigation secondary">
 								<ul>
 									<li class="tsd-kind-variable">
+										<a href="globals.html#cachingservice" class="tsd-kind-icon">caching<wbr>Service</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-variable">
+										<a href="globals.html#client" class="tsd-kind-icon">client</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-variable">
 										<a href="globals.html#config" class="tsd-kind-icon">config</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-variable">
+										<a href="globals.html#connected" class="tsd-kind-icon">connected</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tsd-navigation secondary">
+								<ul>
+									<li class="tsd-kind-variable">
+										<a href="globals.html#logwarningonce" class="tsd-kind-icon">log<wbr>Warning<wbr>Once</a>
 									</li>
 								</ul>
 							</div>
@@ -1549,7 +1593,7 @@
 					<div class="tsd-signature tsd-kind-icon">ActivityChoices<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L5">src/services/activityService.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/services/activityService.ts#L5">src/services/activityService.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1566,7 +1610,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L40">src/types/function.d.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L40">src/types/function.d.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1596,7 +1640,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L62">src/types/function.d.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L62">src/types/function.d.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1631,7 +1675,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L70">src/types/function.d.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L70">src/types/function.d.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1664,7 +1708,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L48">src/types/function.d.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L48">src/types/function.d.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1694,7 +1738,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L55">src/types/function.d.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L55">src/types/function.d.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1711,7 +1755,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L5">src/types/function.d.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L5">src/types/function.d.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1721,7 +1765,7 @@
 					<div class="tsd-signature tsd-kind-icon">Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/config.ts#L23">src/config.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/config.ts#L26">src/config.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1751,7 +1795,29 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L27">src/types/function.d.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L27">src/types/function.d.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter tsd-descriptions">
+					<a name="isjsonserializable" class="tsd-anchor"></a>
+					<h3>Is<wbr>Json<wbr>Serializable</h3>
+					<div class="tsd-signature tsd-kind-icon">IsJsonSerializable&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">[Extract&lt;T, Function&gt;] extends [never] ? T extends boolean | number | string | null ? T : T extends Array&lt;infer U&gt; ? Array&lt;IsJsonSerializable&lt;U&gt;&gt; : T extends Record&lt;string, unknown&gt; ? object : never : never</span></div>
+					<div class="tsd-comment">
+						<div class="lead">
+							<p>A value which must be able to be serialized via JSON.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+						<span class="name">T</span>                    </li>
+					</ul>
+					<div class="tsd-comment">
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/serializable.d.ts#L13">src/types/serializable.d.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1768,7 +1834,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/serializable.d.ts#L2">src/types/serializable.d.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/serializable.d.ts#L4">src/types/serializable.d.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1805,7 +1871,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L35">src/types/function.d.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L35">src/types/function.d.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1822,7 +1888,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/discord.ts#L7">src/utils/discord.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/discord.ts#L7">src/utils/discord.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1832,7 +1898,7 @@
 					<div class="tsd-signature tsd-kind-icon">PersistentState<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/commands/simpleMultipartExample.ts#L17">src/commands/simpleMultipartExample.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/commands/simpleMultipartExample.ts#L17">src/commands/simpleMultipartExample.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1865,7 +1931,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L13">src/types/function.d.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L13">src/types/function.d.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1895,7 +1961,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/types/function.d.ts#L20">src/types/function.d.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/types/function.d.ts#L20">src/types/function.d.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1905,7 +1971,7 @@
 					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/commands/simpleMultipartExample.ts#L12">src/commands/simpleMultipartExample.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/commands/simpleMultipartExample.ts#L12">src/commands/simpleMultipartExample.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1918,7 +1984,7 @@
 					<div class="tsd-signature tsd-kind-icon">CHOICES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#activitychoices" class="tsd-signature-type">ActivityChoices</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = [{activity: &quot;WATCHING&quot;,options: [&quot;you... FROM INSIDE THE HOUSE&quot;,&quot;Jan Quadrant Vincent 16&quot;,&quot;Adventures of Baby Legs and Regular Legs&quot;,&quot;Avatar 86: This Time The Trees Are Real Mad&quot;,&quot;Seinfeld with Abyssal dub&quot;]},{activity: &quot;PLAYING&quot;,options: [&quot;Starcraft 6&quot;,&quot;Starfox 65&quot;,&quot;Phasmophob - OH SHIT HIDE&quot;,&quot;Bird Law Simulator 2037&quot;,&quot;Call Of Dookie&quot;,&quot;Sturgeon Simulator&quot;,&quot;Untitled Spruce Game&quot;,&quot;Pumpkin Carving Simulator 2020&quot;]},{activity: &quot;LISTENING&quot;,options: [&quot;Nefertiti&#x27;s Fjord&quot;,&quot;We Didn&#x27;t Start The Fire, but at 50% speed&quot;,&quot;John Malkovich gurgling marbles&quot;,&quot;Spooky Scary Skeletons&quot;]},{activity: &quot;STREAMING&quot;,options: [&quot;a literal stream&quot;, &quot;ice cubes melting in the sun&quot;, &quot;my neighbor napping in a hammock&quot;]}]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/services/activityService.ts#L10">src/services/activityService.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/services/activityService.ts#L10">src/services/activityService.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1928,7 +1994,27 @@
 					<div class="tsd-signature tsd-kind-icon">CONFIG<span class="tsd-signature-symbol">:</span> <a href="globals.html#config" class="tsd-signature-type">Config</a><span class="tsd-signature-symbol"> = config</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/config.ts#L21">src/config.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/config.ts#L24">src/config.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-descriptions">
+					<a name="cachingservice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> caching<wbr>Service</h3>
+					<div class="tsd-signature tsd-kind-icon">cachingService<span class="tsd-signature-symbol">:</span> <a href="classes/lazy.html" class="tsd-signature-type">Lazy</a><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/persistentcachingservice.html" class="tsd-signature-type">PersistentCachingService</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Lazy&lt;PersistentCachingService&gt;(() &#x3D;&gt; {if (connected) {return new RedisCachingService(client);}logWarningOnce();return new FakePersistentCachingService();})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/injects.ts#L36">src/injects.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-descriptions">
+					<a name="client" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> client</h3>
+					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RedisClient</span><span class="tsd-signature-symbol"> = createClient(CONFIG.REDIS)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/injects.ts#L28">src/injects.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1938,7 +2024,27 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="globals.html#config" class="tsd-signature-type">Config</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/config.ts#L4">src/config.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/config.ts#L4">src/config.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-descriptions">
+					<a name="connected" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> connected</h3>
+					<div class="tsd-signature tsd-kind-icon">connected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/injects.ts#L27">src/injects.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-descriptions">
+					<a name="logwarningonce" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> log<wbr>Warning<wbr>Once</h3>
+					<div class="tsd-signature tsd-kind-icon">logWarningOnce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> = memoize(() &#x3D;&gt;console.warn(&quot;Failed to create Redis client, falling back to fake caching service&quot;))</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/injects.ts#L32">src/injects.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1961,7 +2067,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/events/onGuildMemberAdd.ts#L4">src/events/onGuildMemberAdd.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/events/onGuildMemberAdd.ts#L4">src/events/onGuildMemberAdd.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1981,7 +2087,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/events/onMessage.ts#L5">src/events/onMessage.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/events/onMessage.ts#L5">src/events/onMessage.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2023,7 +2129,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/array.ts#L23">src/utils/array.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/array.ts#L23">src/utils/array.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2061,7 +2167,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/functions.ts#L39">src/utils/functions.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/functions.ts#L39">src/utils/functions.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2089,7 +2195,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/discord.ts#L22">src/utils/discord.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/discord.ts#L22">src/utils/discord.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2109,7 +2215,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/file.ts#L35">src/utils/file.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/file.ts#L35">src/utils/file.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2144,7 +2250,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/file.ts#L13">src/utils/file.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/file.ts#L13">src/utils/file.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2198,7 +2304,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/array.ts#L69">src/utils/array.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/array.ts#L69">src/utils/array.ts:69</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2261,7 +2367,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/array.ts#L34">src/utils/array.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/array.ts#L34">src/utils/array.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2296,7 +2402,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/colors.ts#L198">src/utils/colors.ts:198</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/colors.ts#L198">src/utils/colors.ts:198</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2361,7 +2467,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/functions.ts#L49">src/utils/functions.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/functions.ts#L49">src/utils/functions.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2380,7 +2486,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/functions.ts#L6">src/utils/functions.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/functions.ts#L6">src/utils/functions.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2417,7 +2523,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/functions.ts#L15">src/utils/functions.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/functions.ts#L15">src/utils/functions.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2454,7 +2560,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/functions.ts#L26">src/utils/functions.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/functions.ts#L26">src/utils/functions.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2482,7 +2588,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/math.ts#L6">src/utils/math.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/math.ts#L6">src/utils/math.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2518,7 +2624,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/math.ts#L16">src/utils/math.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/math.ts#L16">src/utils/math.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2554,7 +2660,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/array.ts#L7">src/utils/array.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/array.ts#L7">src/utils/array.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2583,7 +2689,7 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/6c0c159/src/utils/discord.ts#L53">src/utils/discord.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/Awkewainze/FriendBot/blob/07f7761/src/utils/discord.ts#L53">src/utils/discord.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
