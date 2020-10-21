@@ -17,7 +17,7 @@ export class MultipartExampleCommand extends Command {
         this.index = index.addScope("MultipartExampleCommand");
     }
     async check(message: Message): Promise<boolean> {
-        const nameState = await this.persistentCachingService.getOrAdd(
+        const nameState = await this.persistentCachingService.getOrAdd<GuildNameState>(
             this.getMemberScopedIndex(message).getKey(Keys.GuildNameState),
             GuildNameState.NotSet
         );

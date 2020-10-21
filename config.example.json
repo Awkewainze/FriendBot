@@ -1,5 +1,13 @@
 {
     "DISCORD" : {
         "LOGIN_TOKEN" : "<Replace with Login Token>"
+    },
+    "REDIS": {
+        "//": "See https://github.com/NodeRedis/node-redis for more options",
+        "host": "127.0.0.1",
+        "port": 6379,
+        "password": null,
+        "db": "dev",
+        "url": null
     }
 }

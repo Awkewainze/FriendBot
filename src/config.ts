@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-
+import { ClientOpts } from "redis";
 let config: Config;
 try {
     if (fs.existsSync(path.join(__dirname, "..", "config.json"))) {
@@ -10,6 +10,9 @@ try {
         config = {
             DISCORD: {
                 LOGIN_TOKEN: process.env["DISCORD_LOGIN_TOKEN"]
+            },
+            REDIS: {
+                url: process.env["REDIS_URL"]
             }
         };
     }
@@ -24,4 +27,5 @@ export declare type Config = {
     DISCORD: {
         LOGIN_TOKEN: string;
     };
+    REDIS: ClientOpts;
 };

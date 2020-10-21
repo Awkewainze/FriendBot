@@ -1,3 +1,4 @@
+import { RedisClient } from "redis";
 import { inject, Lifecycle, scoped, singleton } from "tsyringe";
 import { Check, Duration, Timer } from "../utils";
 
@@ -39,24 +40,22 @@ export class GuildMemberAndChannelScopedIndex extends Index {
     }
 }
 
-export abstract class CachingService {
-    get type(): "Persistent" | "Nonpersistent" {
-        return "Nonpersistent";
-    }
-    abstract get<T>(key: string): Promise<T>;
-    abstract getOrAdd<T>(key: string, value: T, cacheTime?: Duration): Promise<T>;
-    abstract exists(key: string): Promise<boolean>;
-    abstract set<T>(key: string, value: T, cacheTime?: Duration): Promise<void>;
+export interface CachingService {
+    get<T>(key: string): Promise<T>;
+    getOrAdd<T>(key: string, value: T, cacheTime?: Duration): Promise<T>;
+    exists(key: string): Promise<boolean>;
+    set<T>(key: string, value: T, cacheTime?: Duration): Promise<void>;
 }
 
 /**
  * Holds value even if bot is restarted
  * * Values must be serializable!
  */
-export abstract class PersistentCachingService extends CachingService {
-    get type(): "Persistent" | "Nonpersistent" {
-        return "Persistent";
-    }
+export interface PersistentCachingService {
+    get<T extends JsonSerializable>(key: string): Promise<T>;
+    getOrAdd<T extends JsonSerializable>(key: string, value: T, cacheTime?: Duration): Promise<T>;
+    exists(key: string): Promise<boolean>;
+    set<T extends JsonSerializable>(key: string, value: T, cacheTime?: Duration): Promise<void>;
 }
 
 export class KeyNotFoundError extends Error {
@@ -69,7 +68,7 @@ export class KeyNotFoundError extends Error {
 }
 
 @singleton()
-export class InMemoryCachingService extends CachingService {
+export class InMemoryCachingService implements CachingService {
     private readonly localCache: { [key: string]: unknown } = {};
     private readonly cacheTimers: { [key: string]: Timer } = {};
 
@@ -117,16 +116,20 @@ export class InMemoryCachingService extends CachingService {
  * @ignore
  */
 @singleton()
-export class FakePersistentCachingService extends PersistentCachingService {
+export class FakePersistentCachingService implements PersistentCachingService {
     private readonly localCache: { [key: string]: string } = {};
     private readonly cacheTimers: { [key: string]: Timer } = {};
 
-    async get<T>(key: string): Promise<T> {
+    async get<T extends JsonSerializable>(key: string): Promise<T> {
         Check.verifyNotNull(this.localCache[key], new KeyNotFoundError(key));
         return JSON.parse(this.localCache[key]);
     }
 
-    async getOrAdd<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<T> {
+    async getOrAdd<T extends JsonSerializable>(
+        key: string,
+        value: T,
+        cacheTime: Duration = Duration.forever()
+    ): Promise<T> {
         if (Check.isNull(this.localCache[key])) {
             this.localCache[key] = JSON.stringify(value);
             if (!cacheTime.isForever()) {
@@ -146,7 +149,11 @@ export class FakePersistentCachingService extends PersistentCachingService {
         return Check.isNotNull(this.localCache[key]);
     }
 
-    async set<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
+    async set<T extends JsonSerializable>(
+        key: string,
+        value: T,
+        cacheTime: Duration = Duration.forever()
+    ): Promise<void> {
         this.localCache[key] = JSON.stringify(value);
         if (Check.isNotNull(this.cacheTimers[key])) {
             this.cacheTimers[key].stop();
@@ -161,17 +168,55 @@ export class FakePersistentCachingService extends PersistentCachingService {
 }
 
 @singleton()
-export class RedisCachingService extends PersistentCachingService {
-    get<T>(key: string): Promise<T> {
-        throw new Error("Method not implemented.");
+export class RedisCachingService implements PersistentCachingService {
+    constructor(private readonly client: RedisClient) {}
+    get<T extends JsonSerializable>(key: string): Promise<T> {
+        return new Promise((resolve, reject) => {
+            this.client.get(key, (err, result) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                resolve(JSON.parse(result));
+            });
+        });
     }
-    getOrAdd<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<T> {
-        throw new Error("Method not implemented.");
+    async getOrAdd<T extends JsonSerializable>(
+        key: string,
+        value: T,
+        cacheTime: Duration = Duration.forever()
+    ): Promise<T> {
+        if (await this.exists(key)) {
+            return await this.get(key);
+        }
+
+        await this.set(key, value, cacheTime);
+        return value;
     }
     exists(key: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            this.client.exists(key, (err, result) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                if (result > 0) {
+                    resolve(true);
+                    return;
+                }
+                resolve(false);
+            });
+        });
     }
-    set<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
-        throw new Error("Method not implemented.");
+    set<T extends JsonSerializable>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this.client.set(key, JSON.stringify(value), "", cacheTime.toMilliseconds(), (err, _) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                resolve();
+            });
+        });
     }
 }
