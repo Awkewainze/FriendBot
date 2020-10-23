@@ -63,7 +63,7 @@ export class Optional<T> {
      * @returns Either the {@link Optional}'s value or, if it doesn't exist, the value from the provided method.
      */
     orElseGet(getValue: Provider<T>): T {
-        if (!this.empty) this.value;
+        if (!this.empty) return this.value;
         return getValue();
     }
 
