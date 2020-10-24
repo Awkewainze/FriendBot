@@ -23,5 +23,7 @@ module.exports = {
         "max-len": ["warn", { "code": 120, "ignoreComments": true }],
         "arrow-parens": ["warn", "as-needed"],
         "@typescript-eslint/array-type": ["error", { default: "generic" }],
+        "quotes": ["error", "double"],
+        "eol-last": ["error", "always"]
     }
 };
