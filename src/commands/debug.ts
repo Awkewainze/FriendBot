@@ -11,6 +11,7 @@ export class DebugCommand extends Command {
         this.index = index.addScope("DebugCommand");
     }
     async check(message: Message): Promise<boolean> {
+        console.log(message.content);
         return /^debug/i.test(message.content);
     }
 

@@ -6,7 +6,6 @@ import {
     VoiceBroadcast,
     VoiceConnection
 } from "discord.js";
-import moment, { Moment } from "moment";
 import { Readable } from "stream";
 import { Check } from "./check";
 import { Duration } from "./duration";
@@ -19,7 +18,6 @@ import { Timer } from "./timer";
  */
 export class ActivityTrackingVoiceConnection {
     private _wrappedVoiceConnection: VoiceConnection;
-    private _lastActivity: Moment;
     private _isCurrentlyActive = false;
     private get isCurrentlyActive(): boolean {
         return this._isCurrentlyActive;
@@ -35,14 +33,6 @@ export class ActivityTrackingVoiceConnection {
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
-
-    /**
-     * Gets the last activity detected on this connection. Returns `now` if currently active
-     * @returns Moment of last activity, is now if currently active.
-     */
-    public get lastActivity(): Moment {
-        return this.isCurrentlyActive ? moment() : this._lastActivity;
-    }
 
     /**
      * Gets the underlying Discord [VoiceConnection](https://discord.js.org/#/docs/main/stable/class/VoiceConnection).
@@ -135,7 +125,6 @@ export class ActivityTrackingVoiceConnection {
     }
 
     private resetLastActivity(): void {
-        this._lastActivity = moment();
         (this.timer?.reset.bind(this.timer) || noop)();
     }
 }

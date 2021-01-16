@@ -1,5 +1,5 @@
 import { Message, MessageEmbed } from "discord.js";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { injectable } from "tsyringe";
 import { getExtraInfo } from "../utils";
 import { Command } from "./command";
@@ -30,10 +30,14 @@ export class InspectCommand extends Command {
             embed.addField("Bot:", "This is a bot!", true);
         }
         embed
-            .addField("Joined The Server On:", `${moment.utc(info.member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+            .addField(
+                "Joined The Server On:",
+                `${DateTime.fromJSDate(info.member.joinedAt).setLocale("en-us").toLocaleString()}`,
+                true
+            )
             .addField(
                 "Account Created On:",
-                `${moment.utc(info.member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
+                `${DateTime.fromJSDate(info.member.user.createdAt).setLocale("en-us").toLocaleString()}`,
                 true
             )
             .setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`);

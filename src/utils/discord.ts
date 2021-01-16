@@ -113,6 +113,12 @@ export class Emojis {
             snowflake: "765852438716350484"
         };
     }
+    static get Howdy(): StaticEmoji {
+        return {
+            name: "howdy",
+            snowflake: "777399898310967317"
+        };
+    }
 
     static get PositiveReactionCharacters(): Array<string> {
         return ["😍", "🤩", "❤️", "💕", "😻"];

@@ -26,7 +26,7 @@ export class Check {
      * @typeParam T Type of value being check for null.
      */
     static verifyNotNull<T>(value: T, errorOrMsg?: string | Error): void {
-        if (value === null || value === undefined) {
+        if (!this.isNotNull(value)) {
             this.throwBasedOnType(errorOrMsg || "Value is null");
         }
     }
@@ -37,7 +37,7 @@ export class Check {
      * @param errorOrMsg Error or message to be used instead of generic.
      */
     static verifyPositive(value: number, errorOrMsg?: string | Error): void {
-        if (typeof value !== "number" || value <= 0) {
+        if (!this.isPositive(value)) {
             this.throwBasedOnType(errorOrMsg || "Value is not positive");
         }
     }
@@ -48,7 +48,7 @@ export class Check {
      * @param errorOrMsg Error or message to be used instead of generic.
      */
     static verifyNotNegative(value: number, errorOrMsg?: string | Error): void {
-        if (typeof value !== "number" || value < 0) {
+        if (!this.isNotNegative(value)) {
             this.throwBasedOnType(errorOrMsg || "Value is negative");
         }
     }
@@ -68,10 +68,20 @@ export class Check {
      * Checks if a value is `null` or `undefined`.
      * @param value Value to check if `null` or `undefined`.
      * @typeParam T Type of the value.
-     * @returns `true` if the value is`null` or `undefined`, otherwise `false`.
+     * @returns `true` if the value is `null` or `undefined`, otherwise `false`.
      */
     static isNull<T>(value: T): boolean {
         return value === null || value === undefined;
+    }
+
+    /**
+     * Checks if a value is `null`, `undefined`, or a string containing only whitespace characters (including no characters).
+     * @param value Value to check if `null`, `undefined`, or a string containing only whitespace characters (including no characters).
+     * @typeParam T Type of the value.
+     * @returns `true` if the value is `null`, `undefined`, or a string containing only whitespace characters (including no characters), otherwise `false`.
+     */
+    static isNullOrEmpty(value: string): boolean {
+        return value === null || value === undefined || typeof value !== "string" || value.trim() === "";
     }
 
     /**
@@ -82,6 +92,16 @@ export class Check {
      */
     static isNotNull<T>(value: T): boolean {
         return !this.isNull(value);
+    }
+
+    /**
+     * Checks if a value is not `null`, `undefined`, or a string containing only whitespace characters (including no characters).
+     * @param value Value to check if not `null`, `undefined`, or a string containing only whitespace characters (including no characters).
+     * @typeParam T Type of the value.
+     * @returns `true` if the value is not `null`, `undefined`, or a string containing only whitespace characters (including no characters), otherwise `false`.
+     */
+    static isNotNullOrEmpty(value: string): boolean {
+        return !this.isNullOrEmpty(value);
     }
 
     /**

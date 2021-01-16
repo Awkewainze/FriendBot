@@ -7,6 +7,7 @@ import {
     GoldWatchCommand,
     InspectCommand,
     MultipartExampleCommand,
+    OnHowdyCommand,
     ReactToPetsCommand,
     SimpleMultipartExampleCommand,
     SusCommand,
@@ -53,6 +54,7 @@ container.register("Command", { useClass: InspectCommand });
 container.register("Command", { useClass: SusCommand });
 container.register("Command", { useClass: VillagerCommand });
 container.register("Command", { useClass: ReactToPetsCommand });
+container.register("Command", { useClass: OnHowdyCommand });
 
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });

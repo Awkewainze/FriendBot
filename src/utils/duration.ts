@@ -1,10 +1,11 @@
+import { Duration as LuxonDuration } from "luxon";
 import { Check } from "./check";
 import { randInt } from "./math";
 
 /**
  * Translate times between each other easier for cleaner code. I.e. `Duration.fromMinutes(27).toSeconds();`
  * !(DANGER) This should not be used with real Dates. In the real world, not every day has 24 hours, and time is weird. This is just a simple abstraction.
- * If you want real time adding on Dates, use Moment or similar library.
+ * If you want real time adding on Dates, use Luxon directly.
  *
  * Can be used for simple conversions, I recommend going from bigger to smaller because of floating point errors though i.e. `Duration.fromDays().toSeconds();`
  * I also recommend checking {@link isForever} for unique cases.
@@ -33,6 +34,9 @@ export class Duration {
     isForever(): boolean {
         return this.forever;
     }
+    toLuxonDuration(): LuxonDuration {
+        return LuxonDuration.fromMillis(this.toMilliseconds());
+    }
     add(duration: Duration): Duration {
         return new Duration(this.milliseconds + duration.toMilliseconds(), this.forever || duration.forever);
     }
@@ -40,24 +44,28 @@ export class Duration {
         return new Duration(this.milliseconds * times, this.forever);
     }
     static fromMilliseconds(milliseconds: number): Duration {
-        Check.verifyNotNegative(milliseconds, "During must be positive");
+        Check.verifyNotNegative(milliseconds, "Duration must be positive");
         return new Duration(milliseconds);
     }
     static fromSeconds(seconds: number): Duration {
-        Check.verifyNotNegative(seconds, "During must be positive");
+        Check.verifyNotNegative(seconds, "Duration must be positive");
         return new Duration(seconds * 1000);
     }
     static fromMinutes(minutes: number): Duration {
-        Check.verifyNotNegative(minutes, "During must be positive");
+        Check.verifyNotNegative(minutes, "Duration must be positive");
         return this.fromSeconds(minutes * 60);
     }
     static fromHours(hours: number): Duration {
-        Check.verifyNotNegative(hours, "During must be positive");
+        Check.verifyNotNegative(hours, "Duration must be positive");
         return this.fromMinutes(hours * 60);
     }
     static fromDays(days: number): Duration {
-        Check.verifyNotNegative(days, "During must be positive");
+        Check.verifyNotNegative(days, "Duration must be positive");
         return this.fromHours(days * 24);
+    }
+    static fromLuxonDuration(duration: LuxonDuration): Duration {
+        Check.verify(duration.isValid, "Duration must be valid");
+        return this.fromMilliseconds(duration.milliseconds);
     }
     static forever(): Duration {
         return new Duration(0, true);

@@ -1,5 +1,5 @@
 import { Message, MessageEmbed, MessageReaction, Snowflake, User } from "discord.js";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { injectable } from "tsyringe";
 import {
     BaseColor,
@@ -39,7 +39,10 @@ export class SusCommand extends Command {
         const voteMsg = await message.channel.send(
             this.createEmbed(caller, susPeeps, colors).addField(
                 "Vote closes 2 mins after this message is sent!",
-                moment().utc().add(2, "minutes").format("HH:mm:ss UTC")
+                DateTime.utc()
+                    .plus(Duration.fromMinutes(2).toLuxonDuration())
+                    .setLocale("en-us")
+                    .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)
             )
         );
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));

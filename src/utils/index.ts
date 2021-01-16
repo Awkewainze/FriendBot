@@ -8,6 +8,7 @@ export * from "./functions";
 export * from "./lazy";
 export * from "./math";
 export * from "./optional";
+export * from "./parsing";
 export * from "./pronouns";
 export * from "./timer";
 export * from "./voiceConnectionWrapper";

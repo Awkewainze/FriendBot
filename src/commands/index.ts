@@ -5,6 +5,7 @@ export * from "./disconnect";
 export * from "./goldwatch";
 export * from "./inspect";
 export * from "./multipartCommandExample";
+export * from "./onHowdyCommand";
 export * from "./reactToPets";
 export * from "./simpleMultipartExample";
 export * from "./statefulCommand";

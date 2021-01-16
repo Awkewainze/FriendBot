@@ -1,3 +1,4 @@
+import { Duration as LuxonDuration } from "luxon";
 import { Check } from "./check";
 import { Duration } from "./duration";
 
@@ -10,7 +11,7 @@ export class Timer {
      * Creates a new timer, does not start until {@link start} method is called.
      * @param duration {@link Duration} this {@link Timer} will wait for.
      */
-    protected constructor(private readonly duration: Duration) {
+    protected constructor(private readonly durationMs: number) {
         this.resetPromise();
     }
 
@@ -18,9 +19,13 @@ export class Timer {
      * Creates a new timer, does not start until {@link start} method is called.
      * @param duration {@link Duration} this {@link Timer} will wait for.
      */
-    public static for(duration: Duration): Timer {
-        Check.verify(!duration.isForever(), new Error("Do not create a timer that lasts forever"));
-        return new Timer(duration);
+    public static for(duration: Duration | LuxonDuration): Timer {
+        if (duration instanceof Duration) {
+            Check.verify(!duration.isForever(), new Error("Do not create a timer that lasts forever"));
+            return new Timer(duration.toMilliseconds());
+        } else {
+            return new Timer(duration.milliseconds);
+        }
     }
 
     /**
@@ -29,7 +34,7 @@ export class Timer {
      */
     public start(): this {
         if (this.timeout) return this;
-        this.timeout = setTimeout(() => this.timeReached(), this.duration.toMilliseconds());
+        this.timeout = setTimeout(() => this.timeReached(), this.durationMs);
         return this;
     }
 
