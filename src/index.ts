@@ -4,7 +4,7 @@ import { Client as DiscordClient } from "discord.js";
 import "reflect-metadata";
 import { container } from "tsyringe";
 import { CONFIG } from "./config";
-import { OnGuildMemberAdd, OnMessage, OnReactionAdd } from "./events";
+import { OnGuildMemberAdd, OnMessage, OnReactionAdd, OnVoiceStateUpdate } from "./events";
 import "./injects";
 import { ActivityService } from "./services";
 
@@ -29,6 +29,7 @@ function main() {
     client.on("guildMemberAdd", OnGuildMemberAdd);
     client.on("message", OnMessage);
     client.on("messageReactionAdd", OnReactionAdd);
+    client.on("voiceStateUpdate", OnVoiceStateUpdate);
 
     client.login(CONFIG.DISCORD.LOGIN_TOKEN);
 }

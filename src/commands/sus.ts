@@ -127,7 +127,8 @@ export class SusCommand extends Command {
                 return prev;
             }, [] as Array<ReactionInfo>);
 
-        const ejected = mostVotes.length === 1 ? mostVotes[0].person : null;
+        const skipVotes = msg.reactions.resolve(Emojis.SkipVote.snowflake).count;
+        const ejected = mostVotes.length === 1 && mostVotes[0].count > skipVotes ? mostVotes[0].person : null;
         let firstLine: string, secondLine: string;
         if (ejected !== null) {
             await ejected.member.guild.members.resolve(ejected.member)?.voice.kick("User was kinda sus");
@@ -137,9 +138,8 @@ export class SusCommand extends Command {
                 isImposter ? " " : " not "
             }the Imposter.`;
         } else {
-            const skipVotes = msg.reactions.resolve(Emojis.SkipVote.snowflake).count;
             let reason: string;
-            if (skipVotes >= mostVotes[0].count) {
+            if (skipVotes > mostVotes[0].count) {
                 reason = "Skipped";
             } else if (mostVotes.length > 0) {
                 reason = "Tied";

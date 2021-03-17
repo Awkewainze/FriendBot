@@ -1,6 +1,7 @@
 import { createClient } from "redis";
 import { container } from "tsyringe";
 import {
+    BananaDogCommand,
     DebugCommand,
     DingCommand,
     DisconnectCommand,
@@ -11,6 +12,7 @@ import {
     ReactToPetsCommand,
     SimpleMultipartExampleCommand,
     SusCommand,
+    UserTrackingCommand,
     VillagerCommand
 } from "./commands";
 import { CONFIG } from "./config";
@@ -55,6 +57,8 @@ container.register("Command", { useClass: SusCommand });
 container.register("Command", { useClass: VillagerCommand });
 container.register("Command", { useClass: ReactToPetsCommand });
 container.register("Command", { useClass: OnHowdyCommand });
+container.register("Command", { useClass: BananaDogCommand });
+container.register("Command", { useClass: UserTrackingCommand });
 
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });

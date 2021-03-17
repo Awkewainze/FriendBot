@@ -1,3 +1,4 @@
+export * from "./bananaDog";
 export * from "./command";
 export * from "./debug";
 export * from "./ding";
@@ -10,5 +11,6 @@ export * from "./reactToPets";
 export * from "./simpleMultipartExample";
 export * from "./statefulCommand";
 export * from "./sus";
+export * from "./userTracking";
 export * from "./villager";
 // Temp comment.
