@@ -11,6 +11,7 @@ import {
     OnHowdyCommand,
     ReactToPetsCommand,
     SimpleMultipartExampleCommand,
+    SprayCommand,
     SusCommand,
     UserTrackingCommand,
     VillagerCommand
@@ -59,6 +60,7 @@ container.register("Command", { useClass: ReactToPetsCommand });
 container.register("Command", { useClass: OnHowdyCommand });
 container.register("Command", { useClass: BananaDogCommand });
 container.register("Command", { useClass: UserTrackingCommand });
+container.register("Command", { useClass: SprayCommand });
 
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });

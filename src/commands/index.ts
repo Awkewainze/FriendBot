@@ -9,6 +9,7 @@ export * from "./multipartCommandExample";
 export * from "./onHowdyCommand";
 export * from "./reactToPets";
 export * from "./simpleMultipartExample";
+export * from "./spray";
 export * from "./statefulCommand";
 export * from "./sus";
 export * from "./userTracking";

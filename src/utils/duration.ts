@@ -74,7 +74,7 @@ export class Duration {
         if (a.isForever() && b.isForever()) return Duration.forever();
 
         const left = a.isForever() ? Number.MAX_SAFE_INTEGER : a.toMilliseconds();
-        const right = a.isForever() ? Number.MAX_SAFE_INTEGER : b.toMilliseconds();
+        const right = b.isForever() ? Number.MAX_SAFE_INTEGER : b.toMilliseconds();
 
         if (left < right) {
             return Duration.fromMilliseconds(randInt(right - left) + left);

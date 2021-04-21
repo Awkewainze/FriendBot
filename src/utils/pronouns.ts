@@ -179,19 +179,19 @@ class NameAsPronouns extends PronounInfo {
         return "Use my name";
     }
     get subjective(): string {
-        return name;
+        return this.name;
     }
     get objective(): string {
-        return name;
+        return this.name;
     }
     get possessiveDeterminer(): string {
-        return name;
+        return this.name;
     }
     get possessivePronoun(): string {
         return this.possessiveName;
     }
     get reflexive(): string {
-        return name;
+        return this.name;
     }
     get pronounsEnum(): Pronouns {
         return Pronouns.NAME;
