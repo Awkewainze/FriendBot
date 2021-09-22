@@ -1,8 +1,8 @@
 import { Message } from "discord.js";
-import winston from "winston";
 import { Command } from "../../src/commands/command";
 import { CommandService } from "../../src/services/commandService";
 import { noop } from "../../src/utils";
+import { TestLogger } from "../testLogger";
 
 class MockCommand implements Command {
     public constructor(
@@ -42,7 +42,7 @@ describe("commandService", () => {
             },
             2,
             false
-        )], winston.createLogger());
+        )], TestLogger);
         const mockMessage = {
             author: {
                 username: "Test"
@@ -58,7 +58,7 @@ describe("commandService", () => {
             },
             1,
             false
-        ), new MockCommand(true, noop, 10, true)], winston.createLogger());
+        ), new MockCommand(true, noop, 10, true)], TestLogger);
         const mockMessage = {
             author: {
                 username: "Test"
