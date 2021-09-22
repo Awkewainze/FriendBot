@@ -1,37 +1,46 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("source-map-support").install();
-import { Client as DiscordClient } from "discord.js";
+import { Client as DiscordClient, Intents } from "discord.js";
+import { onShutdown } from "node-graceful-shutdown";
 import "reflect-metadata";
 import { container } from "tsyringe";
+import winston from "winston";
 import { CONFIG } from "./config";
-import { OnGuildMemberAdd, OnMessage, OnReactionAdd, OnVoiceStateUpdate } from "./events";
+import { OnGuildMemberAdd, OnGuildMemberRemove, OnMessage, OnReactionAdd, OnVoiceStateUpdate } from "./events";
 import "./injects";
 import { ActivityService } from "./services";
 
 /** @ignore */
-function main() {
-    const client = new DiscordClient();
+function main(logger: winston.Logger) {
+    const client = new DiscordClient({
+        intents: Intents.ALL
+    });
+    logger.info("Discord client starting");
 
     container.register("DiscordClient", { useValue: client });
     client.on("ready", async () => {
-        // eslint-disable-next-line no-console
-        console.log("Online");
-
-        const activityService: ActivityService = container.resolve(ActivityService);
         //Initialize activity service and start interval
-        await activityService.initializeActivityRandomization();
+        const activityService: ActivityService = container.resolve(ActivityService);
+        activityService.initializeActivityRandomization();
         client.user.setPresence({
             status: "online",
-            activity: activityService.getCurrentActivity()
+            activities: [activityService.getCurrentActivity()]
         });
+
+        logger.info("Discord client ready");
     });
 
     client.on("guildMemberAdd", OnGuildMemberAdd);
+    client.on("guildMemberRemove", OnGuildMemberRemove);
     client.on("message", OnMessage);
     client.on("messageReactionAdd", OnReactionAdd);
     client.on("voiceStateUpdate", OnVoiceStateUpdate);
 
     client.login(CONFIG.DISCORD.LOGIN_TOKEN);
+
+    onShutdown("DiscordClient", async () => {
+        client.destroy();
+    });
 }
 
-main();
+main(container.resolve("Logger"));

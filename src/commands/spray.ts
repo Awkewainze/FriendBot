@@ -1,5 +1,7 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
-import { DateTime } from "luxon";
+import { DateTime, Duration as LuxonDuration } from "luxon";
 import * as path from "path";
 import { inject, injectable } from "tsyringe";
 import {
@@ -10,9 +12,10 @@ import {
     Index,
     PersistentCachingService
 } from "../services";
-import { Duration, getMediaDir, Timer } from "../utils";
+import { getMediaDir } from "../utils";
 import { StatefulCommand } from "./statefulCommand";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 type State = {};
 
 type PersistentState = {
@@ -52,8 +55,8 @@ export class SprayCommand extends StatefulCommand<State, PersistentState> {
         const member = message.mentions.members.first();
         const currentState = await this.getPersistentState(this.guildAndMemberScopedIndex);
         const canUseCommand =
-            DateTime.fromISO(currentState.lastTimeCommandUsedISO).plus(Duration.fromHours(3).toLuxonDuration()) <
-            new DateTime();
+            DateTime.fromISO(currentState.lastTimeCommandUsedISO).plus(LuxonDuration.fromObject({ hours: 3 })) <
+            DateTime.now();
 
         if (member.voice && member.voice.channel && canUseCommand) {
             member.edit({ mute: true });
@@ -62,7 +65,8 @@ export class SprayCommand extends StatefulCommand<State, PersistentState> {
             connection.play(audioFileToPlay, {
                 volume: 0.6
             });
-            currentState.lastTimeCommandUsedISO = new DateTime().toISO();
+
+            currentState.lastTimeCommandUsedISO = DateTime.now().toISO();
             this.setPersistentState(this.guildAndMemberScopedIndex, { lastTimeCommandUsedISO: new DateTime().toISO() });
             Timer.for(Duration.fromSeconds(10))
                 .addCallback(() => {

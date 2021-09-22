@@ -1,4 +1,5 @@
 import { Message } from "discord.js";
+import winston from "winston";
 import { Command } from "../../src/commands/command";
 import { CommandService } from "../../src/services/commandService";
 import { noop } from "../../src/utils";
@@ -41,8 +42,13 @@ describe("commandService", () => {
             },
             2,
             false
-        )]);
-        await commandService.execute(null);
+        )], winston.createLogger());
+        const mockMessage = {
+            author: {
+                username: "Test"
+            }
+        };
+        await commandService.execute(mockMessage as any);
     });
     it("should not run a command after exclusive command hit", async () => {
         const commandService = new CommandService([new MockCommand(
@@ -52,7 +58,12 @@ describe("commandService", () => {
             },
             1,
             false
-        ), new MockCommand(true, noop, 10, true)]);
-        await commandService.execute(null);
+        ), new MockCommand(true, noop, 10, true)], winston.createLogger());
+        const mockMessage = {
+            author: {
+                username: "Test"
+            }
+        };
+        await commandService.execute(mockMessage as any);
     });
 });

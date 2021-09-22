@@ -1,6 +1,8 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { ActivityOptions, ActivityType, Client } from "discord.js";
-import { Duration, selectRandom, Timer } from "../utils";
 import { inject, singleton } from "tsyringe";
+import { selectRandom } from "../utils";
 
 type ActivityChoices = {
     activity: ActivityType;
@@ -62,10 +64,8 @@ export class ActivityService {
 
         this.running = true;
         while (this.running) {
-            await this.client.user.setActivity(this.newActivity());
-            await Timer.for(Duration.between(Duration.fromMinutes(15), Duration.fromMinutes(60)))
-                .start()
-                .asAwaitable();
+            this.client.user.setActivity(this.newActivity());
+            await Timer.immediateAwaitable(Duration.between(Duration.fromMinutes(15), Duration.fromMinutes(60)));
         }
     }
 

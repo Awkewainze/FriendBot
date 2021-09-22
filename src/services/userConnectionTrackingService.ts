@@ -1,7 +1,8 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { GuildMember } from "discord.js";
 import { DateTime } from "luxon";
 import { singleton } from "tsyringe";
-import { Duration, Timer } from "../utils";
 
 /**
  * Manages tracking users joining and leaving a voice channel.

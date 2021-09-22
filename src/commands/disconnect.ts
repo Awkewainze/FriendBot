@@ -20,12 +20,12 @@ export class DisconnectCommand extends Command {
 
     /** Triggered by `$disconnect`. */
     async check(message: Message): Promise<boolean> {
-        return /^\$disconnect$/i.test(message.content.trim());
+        return /^\$(disconnect|dc)$/i.test(message.content.trim());
     }
 
     /** Disconnect from server message was sent in. */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async execute(message: Message): Promise<void> {
+    async execute(_: Message): Promise<void> {
         this.voiceConnectionService.disconnect();
     }
 

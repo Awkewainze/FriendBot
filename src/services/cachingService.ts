@@ -1,6 +1,9 @@
+import { Check } from "@awkewainze/checkverify";
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { RedisClient } from "redis";
 import { inject, Lifecycle, scoped, singleton } from "tsyringe";
-import { Check, Duration, Timer } from "../utils";
+import winston from "winston";
 
 @scoped(Lifecycle.ResolutionScoped)
 export class Index {
@@ -69,19 +72,23 @@ export class KeyNotFoundError extends Error {
 
 @singleton()
 export class InMemoryCachingService implements CachingService {
+    constructor(@inject("Logger") private readonly logger: winston.Logger) {
+        this.logger.info("Starting InMem caching service");
+    }
+
     private readonly localCache: { [key: string]: unknown } = {};
     private readonly cacheTimers: { [key: string]: Timer } = {};
 
     async get<T>(key: string): Promise<T> {
-        Check.verifyNotNull(this.localCache[key], new KeyNotFoundError(key));
+        Check.verifyNotNullOrUndefined(this.localCache[key], new KeyNotFoundError(key));
         return this.localCache[key] as T;
     }
 
     async getOrAdd<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<T> {
-        if (Check.isNull(this.localCache[key])) {
+        if (Check.isNullOrUndefined(this.localCache[key])) {
             this.localCache[key] = value;
             if (!cacheTime.isForever()) {
-                if (Check.isNotNull(this.cacheTimers[key])) {
+                if (!Check.isNullOrUndefined(this.cacheTimers[key])) {
                     this.cacheTimers[key].stop();
                 }
                 this.cacheTimers[key] = Timer.for(cacheTime)
@@ -94,12 +101,12 @@ export class InMemoryCachingService implements CachingService {
     }
 
     async exists(key: string): Promise<boolean> {
-        return Check.isNotNull(this.localCache[key]);
+        return !Check.isNullOrUndefined(this.localCache[key]);
     }
 
     async set<T>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
         this.localCache[key] = value;
-        if (Check.isNotNull(this.cacheTimers[key])) {
+        if (!Check.isNullOrUndefined(this.cacheTimers[key])) {
             this.cacheTimers[key].stop();
             delete this.cacheTimers[key];
         }
@@ -117,11 +124,15 @@ export class InMemoryCachingService implements CachingService {
  */
 @singleton()
 export class FakePersistentCachingService implements PersistentCachingService {
+    constructor(@inject("Logger") private readonly logger: winston.Logger) {
+        this.logger.info("Starting FakePersistent caching service");
+    }
+
     private readonly localCache: { [key: string]: string } = {};
     private readonly cacheTimers: { [key: string]: Timer } = {};
 
     async get<T extends JsonSerializable>(key: string): Promise<T> {
-        Check.verifyNotNull(this.localCache[key], new KeyNotFoundError(key));
+        Check.verifyNotNullOrUndefined(this.localCache[key], new KeyNotFoundError(key));
         return JSON.parse(this.localCache[key]);
     }
 
@@ -130,10 +141,10 @@ export class FakePersistentCachingService implements PersistentCachingService {
         value: T,
         cacheTime: Duration = Duration.forever()
     ): Promise<T> {
-        if (Check.isNull(this.localCache[key])) {
+        if (!Check.isNullOrUndefined(this.localCache[key])) {
             this.localCache[key] = JSON.stringify(value);
             if (!cacheTime.isForever()) {
-                if (Check.isNotNull(this.cacheTimers[key])) {
+                if (!Check.isNullOrUndefined(this.cacheTimers[key])) {
                     this.cacheTimers[key].stop();
                 }
                 this.cacheTimers[key] = Timer.for(cacheTime)
@@ -146,7 +157,7 @@ export class FakePersistentCachingService implements PersistentCachingService {
     }
 
     async exists(key: string): Promise<boolean> {
-        return Check.isNotNull(this.localCache[key]);
+        return !Check.isNullOrUndefined(this.localCache[key]);
     }
 
     async set<T extends JsonSerializable>(
@@ -155,7 +166,7 @@ export class FakePersistentCachingService implements PersistentCachingService {
         cacheTime: Duration = Duration.forever()
     ): Promise<void> {
         this.localCache[key] = JSON.stringify(value);
-        if (Check.isNotNull(this.cacheTimers[key])) {
+        if (!Check.isNullOrUndefined(this.cacheTimers[key])) {
             this.cacheTimers[key].stop();
             delete this.cacheTimers[key];
         }
@@ -169,7 +180,12 @@ export class FakePersistentCachingService implements PersistentCachingService {
 
 @singleton()
 export class RedisCachingService implements PersistentCachingService {
-    constructor(private readonly client: RedisClient) {}
+    constructor(
+        @inject("RedisClient") private readonly client: RedisClient,
+        @inject("Logger") private readonly logger: winston.Logger
+    ) {
+        this.logger.info("Starting Redis caching service");
+    }
     get<T extends JsonSerializable>(key: string): Promise<T> {
         return new Promise((resolve, reject) => {
             this.client.get(key, (err, result) => {

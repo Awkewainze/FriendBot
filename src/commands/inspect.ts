@@ -17,6 +17,7 @@ export class InspectCommand extends Command {
     /** Send user info to message chat */
     async execute(message: Message): Promise<void> {
         if (message.mentions.members.size === 0) return;
+
         const info = getExtraInfo(message.mentions.members.first());
         const embed = new MessageEmbed()
             .setColor(info.member.displayColor)
@@ -26,9 +27,11 @@ export class InspectCommand extends Command {
             .addField("ID:", `${info.member.user.id}`, true)
             .addField("Status:", `${info.member.user.presence.status}`, true)
             .addField("Pronouns:", info.pronouns.map(x => x.pronounDisplayName).join(", "), true);
+
         if (info.member.user.bot) {
             embed.addField("Bot:", "This is a bot!", true);
         }
+
         embed
             .addField(
                 "Joined The Server On:",
@@ -41,6 +44,7 @@ export class InspectCommand extends Command {
                 true
             )
             .setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`);
+
         message.channel.send({ embed });
     }
 }

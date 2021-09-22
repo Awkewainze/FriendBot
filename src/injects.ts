@@ -17,32 +17,35 @@ import {
     VillagerCommand
 } from "./commands";
 import { CONFIG } from "./config";
+import { Logger } from "./logger";
 import {
     FakePersistentCachingService,
     InMemoryCachingService,
     PersistentCachingService,
     RedisCachingService
 } from "./services";
-import { Lazy, memoize } from "./utils";
+import { Lazy } from "./utils";
+
+container.register("Logger", { useValue: Logger });
 
 // Services
-container.register("CachingService", { useValue: new InMemoryCachingService() });
+container.registerInstance("CachingService", container.resolve(InMemoryCachingService));
 
 let connected = false;
 const client = createClient(CONFIG.REDIS);
 client.on("connect", () => (connected = true));
 client.on("error", () => (connected = false));
 client.on("end", () => (connected = false));
-const logWarningOnce: () => void = memoize(() =>
-    console.warn("Failed to create Redis client, falling back to fake caching service")
-);
+
+container.register("RedisClient", { useValue: client });
 
 const cachingService = new Lazy<PersistentCachingService>(() => {
     if (connected) {
-        return new RedisCachingService(client);
+        return container.resolve(RedisCachingService);
     }
-    logWarningOnce();
-    return new FakePersistentCachingService();
+
+    Logger.warn("Failed to create Redis client, falling back to fake caching service");
+    return container.resolve(FakePersistentCachingService);
 });
 
 container.register<PersistentCachingService>("PersistentCachingService", {
@@ -65,4 +68,4 @@ container.register("Command", { useClass: SprayCommand });
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });
 container.register("xCommand", { useClass: MultipartExampleCommand });
-container.register("Command", { useClass: SimpleMultipartExampleCommand });
+container.register("xCommand", { useClass: SimpleMultipartExampleCommand });

@@ -1,8 +1,10 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import * as path from "path";
 import { inject, injectable } from "tsyringe";
 import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../services";
-import { Duration, getMediaDir, getRandomFileFromDir, Timer } from "../utils";
+import { getMediaDir, getRandomFileFromDir } from "../utils";
 import { Command } from "./command";
 
 /**
@@ -32,7 +34,7 @@ export class DingCommand extends Command {
 
     /** Start or stop dings in current voice channel. */
     async execute(message: Message): Promise<void> {
-        const currentUserVoiceChannel = message?.member?.voice?.channel;
+        const currentUserVoiceChannel = message.member.voice?.channel;
         if (!currentUserVoiceChannel) return;
 
         if (/stop/i.test(message.content)) {
@@ -58,7 +60,7 @@ export class DingCommand extends Command {
                 await new Promise(resolve => {
                     stream.once("finish", resolve);
                 });
-                await Timer.for(Duration.fromMilliseconds(250)).start().asAwaitable();
+                await Timer.immediateAwaitable(Duration.fromMilliseconds(300));
             }
         } catch (err) {
             // connection not found, set enabled to false.

@@ -1,8 +1,10 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import * as path from "path";
 import { inject, injectable } from "tsyringe";
 import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../services";
-import { Duration, getMediaDir, getRandomFileFromDir, Timer } from "../utils";
+import { getMediaDir, getRandomFileFromDir } from "../utils";
 import { Command } from "./command";
 
 /**

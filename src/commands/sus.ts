@@ -1,16 +1,9 @@
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import { Message, MessageEmbed, MessageReaction, Snowflake, User } from "discord.js";
-import { DateTime } from "luxon";
+import { DateTime, Duration as LuxonDuration } from "luxon";
 import { injectable } from "tsyringe";
-import {
-    BaseColor,
-    Duration,
-    Emojis,
-    getExtraInfo,
-    makeUniqueColors,
-    MemberWithExtraInfo,
-    stripQuotes,
-    Timer
-} from "../utils";
+import { BaseColor, Emojis, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes } from "../utils";
 import { Command } from "./command";
 
 /**
@@ -40,7 +33,7 @@ export class SusCommand extends Command {
             this.createEmbed(caller, susPeeps, colors).addField(
                 "Vote closes 2 mins after this message is sent!",
                 DateTime.utc()
-                    .plus(Duration.fromMinutes(2).toLuxonDuration())
+                    .plus(LuxonDuration.fromObject({ minutes: 2 }))
                     .setLocale("en-us")
                     .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)
             )
@@ -72,9 +65,7 @@ export class SusCommand extends Command {
     ): Array<MemberWithExtraInfo> {
         const uniqueIds = [caller, ...susPeeps]
             .map(x => x.member.id)
-            .reduce((aggr, curr) => {
-                return aggr.add(curr);
-            }, new Set<string>());
+            .reduce((prev, curr) => prev.add(curr), new Set<string>());
         uniqueIds.delete(caller.member.id);
         return Array.from(uniqueIds).map(x => susPeeps.find(sus => sus.member.id === x));
     }

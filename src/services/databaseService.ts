@@ -8,10 +8,12 @@ export class DatabaseService {
         const sqlite = verbose();
         return new sqlite.Database("main");
     });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    constructor() {}
 
-    async query<T>(query: string): Promise<Array<T>> {
+    getDatabase(): Database {
+        return this.MainDB.get();
+    }
+
+    query<T>(query: string): Promise<Array<T>> {
         return new Promise((resolve, reject) => {
             this.MainDB.get().all(query, (err: Error, rows: Array<T>) => {
                 if (err) {
@@ -24,7 +26,7 @@ export class DatabaseService {
         });
     }
 
-    async foreach<T>(query: string, consumer: Consumer<T>): Promise<number> {
+    foreach<T>(query: string, consumer: Consumer<T>): Promise<number> {
         return new Promise((resolve, reject) => {
             this.MainDB.get().each(
                 query,

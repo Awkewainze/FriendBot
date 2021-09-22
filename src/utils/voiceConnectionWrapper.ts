@@ -1,3 +1,6 @@
+import { Check } from "@awkewainze/checkverify";
+import { Duration } from "@awkewainze/simpleduration";
+import { Timer } from "@awkewainze/simpletimer";
 import {
     BitFieldResolvable,
     SpeakingString,
@@ -7,10 +10,7 @@ import {
     VoiceConnection
 } from "discord.js";
 import { Readable } from "stream";
-import { Check } from "./check";
-import { Duration } from "./duration";
 import { noop } from "./functions";
-import { Timer } from "./timer";
 
 /**
  * Wrapper for Discord's [VoiceConnection](https://discord.js.org/#/docs/main/stable/class/VoiceConnection) that
@@ -81,7 +81,7 @@ export class ActivityTrackingVoiceConnection {
     }
 
     /** See {@link https://discord.js.org/#/docs/main/stable/class/VoiceConnection?scrollTo=setSpeaking} */
-    public setSpeaking(value: BitFieldResolvable<SpeakingString>): void {
+    public setSpeaking(value: BitFieldResolvable<SpeakingString, number>): void {
         this._wrappedVoiceConnection.setSpeaking(value);
     }
 
@@ -115,7 +115,7 @@ export class ActivityTrackingVoiceConnection {
      * @param consumer Method to be provided with the connection once inactive for long enough.
      */
     public whenInactiveForDuration(duration: Duration, consumer: Consumer<ActivityTrackingVoiceConnection>): this {
-        if (Check.isNotNull(this.timer)) {
+        if (!Check.isNullOrUndefined(this.timer)) {
             throw new Error("Cannot create additional timers, submit a bug if you want this.");
         }
         this.timer = Timer.for(duration).addCallback(() => {

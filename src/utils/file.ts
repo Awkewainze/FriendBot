@@ -1,6 +1,6 @@
+import { Check } from "@awkewainze/checkverify";
 import * as fs from "fs";
 import * as path from "path";
-import { Check } from "./check";
 import { selectRandom } from "./math";
 
 /**
@@ -11,7 +11,7 @@ import { selectRandom } from "./math";
  * @category File
  */
 export async function getRandomFileFromDir(directory: string, regex?: RegExp): Promise<string> {
-    Check.verifyNotNull(directory);
+    Check.verifyNotNullOrUndefined(directory);
     let files: Array<string> = await new Promise((resolve, reject) => {
         fs.readdir(directory, (err, files) => {
             if (err) return reject(err);
@@ -19,7 +19,7 @@ export async function getRandomFileFromDir(directory: string, regex?: RegExp): P
         });
     });
 
-    if (Check.isNotNull(regex)) {
+    if (!Check.isNullOrUndefined(regex)) {
         files = files.filter(file => regex.test(file));
     }
 

@@ -1,5 +1,5 @@
+import { Check } from "@awkewainze/checkverify";
 import { GuildMember } from "discord.js";
-import { Check } from "./check";
 import { BaseColor } from "./colors";
 import { PronounInfo, Pronouns } from "./pronouns";
 
@@ -30,10 +30,10 @@ export function getExtraInfo(member: GuildMember): MemberWithExtraInfo {
         const role = member.roles.cache.get(key);
         const pronounInfo = PronounInfo.getFromRole(value.name, role.name);
         const color = BaseColor.getColorFromRole(role.name);
-        if (Check.isNotNull(pronounInfo)) {
+        if (!Check.isNullOrUndefined(pronounInfo)) {
             value.pronouns.push(pronounInfo);
         }
-        if (Check.isNotNull(color)) {
+        if (!Check.isNullOrUndefined(color)) {
             value.colors.push(color);
         }
     }

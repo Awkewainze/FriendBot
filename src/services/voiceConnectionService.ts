@@ -1,38 +1,42 @@
-import { VoiceChannel } from "discord.js";
+import { Check } from "@awkewainze/checkverify";
+import { Duration } from "@awkewainze/simpleduration";
+import { StageChannel, VoiceChannel } from "discord.js";
+import { onShutdown } from "node-graceful-shutdown";
 import { inject, Lifecycle, scoped, singleton } from "tsyringe";
-import { ActivityTrackingVoiceConnection, Duration, execute } from "../utils";
+import { ActivityTrackingVoiceConnection, execute } from "../utils";
 
 /**
  * Manages mapping guild to it's respective voice connection.
+ * Prefer using GuildScopedVoiceConnectionService in commands unless needed.
  *
  * Singleton.
  * @category Service
  */
 @singleton()
 export class VoiceConnectionService {
-    private guildConnectionMap: { [id: string]: ActivityTrackingVoiceConnection } = {};
+    private readonly guildConnectionMap: Map<string, ActivityTrackingVoiceConnection> = new Map();
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    constructor() {}
+    constructor() {
+        onShutdown("VoiceConnectionService", async () => {
+            this.disconnectFromAll();
+        });
+    }
 
     /**
      * Gets an existing voice connection.
      *
      * * Prefer using `getOrCreateConnectionForGuild` unless you want this to fail
-     * * on attempt potentially, or if you know the connection exists.
+     * * on attempt potentially, or if you are sure the connection exists.
      * @param guildId Guild id to lookup voice connection for.
      * @throws If connection does not exist.
      */
     public getConnectionForGuild(guildId: string): ActivityTrackingVoiceConnection {
-        if (!this.guildConnectionMap[guildId]) {
-            throw new Error("Not in any channels");
-        }
-        const connection = this.guildConnectionMap[guildId];
-        return connection;
+        Check.verify(this.guildConnectionMap.has(guildId), "Connection does not exist");
+        return this.guildConnectionMap.get(guildId);
     }
 
     /** How long before the service closes the connection. */
-    static readonly DisconnectAfterInactiveForDuration: Duration = Duration.fromMinutes(5);
+    private static readonly DisconnectAfterInactiveForDuration: Duration = Duration.fromMinutes(5);
 
     /**
      * Gets or creates an existing voice channel.
@@ -43,17 +47,20 @@ export class VoiceConnectionService {
      */
     public async getOrCreateConnectionForGuild(
         guildId: string,
-        channelToUseIfNotInExisting: VoiceChannel
+        channelToUseIfNotInExisting: VoiceChannel | StageChannel
     ): Promise<ActivityTrackingVoiceConnection> {
-        if (!this.guildConnectionMap[guildId]) {
-            this.guildConnectionMap[guildId] = ActivityTrackingVoiceConnection.wrapConnection(
-                await channelToUseIfNotInExisting.join()
-            ).whenInactiveForDuration(VoiceConnectionService.DisconnectAfterInactiveForDuration, self => {
-                self.disconnect();
-                delete this.guildConnectionMap[guildId];
-            });
+        if (!this.guildConnectionMap.has(guildId)) {
+            this.guildConnectionMap.set(
+                guildId,
+                ActivityTrackingVoiceConnection.wrapConnection(
+                    await channelToUseIfNotInExisting.join()
+                ).whenInactiveForDuration(VoiceConnectionService.DisconnectAfterInactiveForDuration, self => {
+                    self.disconnect();
+                    this.guildConnectionMap.delete(guildId);
+                })
+            );
         }
-        return this.guildConnectionMap[guildId];
+        return this.guildConnectionMap.get(guildId);
     }
 
     /**
@@ -61,26 +68,38 @@ export class VoiceConnectionService {
      * @param guildId Guild id of which guild to disconnect from if in a voice channel.
      */
     public disconnect(guildId: string): void {
-        const connection = this.guildConnectionMap[guildId];
-        if (connection) {
+        if (this.guildConnectionMap.has(guildId)) {
+            const connection = this.guildConnectionMap.get(guildId);
             connection.disconnect();
-            (this.guildOnDisconnects[guildId] || []).forEach(execute);
-            delete this.guildConnectionMap[guildId];
-            delete this.guildOnDisconnects[guildId];
+            this.guildConnectionMap.delete(guildId);
+        }
+
+        if (this.guildOnDisconnects.has(guildId)) {
+            this.guildOnDisconnects.get(guildId).forEach(execute);
+            this.guildOnDisconnects.delete(guildId);
         }
     }
 
-    private guildOnDisconnects: { [id: string]: Array<Callback> } = {};
+    /**
+     * Disconnects from all voice chats. Should only be used if bot is shutting down.
+     */
+    public disconnectFromAll(): void {
+        for (const guild of this.guildConnectionMap.entries()) {
+            this.disconnect(guild[0]);
+        }
+    }
+
+    private guildOnDisconnects: Map<string, Array<Callback>> = new Map();
     /**
      * Add a callback to be called when this service disconnects from a channel.
      * @param guildId Guild id of which guild to subscribe to.
      * @param callback Callback that will be called when voice channel is disconnected to.
      */
     public subscribeToDisconnect(guildId: string, callback: Callback): void {
-        if (!this.guildOnDisconnects[guildId]) {
-            this.guildOnDisconnects[guildId] = [];
+        if (!this.guildOnDisconnects.has(guildId)) {
+            this.guildOnDisconnects.set(guildId, []);
         }
-        this.guildOnDisconnects[guildId].push(callback);
+        this.guildOnDisconnects.set(guildId, [...this.guildOnDisconnects.get(guildId), callback]);
     }
 }
 
@@ -91,19 +110,21 @@ export class GuildScopedVoiceConnectionService {
         @inject("GuildId") private readonly guildId: string
     ) {}
 
-    getConnection(): ActivityTrackingVoiceConnection {
+    public getConnection(): ActivityTrackingVoiceConnection {
         return this.voiceConnectionService.getConnectionForGuild(this.guildId);
     }
 
-    getOrCreateConnection(channelToUseIfNotInExisting: VoiceChannel): Promise<ActivityTrackingVoiceConnection> {
+    public getOrCreateConnection(
+        channelToUseIfNotInExisting: VoiceChannel | StageChannel
+    ): Promise<ActivityTrackingVoiceConnection> {
         return this.voiceConnectionService.getOrCreateConnectionForGuild(this.guildId, channelToUseIfNotInExisting);
     }
 
-    disconnect(): void {
+    public disconnect(): void {
         this.voiceConnectionService.disconnect(this.guildId);
     }
 
-    subscribeToDisconnect(callback: Callback): void {
+    public subscribeToDisconnect(callback: Callback): void {
         this.voiceConnectionService.subscribeToDisconnect(this.guildId, callback);
     }
 }

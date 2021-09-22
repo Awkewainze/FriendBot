@@ -12,8 +12,8 @@ describe("file", () => {
         return file.getRandomFileFromDir("src/notExistingFolder").catch(e =>
             expect(e).toMatchObject({
                 code: "ENOENT",
-                errno: -2,
-                path: "src/notExistingFolder",
+                errno: expect.any(Number),
+                path: expect.stringMatching(/.*src([\/,\\]{1,2})notExistingFolder/i),
                 syscall: "scandir"
             })
         );
