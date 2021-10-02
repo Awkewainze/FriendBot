@@ -7,4 +7,11 @@ describe("math", () => {
         expect(random).toBeGreaterThanOrEqual(1);
         expect(random).toBeLessThanOrEqual(10);
     });
+
+    it("should return a true random number", () => {
+        const random = math.cryptoRandInt(100);
+
+        expect(random).toBeGreaterThan(-1);
+        expect(random).toBeLessThan(100);
+    });
 });

@@ -184,6 +184,7 @@ export class RedisCachingService implements PersistentCachingService {
         @inject("RedisClient") private readonly client: RedisClient,
         @inject("Logger") private readonly logger: winston.Logger
     ) {
+        this.logger = this.logger.child({ src: this.constructor.name });
         this.logger.info("Starting Redis caching service");
     }
     get<T extends JsonSerializable>(key: string): Promise<T> {
@@ -226,13 +227,19 @@ export class RedisCachingService implements PersistentCachingService {
     }
     set<T extends JsonSerializable>(key: string, value: T, cacheTime: Duration = Duration.forever()): Promise<void> {
         return new Promise((resolve, reject) => {
-            this.client.set(key, JSON.stringify(value), "", cacheTime.toMilliseconds(), (err, _) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const cb = (err: Error | null, _: "OK" | undefined) => {
                 if (err) {
                     reject(err);
                     return;
                 }
                 resolve();
-            });
+            };
+            if (cacheTime.isForever()) {
+                this.client.set(key, JSON.stringify(value), cb);
+            } else {
+                this.client.set(key, JSON.stringify(value), "EX", cacheTime.toSeconds(), cb);
+            }
         });
     }
 }

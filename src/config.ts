@@ -8,15 +8,6 @@ try {
     if (fs.existsSync(path.join(__dirname, "..", "config.json"))) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         config = require("../config.json");
-    } else if (process.env["DISCORD_LOGIN_TOKEN"] !== undefined && process.env["REDIS_URL"]) {
-        config = {
-            DISCORD: {
-                LOGIN_TOKEN: process.env["DISCORD_LOGIN_TOKEN"]
-            },
-            REDIS: {
-                url: process.env["REDIS_URL"]
-            }
-        };
     } else {
         throw new Error("Missing config information");
     }
@@ -31,4 +22,12 @@ export declare type Config = {
         LOGIN_TOKEN: string;
     };
     REDIS: ClientOpts;
+    PLEX: {
+        Identifier: string;
+        Login: string;
+        Password: string;
+        Uri: string;
+        Root: string;
+        Transforms: Array<{ type: "replace"; from: string; to: string }>;
+    };
 };

@@ -4,6 +4,7 @@ export * from "./debug";
 export * from "./ding";
 export * from "./disconnect";
 export * from "./goldwatch";
+export * from "./gwentCommand";
 export * from "./inspect";
 export * from "./multipartCommandExample";
 export * from "./onHowdyCommand";

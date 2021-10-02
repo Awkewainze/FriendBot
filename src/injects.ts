@@ -6,6 +6,7 @@ import {
     DingCommand,
     DisconnectCommand,
     GoldWatchCommand,
+    GwentCommand,
     InspectCommand,
     MultipartExampleCommand,
     OnHowdyCommand,
@@ -33,8 +34,14 @@ container.registerInstance("CachingService", container.resolve(InMemoryCachingSe
 
 let connected = false;
 const client = createClient(CONFIG.REDIS);
-client.on("connect", () => (connected = true));
-client.on("error", () => (connected = false));
+client.on("connect", () => {
+    connected = true;
+    Logger.info("Redis connected");
+});
+client.on("error", (...args: Array<any>) => {
+    connected = false;
+    Logger.error(args);
+});
 client.on("end", () => (connected = false));
 
 container.register("RedisClient", { useValue: client });
@@ -64,6 +71,7 @@ container.register("Command", { useClass: OnHowdyCommand });
 container.register("Command", { useClass: BananaDogCommand });
 container.register("Command", { useClass: UserTrackingCommand });
 container.register("Command", { useClass: SprayCommand });
+container.register("Command", { useClass: GwentCommand });
 
 // Disabled Commands
 container.register("xCommand", { useClass: DebugCommand });
