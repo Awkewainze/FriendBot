@@ -4,6 +4,8 @@ import winston from "winston";
 import * as dotenv from "dotenv";
 import { createPlexConfig } from "./plex";
 import { PlexConfig } from "./plex";
+import path from "path";
+import * as fs from "fs";
 let config: Config;
 try {
     dotenv.config();
@@ -18,8 +20,16 @@ try {
         }
     };
 
+    let jsonConfig: Partial<Config>;
+    if (fs.existsSync(path.join(__dirname, "..", "config.json"))) {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        jsonConfig = require("../config.json");
+    } else {
+        jsonConfig = {};
+    }
+
     if (process.env.PLEX_ENABLED) {
-        config.PLEX = createPlexConfig();
+        config.PLEX = createPlexConfig(jsonConfig);
     } else {
         config.PLEX = {};
     }
