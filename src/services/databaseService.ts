@@ -1,34 +1,36 @@
-import { Database, verbose } from "sqlite3";
-import { singleton } from "tsyringe";
+import { Database, ISqlite } from "sqlite";
+import { inject, singleton } from "tsyringe";
 import { Lazy } from "../utils";
+import winston from "winston";
+import RunResult = ISqlite.RunResult;
 
 @singleton()
 export class DatabaseService {
-    private readonly MainDB: Lazy<Database> = new Lazy<Database>(() => {
-        const sqlite = verbose();
-        return new sqlite.Database("main");
-    });
+    constructor(
+        @inject("Database") private readonly MainDB: Lazy<Promise<Database>>,
+        @inject("Logger") private readonly logger: winston.Logger
+    ) {
+        this.logger = this.logger.child({ src: "DatabaseService" });
+    }
 
-    getDatabase(): Database {
+    getDatabase(): Promise<Database> {
         return this.MainDB.get();
     }
 
-    query<T>(query: string): Promise<Array<T>> {
-        return new Promise((resolve, reject) => {
-            this.MainDB.get().all(query, (err: Error, rows: Array<T>) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-
-                resolve(rows);
-            });
-        });
+    query<T>(query: string, ...params: Array<string>): Promise<Array<T>> {
+        // const db = await this.getDatabase();
+        return this.getDatabase().then(db => db.all(query, ...params));
     }
 
-    foreach<T>(query: string, consumer: Consumer<T>): Promise<number> {
+    get<T>(query: string, ...params: Array<string>): Promise<T> {
+        return this.getDatabase().then(db => db.get<T>(query, ...params));
+    }
+
+    async foreach<T>(query: string, consumer: Consumer<T>): Promise<number> {
+        const db = await this.getDatabase();
+
         return new Promise((resolve, reject) => {
-            this.MainDB.get().each(
+            db.each(
                 query,
                 (err: Error, row: T) => {
                     if (err) return;
@@ -43,5 +45,12 @@ export class DatabaseService {
                 }
             );
         });
+    }
+
+    async insert(query: string, ...params: Array<string>): Promise<RunResult> {
+        const db = await this.getDatabase();
+
+        const stmt = await db.prepare(query);
+        return await stmt.run(params);
     }
 }

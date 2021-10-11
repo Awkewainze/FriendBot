@@ -26,6 +26,9 @@ import {
     RedisCachingService
 } from "./services";
 import { Lazy } from "./utils";
+import * as sqlite3 from "sqlite3";
+import { Database, open } from "sqlite";
+import { DatabaseService } from "./services/databaseService";
 
 container.register("Logger", { useValue: Logger });
 
@@ -58,6 +61,23 @@ const cachingService = new Lazy<PersistentCachingService>(() => {
 container.register<PersistentCachingService>("PersistentCachingService", {
     useFactory: _ => cachingService.get()
 });
+
+container.register<Lazy<Promise<Database>>>("Database", {
+    useFactory: () =>
+        new Lazy<Promise<Database>>(() => {
+            return open({
+                filename: "database/sqlite",
+                driver: sqlite3.Database
+            }).catch(e => {
+                // TODO better handle this error and ensure it logs correctly
+                // eslint-disable-next-line no-console
+                console.error(e);
+                throw e;
+            });
+        })
+});
+
+container.register<DatabaseService>("DatabaseService", { useClass: DatabaseService });
 
 // Active Commands
 container.register("Command", { useClass: DingCommand });
