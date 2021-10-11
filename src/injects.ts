@@ -28,6 +28,7 @@ import {
 import { Lazy } from "./utils";
 import * as sqlite3 from "sqlite3";
 import { Database, open } from "sqlite";
+import CringeCashService from "./services/cringeCashService";
 import { DatabaseService } from "./services/databaseService";
 
 container.register("Logger", { useValue: Logger });
@@ -78,6 +79,7 @@ container.register<Lazy<Promise<Database>>>("Database", {
 });
 
 container.register<DatabaseService>("DatabaseService", { useClass: DatabaseService });
+container.register<CringeCashService>("CringeCashService", { useClass: CringeCashService });
 
 // Active Commands
 container.register("Command", { useClass: DingCommand });
