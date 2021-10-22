@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("source-map-support").install();
+
+import { boot } from "./boot";
 import { Client as DiscordClient, Intents } from "discord.js";
 import { onShutdown } from "node-graceful-shutdown";
 import "reflect-metadata";
@@ -11,7 +13,9 @@ import "./injects";
 import { ActivityService } from "./services";
 
 /** @ignore */
-function main(logger: winston.Logger) {
+async function main(logger: winston.Logger) {
+    await boot(container);
+
     const client = new DiscordClient({
         intents: Intents.ALL
     });

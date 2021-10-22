@@ -2,6 +2,7 @@ import { TestLogger } from "../testLogger";
 import CringeCashService from "../../src/services/cringeCashService";
 import MockDatabaseService from "../mocks/mockDatabaseService";
 import faker from "faker";
+import { CringeCashMigration } from "../../src/boot/sqlite";
 
 const mockDatabaseService = new MockDatabaseService();
 const regenerateUserId = (): string => Math.abs(Math.round(faker.datatype.number())).toString();
@@ -11,7 +12,8 @@ let userId = regenerateUserId();
 let service = instantiate();
 
 beforeAll(async () => {
-    await service.setupDatabase();
+    const db = await mockDatabaseService.getDatabase();
+    await new CringeCashMigration().run(db);
 });
 
 beforeEach(async () => {

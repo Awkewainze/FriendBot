@@ -16,20 +16,6 @@ export default class CringeCashService {
         this.logger = this.logger.child({ src: "CringeCashService" });
     }
 
-    // TODO redo this to not cause a race condition
-    // TODO what if we instantiate as we're needing to make queries?
-    async setupDatabase(): Promise<void> {
-        // eslint-disable-next-line no-console
-        console.log("SETTING UP DB");
-        const db = await this.databaseService.getDatabase();
-        await db.run(`
-            CREATE TABLE IF NOT EXISTS cashBalance (
-                discordId TEXT UNIQUE,
-                balance INT
-            )
-        `);
-    }
-
     getBalance(userId: string): Promise<number> {
         return this.databaseService
             .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
