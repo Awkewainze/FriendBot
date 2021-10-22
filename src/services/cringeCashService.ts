@@ -55,7 +55,7 @@ export default class CringeCashService {
         return balance;
     }
 
-    async changeBalance(userId: string, difference: number): Promise<number> {
+    async makeTransaction(userId: string, difference: number): Promise<number> {
         const balance = await this.upsertBalance(userId);
         const amountRounded = Math.floor(difference);
 
