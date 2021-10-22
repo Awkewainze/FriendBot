@@ -16,6 +16,13 @@ export default class CringeCashService {
         this.logger = this.logger.child({ src: "CringeCashService" });
     }
 
+    /**
+     * Retrieves a user's balance.
+     * If the user does not have a balance yet, will create one for them (set at 0).
+     *
+     * @param {string} userId
+     * @returns {Promise<number>} - the user's balance
+     */
     getBalance(userId: string): Promise<number> {
         return this.databaseService
             .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
@@ -28,6 +35,16 @@ export default class CringeCashService {
             });
     }
 
+    /**
+     * Creates a new account for a given user id.
+     * DOES NOT CHECK IF THE USER EXISTS BEFORE CREATION!
+     * If you want to create a user if they don't exist, use getBalance or makeTransaction.
+     * If the user already exists, this will throw an error.
+     *
+     * @param {string} userId
+     * @param {number} initialBalance - the balance to set the user at
+     * @returns {Promise<number>} - the user's balance after creation
+     */
     async createAccount(userId: string, initialBalance = 0): Promise<number> {
         if (initialBalance < 0) {
             initialBalance = 0;
@@ -43,6 +60,16 @@ export default class CringeCashService {
         return initialBalance;
     }
 
+    /**
+     * Makes a transaction for a given user.
+     * If the difference is a decimal, it will be floored to the integer below it.
+     * If the difference is positive, will add balance - if it's negative, will subtract balance.
+     * If the user's resulting balance would be null, will throw an error.
+     *
+     * @param {string} userId
+     * @param {number} difference
+     * @returns {Promise<number>} - the balance after the transaction has completed
+     */
     async makeTransaction(userId: string, difference: number): Promise<number> {
         const balance = await this.getBalance(userId);
         const amountRounded = Math.floor(difference);
