@@ -14,11 +14,13 @@ export default class CringeCashService {
         @inject("Logger") private readonly logger: winston.Logger
     ) {
         this.logger = this.logger.child({ src: "CringeCashService" });
-
-        this.configureTables();
     }
 
-    private async configureTables() {
+    // TODO redo this to not cause a race condition
+    // TODO what if we instantiate as we're needing to make queries?
+    async setupDatabase(): Promise<void> {
+        // eslint-disable-next-line no-console
+        console.log("SETTING UP DB");
         const db = await this.databaseService.getDatabase();
         await db.run(`
             CREATE TABLE IF NOT EXISTS cashBalance (
@@ -28,35 +30,35 @@ export default class CringeCashService {
         `);
     }
 
-    getBalance(userId: string): Promise<number | null> {
+    getBalance(userId: string): Promise<number> {
         return this.databaseService
             .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
             .then(result => {
                 if (!result) {
-                    return null;
+                    return this.createAccount(userId);
                 }
 
                 return Number(result.balance);
             });
     }
 
-    async createAccount(userId: string): Promise<void> {
-        await this.databaseService.insert("INSERT INTO cashBalance (discordId, balance) VALUES (?, ?)", userId, "0");
-    }
-
-    async upsertBalance(userId: string): Promise<number> {
-        const balance = await this.getBalance(userId);
-
-        if (!balance) {
-            await this.createAccount(userId);
-            return 0;
+    async createAccount(userId: string, initialBalance = 0): Promise<number> {
+        if (initialBalance < 0) {
+            initialBalance = 0;
         }
 
-        return balance;
+        initialBalance = Math.floor(initialBalance);
+
+        await this.databaseService.insert(
+            "INSERT INTO cashBalance (discordId, balance) VALUES (?, ?)",
+            userId,
+            initialBalance.toString()
+        );
+        return initialBalance;
     }
 
     async makeTransaction(userId: string, difference: number): Promise<number> {
-        const balance = await this.upsertBalance(userId);
+        const balance = await this.getBalance(userId);
         const amountRounded = Math.floor(difference);
 
         if (amountRounded === 0) {
