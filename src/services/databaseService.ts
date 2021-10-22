@@ -50,7 +50,6 @@ export class DatabaseService {
     async insert(query: string, ...params: Array<string>): Promise<RunResult> {
         const db = await this.getDatabase();
 
-        const stmt = await db.prepare(query);
-        return await stmt.run(params);
+        return await db.run(query, params);
     }
 }
