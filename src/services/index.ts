@@ -4,4 +4,5 @@ export * from "./commandService";
 export * from "./plexService";
 export * from "./userConnectionTrackingService";
 export * from "./voiceConnectionService";
+export * from "./cringeCashService";
 //
