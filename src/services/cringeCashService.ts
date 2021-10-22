@@ -15,13 +15,10 @@ export default class CringeCashService {
     ) {
         this.logger = this.logger.child({ src: "CringeCashService" });
 
-        this.logger.info("oh boy here we go!");
         this.configureTables();
-        this.test();
     }
 
     private async configureTables() {
-        this.logger.debug("Setting up tables.");
         const db = await this.databaseService.getDatabase();
         await db.run(`
             CREATE TABLE IF NOT EXISTS cashBalance (
@@ -29,21 +26,6 @@ export default class CringeCashService {
                 balance INT
             )
         `);
-    }
-
-    async test(): Promise<void> {
-        this.logger.info("Giving this a test.");
-        const balance = await this.changeBalance("12345", 100);
-
-        this.logger.info("New balance: " + balance);
-
-        const secondBalance = await this.changeBalance("12345", -100);
-
-        this.logger.info("Newer balance: " + secondBalance);
-
-        const newPerson = await this.changeBalance("1234567", 200);
-
-        this.logger.info("Newest: " + newPerson);
     }
 
     getBalance(userId: string): Promise<number | null> {
@@ -84,8 +66,9 @@ export default class CringeCashService {
         const newBalance = balance + amountRounded;
 
         if (newBalance < 0) {
-            // TODO throw error, prevent negative balances
-            return;
+            throw new Error(
+                `Cannot change balance - user ${userId} created a new balance of ${newBalance}, which is negative.`
+            );
         }
 
         await this.databaseService.query(
