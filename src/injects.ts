@@ -69,11 +69,6 @@ container.register<Lazy<Promise<Database>>>("Database", {
             return open({
                 filename: "database/sqlite",
                 driver: sqlite3.Database
-            }).catch(e => {
-                // TODO better handle this error and ensure it logs correctly
-                // eslint-disable-next-line no-console
-                console.error(e);
-                throw e;
             });
         })
 });
