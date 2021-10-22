@@ -18,7 +18,6 @@ export class DatabaseService {
     }
 
     query<T>(query: string, ...params: Array<string>): Promise<Array<T>> {
-        // const db = await this.getDatabase();
         return this.getDatabase().then(db => db.all(query, ...params));
     }
 
