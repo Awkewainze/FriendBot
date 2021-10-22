@@ -23,6 +23,11 @@ beforeEach(async () => {
     service = instantiate();
 });
 
+afterAll(async () => {
+    const db = await mockDatabaseService.getDatabase();
+    await db.close();
+});
+
 describe("cringeCashService", () => {
     it("should create an empty balance for a new user", async () => {
         const result = await instantiate().getBalance(userId);
