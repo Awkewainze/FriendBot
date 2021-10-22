@@ -47,6 +47,12 @@ describe("cringeCashService", () => {
         expect(result).toEqual(balance);
     });
 
+    it("should not allow a user to be created twice", async () => {
+        const service = instantiate();
+        await service.createAccount(userId);
+        await expect(service.createAccount(userId)).rejects.toThrowError();
+    });
+
     it("should allow transactions (adding and subtracting)", async () => {
         const service = instantiate();
         const firstTransaction = 100;
