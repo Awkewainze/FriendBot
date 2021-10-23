@@ -61,6 +61,7 @@ export class GwentCommand extends Command {
                     gwentSongs = gwentSongs.filter(x => x !== lastPlayed);
                 }
                 const selectedSong = cryptoSelectRandom(gwentSongs);
+                await this.cachingService.set(this.index.getKey(Keys.LastPlayed), selectedSong);
                 const stream = connection.play(selectedSong, {
                     volume: 0.4
                 });
