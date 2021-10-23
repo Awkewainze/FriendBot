@@ -58,6 +58,12 @@ describe("cringeCashService", () => {
         await expect(service.createAccount(userId)).rejects.toThrowError();
     });
 
+    it("should properly determine if a user has an account already", async () => {
+        const service = instantiate();
+        await service.createAccount(userId);
+        await expect(service.hasAccount(userId)).toBeTruthy();
+    });
+
     it("should allow transactions (adding and subtracting)", async () => {
         const service = instantiate();
         const firstTransaction = 100;

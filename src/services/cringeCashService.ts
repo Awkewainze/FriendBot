@@ -24,20 +24,17 @@ export default class CringeCashService {
      * @returns {Promise<number>} - the user's balance
      */
     getBalance(userId: string): Promise<number> {
-        return this.databaseService
-            .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
-            .then(result => {
-                if (!result) {
-                    return this.createAccount(userId);
-                }
+        return this.getBalanceRecord(userId).then(result => {
+            if (!result) {
+                return this.createAccount(userId);
+            }
 
-                return Number(result.balance);
-            });
+            return Number(result.balance);
+        });
     }
 
     /**
      * Creates a new account for a given user id.
-     * DOES NOT CHECK IF THE USER EXISTS BEFORE CREATION!
      * If you want to create a user if they don't exist, use getBalance or makeTransaction.
      * If the user already exists, this will throw an error.
      *
@@ -46,6 +43,10 @@ export default class CringeCashService {
      * @returns {Promise<number>} - the user's balance after creation
      */
     async createAccount(userId: string, initialBalance = 0): Promise<number> {
+        if (await this.hasAccount(userId)) {
+            throw new Error(`User '${userId}' already has a cringeCash account, cannot recreate.`);
+        }
+
         if (initialBalance < 0) {
             initialBalance = 0;
         }
@@ -93,5 +94,28 @@ export default class CringeCashService {
         );
 
         return this.getBalance(userId);
+    }
+
+    /**
+     * Checks if a given user id already has an account.
+     *
+     * @param userId
+     * @returns Promise<boolean> - true if the user has an account, false otherwise.
+     */
+    async hasAccount(userId: string): Promise<boolean> {
+        return (await this.getBalanceRecord(userId)) !== null;
+    }
+
+    /**
+     * Retrieves a balance record for a given user, or null if nonexistent.
+     *
+     * @private
+     * @param userId
+     * @returns Promise<RawBalance|null>
+     */
+    private getBalanceRecord(userId: string): Promise<RawBalance | null> {
+        return this.databaseService
+            .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
+            .then(result => (!result ? null : result));
     }
 }
