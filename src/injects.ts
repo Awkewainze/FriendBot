@@ -73,9 +73,6 @@ container.register<Lazy<Promise<Database>>>("Database", {
         })
 });
 
-container.register<DatabaseService>("DatabaseService", { useClass: DatabaseService });
-container.register<CringeCashService>("CringeCashService", { useClass: CringeCashService });
-
 // Active Commands
 container.register("Command", { useClass: DingCommand });
 container.register("Command", { useClass: DisconnectCommand });
