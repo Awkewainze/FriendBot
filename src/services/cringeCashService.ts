@@ -10,7 +10,7 @@ type RawBalance = {
 @singleton()
 export default class CringeCashService {
     constructor(
-        @inject("DatabaseService") private readonly databaseService: DatabaseService,
+        @inject(DatabaseService) private readonly databaseService: DatabaseService,
         @inject("Logger") private readonly logger: winston.Logger
     ) {
         this.logger = this.logger.child({ src: "CringeCashService" });
