@@ -1,15 +1,37 @@
-import * as fs from "fs";
-import * as path from "path";
 import { ClientOpts } from "redis";
 import { container } from "tsyringe";
 import winston from "winston";
+import * as dotenv from "dotenv";
+import { createPlexConfig } from "./plex";
+import { PlexConfig } from "./plex";
+import path from "path";
+import * as fs from "fs";
 let config: Config;
 try {
+    dotenv.config();
+    config = {
+        DISCORD: {
+            LOGIN_TOKEN: process.env.DISCORD_LOGIN_TOKEN
+        },
+        REDIS: {
+            host: process.env.REDIS_HOST,
+            port: Number(process.env.REDIS_PORT),
+            db: process.env.REDIS_DB
+        }
+    };
+
+    let jsonConfig: Partial<Config>;
     if (fs.existsSync(path.join(__dirname, "..", "config.json"))) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        config = require("../config.json");
+        jsonConfig = require("../config.json");
     } else {
-        throw new Error("Missing config information");
+        jsonConfig = {};
+    }
+
+    if (process.env.PLEX_ENABLED) {
+        config.PLEX = createPlexConfig(jsonConfig);
+    } else {
+        config.PLEX = {};
     }
 } catch (err) {
     container.resolve<winston.Logger>("Logger").error(err);
@@ -22,12 +44,5 @@ export declare type Config = {
         LOGIN_TOKEN: string;
     };
     REDIS: ClientOpts;
-    PLEX: {
-        Identifier: string;
-        Login: string;
-        Password: string;
-        Uri: string;
-        Root: string;
-        Transforms: Array<{ type: "replace"; from: string; to: string }>;
-    };
+    PLEX?: Partial<PlexConfig>;
 };

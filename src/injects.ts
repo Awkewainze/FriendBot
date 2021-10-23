@@ -26,6 +26,10 @@ import {
     RedisCachingService
 } from "./services";
 import { Lazy } from "./utils";
+import * as sqlite3 from "sqlite3";
+import { Database, open } from "sqlite";
+import CringeCashService from "./services/cringeCashService";
+import { DatabaseService } from "./services/databaseService";
 
 container.register("Logger", { useValue: Logger });
 
@@ -57,6 +61,16 @@ const cachingService = new Lazy<PersistentCachingService>(() => {
 
 container.register<PersistentCachingService>("PersistentCachingService", {
     useFactory: _ => cachingService.get()
+});
+
+container.register<Lazy<Promise<Database>>>("Database", {
+    useFactory: () =>
+        new Lazy<Promise<Database>>(() => {
+            return open({
+                filename: "database/sqlite",
+                driver: sqlite3.Database
+            });
+        })
 });
 
 // Active Commands
