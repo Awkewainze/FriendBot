@@ -1,7 +1,12 @@
 {
     "cSpell.words": [
-        "Themself"
+        "awkewainze",
+        "checkverify",
+        "Themself",
+        "tsyringe"
     ],
     "prettier.arrowParens": "avoid",
-    "prettier.printWidth": 120
+    "prettier.printWidth": 120,
+    "prettier.endOfLine": "lf",
+    "files.eol": "\n"
 }

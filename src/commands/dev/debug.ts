@@ -1,14 +1,19 @@
 import { Message } from "discord.js";
-import { inject, injectable } from "tsyringe";
+import { inject, Lifecycle, scoped } from "tsyringe";
 import winston from "winston";
-import { Command } from "./command";
+import { Permission } from "../../utils";
+import { Command } from "../command";
 
 /** @ignore */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class DebugCommand extends Command {
     constructor(@inject("Logger") private readonly logger: winston.Logger) {
         super();
         this.logger = this.logger.child({ src: this.constructor.name });
+    }
+
+    requiredPermissions(): Set<Permission> {
+        return new Set();
     }
 
     async check(message: Message): Promise<boolean> {

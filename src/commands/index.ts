@@ -1,18 +1,10 @@
-export * from "./bananaDog";
+export * from "./admin";
 export * from "./command";
-export * from "./debug";
-export * from "./ding";
-export * from "./disconnect";
-export * from "./goldwatch";
-export * from "./gwentCommand";
-export * from "./inspect";
-export * from "./multipartCommandExample";
-export * from "./onHowdyCommand";
-export * from "./reactToPets";
-export * from "./simpleMultipartExample";
+export * from "./cringeCash";
+export * from "./dev";
+export * from "./meta";
+export * from "./reactions";
+export * from "./sound";
 export * from "./spray";
-export * from "./statefulCommand";
 export * from "./sus";
-export * from "./userTracking";
-export * from "./villager";
-// Temp comment.
+// Everything must be exported here for it to be injected

@@ -1,7 +1,8 @@
 import { Message } from "discord.js";
-import { inject, injectable } from "tsyringe";
-import { GuildScopedVoiceConnectionService } from "../services";
-import { Command } from "./command";
+import { inject, Lifecycle, scoped } from "tsyringe";
+import { GuildScopedVoiceConnectionService } from "../../services";
+import { Permission } from "../../utils";
+import { Command } from "../command";
 
 /**
  * Command to manage disconnecting from server.
@@ -9,13 +10,17 @@ import { Command } from "./command";
  * Triggered by message of contents `$disconnect`
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class DisconnectCommand extends Command {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
         private readonly voiceConnectionService: GuildScopedVoiceConnectionService
     ) {
         super();
+    }
+
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound]);
     }
 
     /** Triggered by `$disconnect`. */

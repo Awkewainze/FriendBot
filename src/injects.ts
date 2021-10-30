@@ -1,22 +1,9 @@
 import { createClient } from "redis";
+import { Database, open } from "sqlite";
+import * as sqlite3 from "sqlite3";
 import { container } from "tsyringe";
-import {
-    BananaDogCommand,
-    DebugCommand,
-    DingCommand,
-    DisconnectCommand,
-    GoldWatchCommand,
-    GwentCommand,
-    InspectCommand,
-    MultipartExampleCommand,
-    OnHowdyCommand,
-    ReactToPetsCommand,
-    SimpleMultipartExampleCommand,
-    SprayCommand,
-    SusCommand,
-    UserTrackingCommand,
-    VillagerCommand
-} from "./commands";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import * as Commands from "./commands";
 import { CONFIG } from "./config";
 import { Logger } from "./logger";
 import {
@@ -26,10 +13,6 @@ import {
     RedisCachingService
 } from "./services";
 import { Lazy } from "./utils";
-import * as sqlite3 from "sqlite3";
-import { Database, open } from "sqlite";
-import CringeCashService from "./services/cringeCashService";
-import { DatabaseService } from "./services/databaseService";
 
 container.register("Logger", { useValue: Logger });
 
@@ -42,7 +25,7 @@ client.on("connect", () => {
     connected = true;
     Logger.info("Redis connected");
 });
-client.on("error", (...args: Array<any>) => {
+client.on("error", (...args: Array<unknown>) => {
     connected = false;
     Logger.error(args);
 });
@@ -60,7 +43,7 @@ const cachingService = new Lazy<PersistentCachingService>(() => {
 });
 
 container.register<PersistentCachingService>("PersistentCachingService", {
-    useFactory: _ => cachingService.get()
+    useFactory: () => cachingService.get()
 });
 
 container.register<Lazy<Promise<Database>>>("Database", {
@@ -73,21 +56,4 @@ container.register<Lazy<Promise<Database>>>("Database", {
         })
 });
 
-// Active Commands
-container.register("Command", { useClass: DingCommand });
-container.register("Command", { useClass: DisconnectCommand });
-container.register("Command", { useClass: GoldWatchCommand });
-container.register("Command", { useClass: InspectCommand });
-container.register("Command", { useClass: SusCommand });
-container.register("Command", { useClass: VillagerCommand });
-container.register("Command", { useClass: ReactToPetsCommand });
-container.register("Command", { useClass: OnHowdyCommand });
-container.register("Command", { useClass: BananaDogCommand });
-container.register("Command", { useClass: UserTrackingCommand });
-container.register("Command", { useClass: SprayCommand });
-container.register("Command", { useClass: GwentCommand });
-
-// Disabled Commands
-container.register("xCommand", { useClass: DebugCommand });
-container.register("xCommand", { useClass: MultipartExampleCommand });
-container.register("xCommand", { useClass: SimpleMultipartExampleCommand });
+Commands;

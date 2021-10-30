@@ -1,17 +1,23 @@
 import { Duration } from "@awkewainze/simpleduration";
 import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
-import { inject, injectable } from "tsyringe";
+import { inject, Lifecycle, scoped } from "tsyringe";
 import winston from "winston";
-import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index, PlexService } from "../services";
-import { cryptoSelectRandom } from "../utils";
-import { Command } from "./command";
+import {
+    CachingService,
+    GuildScopedIndex,
+    GuildScopedVoiceConnectionService,
+    Index,
+    PlexService
+} from "../../services";
+import { cryptoSelectRandom, Permission } from "../../utils";
+import { Command } from "../command";
 
 /**
  * Play Gwent music indefinitely.
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class GwentCommand extends Command {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
@@ -25,6 +31,10 @@ export class GwentCommand extends Command {
         super();
         this.index = index.addScope(this.constructor.name);
         this.logger = this.logger.child({ src: this.constructor.name });
+    }
+
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound]);
     }
 
     /** Triggered by `$gwent (start|stop)` */

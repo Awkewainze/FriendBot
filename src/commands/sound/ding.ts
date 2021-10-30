@@ -2,18 +2,20 @@ import { Duration } from "@awkewainze/simpleduration";
 import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import * as path from "path";
-import { inject, injectable } from "tsyringe";
-import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../services";
-import { getMediaDir, getRandomFileFromDir } from "../utils";
-import { Command } from "./command";
+import { inject, Lifecycle, scoped } from "tsyringe";
+import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../../services";
+import { getMediaDir, getRandomFileFromDir, Permission } from "../../utils";
+import { Command } from "../command";
 
 /**
- * Play villager noises indefinitely.
+ * Command to play "Ding"s from Destiny 2 when The Drifter starts a match of Gambit.
+ *
+ * [This](https://www.youtube.com/watch?v=dbKwMq8OoRs) but indefinitely and dings are randomized.
  * @category Command
  */
-@injectable()
-export class VillagerCommand extends Command {
-    private static readonly VillagerDir = path.join(getMediaDir(), "sounds", "mcsounds", "villager-no-death-sounds");
+@scoped(Lifecycle.ResolutionScoped, "Command")
+export class DingCommand extends Command {
+    private static readonly DingFolder = path.join(getMediaDir(), "sounds", "dings");
 
     constructor(
         @inject(GuildScopedVoiceConnectionService)
@@ -22,17 +24,21 @@ export class VillagerCommand extends Command {
         @inject(GuildScopedIndex) private readonly index: Index
     ) {
         super();
-        this.index = index.addScope("VillagerCommand");
+        this.index = this.index.addScope("DingCommand");
     }
 
-    /** Triggered by `$villager (start|stop)` */
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound]);
+    }
+
+    /** Triggered by `ding (start|stop)` */
     async check(message: Message): Promise<boolean> {
-        return /^\$villager (start|stop)$/i.test(message.content.trim());
+        return /^\$ding (start|stop)$/i.test(message.content.trim());
     }
 
-    /** Starts or stops villager noises in current voice channel. */
+    /** Start or stop dings in current voice channel. */
     async execute(message: Message): Promise<void> {
-        const currentUserVoiceChannel = message?.member?.voice?.channel;
+        const currentUserVoiceChannel = message.member.voice?.channel;
         if (!currentUserVoiceChannel) return;
 
         if (/stop/i.test(message.content)) {
@@ -45,20 +51,20 @@ export class VillagerCommand extends Command {
         this.voiceConnectionService.subscribeToDisconnect(() => {
             this.cachingService.set(this.index.getKey(Keys.Enabled), false);
         });
-        this.playVillagerNoisesIndefinitely();
+        await this.playDingIndefinitely();
     }
 
-    private async playVillagerNoisesIndefinitely(): Promise<void> {
+    private async playDingIndefinitely(): Promise<void> {
         try {
             while (await this.cachingService.get(this.index.getKey(Keys.Enabled))) {
                 const connection = this.voiceConnectionService.getConnection();
-                const stream = connection.play(await getRandomFileFromDir(VillagerCommand.VillagerDir), {
+                const stream = connection.play(await getRandomFileFromDir(DingCommand.DingFolder), {
                     volume: 0.4
                 });
                 await new Promise(resolve => {
                     stream.once("finish", resolve);
                 });
-                await Timer.for(Duration.fromMilliseconds(250)).start().asAwaitable();
+                await Timer.immediateAwaitable(Duration.fromMilliseconds(300));
             }
         } catch (err) {
             // connection not found, set enabled to false.

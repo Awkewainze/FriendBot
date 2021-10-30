@@ -1,5 +1,5 @@
-import { CachingService, Index, PersistentCachingService } from "../services";
-import { Command } from "./command";
+import { CachingService, Index, PersistentCachingService } from "../../services";
+import { Command } from "../command";
 
 export abstract class StatefulCommand<State, PersistentState extends JsonSerializable> extends Command {
     constructor(

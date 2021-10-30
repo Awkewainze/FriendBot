@@ -2,16 +2,27 @@ import { Duration } from "@awkewainze/simpleduration";
 import { Timer } from "@awkewainze/simpletimer";
 import { Message, MessageEmbed, MessageReaction, Snowflake, User } from "discord.js";
 import { DateTime, Duration as LuxonDuration } from "luxon";
-import { injectable } from "tsyringe";
-import { BaseColor, Emojis, getExtraInfo, makeUniqueColors, MemberWithExtraInfo, stripQuotes } from "../utils";
+import { Lifecycle, scoped } from "tsyringe";
+import {
+    BaseColor,
+    Emojis,
+    getExtraInfo,
+    makeUniqueColors,
+    MemberWithExtraInfo,
+    Permission,
+    stripQuotes
+} from "../utils";
 import { Command } from "./command";
 
 /**
  * Starts a vote to eject the imposter(s) from the ship!
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class SusCommand extends Command {
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.ModifyOtherTemporary]);
+    }
     /** Trigger by a message containing the word `sus` and at least one user mention. */
     async check(message: Message): Promise<boolean> {
         return (

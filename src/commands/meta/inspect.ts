@@ -1,14 +1,14 @@
 import { Message, MessageEmbed } from "discord.js";
 import { DateTime } from "luxon";
-import { injectable } from "tsyringe";
-import { getExtraInfo } from "../utils";
-import { Command } from "./command";
+import { Lifecycle, scoped } from "tsyringe";
+import { getExtraInfo } from "../../utils";
+import { Command } from "../command";
 
 /**
  * Shows additional info for user in chat.
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class InspectCommand extends Command {
     /** Triggered by `inspect @user`. */
     async check(message: Message): Promise<boolean> {

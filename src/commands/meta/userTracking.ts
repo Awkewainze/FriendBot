@@ -1,14 +1,18 @@
 import { Message } from "discord.js";
-import { container, injectable } from "tsyringe";
-import { UserActivity, UserConnectionTrackingService } from "../services";
-import { Command } from "./command";
+import { container, Lifecycle, scoped } from "tsyringe";
+import { UserActivity, UserConnectionTrackingService } from "../../services";
+import { Permission } from "../../utils";
+import { Command } from "../command";
 
 /**
  * Gives simple tracking for who left and joined your channel.
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class UserTrackingCommand extends Command {
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands]);
+    }
     /** Triggered by `$wholeft` or `$whojoined`. */
     async check(message: Message): Promise<boolean> {
         return /^\$(wholeft|whojoined|wl|wj)$/i.test(message.content);

@@ -3,7 +3,7 @@ import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import { DateTime, Duration as LuxonDuration } from "luxon";
 import * as path from "path";
-import { inject, injectable } from "tsyringe";
+import { inject, Lifecycle, scoped } from "tsyringe";
 import {
     CachingService,
     GuildAndMemberScopedIndex,
@@ -12,8 +12,8 @@ import {
     Index,
     PersistentCachingService
 } from "../services";
-import { getMediaDir } from "../utils";
-import { StatefulCommand } from "./statefulCommand";
+import { getMediaDir, Permission } from "../utils";
+import { StatefulCommand } from "./dev/statefulCommand";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type State = {};
@@ -26,7 +26,7 @@ type PersistentState = {
  * Sprays someone for being lewd/puny. (Mutes them for 10 seconds).
  * @category Command
  */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class SprayCommand extends StatefulCommand<State, PersistentState> {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
@@ -44,6 +44,10 @@ export class SprayCommand extends StatefulCommand<State, PersistentState> {
         );
         this.guildAndMemberScopedIndex = this.guildAndMemberScopedIndex.addScope("SprayCommand");
         this.guildMemberAndChannelScopedIndex = this.guildMemberAndChannelScopedIndex.addScope("SprayCommand");
+    }
+
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound, Permission.ModifyOtherTemporary]);
     }
 
     /** Triggered by `$spray *mention*`. */
@@ -67,7 +71,7 @@ export class SprayCommand extends StatefulCommand<State, PersistentState> {
             });
 
             currentState.lastTimeCommandUsedISO = DateTime.now().toISO();
-            this.setPersistentState(this.guildAndMemberScopedIndex, { lastTimeCommandUsedISO: new DateTime().toISO() });
+            this.setPersistentState(this.guildAndMemberScopedIndex, { lastTimeCommandUsedISO: DateTime.now().toISO() });
             Timer.for(Duration.fromSeconds(10))
                 .addCallback(() => {
                     member.edit({ mute: false });

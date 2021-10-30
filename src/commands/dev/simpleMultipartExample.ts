@@ -1,12 +1,12 @@
 import { Message } from "discord.js";
-import { inject, injectable } from "tsyringe";
+import { inject, Lifecycle, scoped } from "tsyringe";
 import {
     CachingService,
     GuildAndMemberScopedIndex,
     GuildMemberAndChannelScopedIndex,
     Index,
     PersistentCachingService
-} from "../services";
+} from "../../services";
 import { StatefulCommand } from "./statefulCommand";
 
 type State = {
@@ -19,7 +19,7 @@ type PersistentState = {
     name: string;
 };
 
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class SimpleMultipartExampleCommand extends StatefulCommand<State, PersistentState> {
     constructor(
         @inject("CachingService") cachingService: CachingService,

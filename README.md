@@ -1,7 +1,5 @@
 # [FriendBot](https://github.com/Awkewainze/FriendBot)
 
-[![Build Status](https://travis-ci.org/Awkewainze/FriendBot.svg?branch=main)](https://travis-ci.org/Awkewainze/FriendBot)
-
 A discord bot for meme purposes and for helping out with some stuff on our server!
 
 ## Required external setup

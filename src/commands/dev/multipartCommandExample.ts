@@ -1,10 +1,10 @@
 import { Message } from "discord.js";
-import { inject, injectable } from "tsyringe";
-import { CachingService, GuildScopedIndex, Index, PersistentCachingService } from "../services";
-import { Command } from "./command";
+import { inject, Lifecycle, scoped } from "tsyringe";
+import { CachingService, GuildScopedIndex, Index, PersistentCachingService } from "../../services";
+import { Command } from "../command";
 
 /** This is the more complicated and more direct way of setting state, look at {@link SimpleMultipartExampleCommand} for simpler way to manage state. */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class MultipartExampleCommand extends Command {
     constructor(
         @inject(GuildScopedIndex) private readonly index: Index,

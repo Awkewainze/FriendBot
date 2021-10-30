@@ -1,7 +1,7 @@
 import { Database, ISqlite } from "sqlite";
 import { inject, singleton } from "tsyringe";
-import { Lazy } from "../utils";
 import winston from "winston";
+import { Lazy } from "../utils";
 import RunResult = ISqlite.RunResult;
 
 @singleton()

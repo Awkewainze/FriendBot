@@ -53,7 +53,7 @@ export class ActivityService {
     private currentActivity: ActivityOptions = null;
     private running = false;
 
-    constructor(@inject("DiscordClient") private readonly client: Client) {
+    constructor(@inject(Client) private readonly client: Client) {
         this.currentActivity = this.newActivity();
     }
 

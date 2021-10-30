@@ -1,4 +1,5 @@
 import { Message } from "discord.js";
+import { Permission } from "../utils";
 
 /**
  * Runnable based on if provided message is a trigger.
@@ -17,6 +18,14 @@ export abstract class Command {
      * @param message Message to respond or react to.
      */
     abstract execute(message: Message): Promise<void>;
+
+    /**
+     * Get the permissions a user would need to run this command. Can check additional permissions in the check method, just initial check.
+     * @returns Permissions needed to run this command.
+     */
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands]);
+    }
 
     /**
      * Where the command should be sorted relative to other commands.

@@ -1,11 +1,15 @@
 import { Message } from "discord.js";
-import { injectable } from "tsyringe";
-import { Emojis } from "../utils";
-import { Command } from "./command";
+import { Lifecycle, scoped } from "tsyringe";
+import { Emojis, Permission } from "../../utils";
+import { Command } from "../command";
 
 /** @ignore */
-@injectable()
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class OnHowdyCommand extends Command {
+    requiredPermissions(): Set<Permission> {
+        return new Set();
+    }
+
     async check(message: Message): Promise<boolean> {
         return /howdy|yeehaw|cow(boy|girl|poke)|y'all|par(t|d)ner/i.test(message.content);
     }

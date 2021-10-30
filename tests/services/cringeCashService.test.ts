@@ -1,8 +1,7 @@
-import { TestLogger } from "../testLogger";
+import { CringeCashMigration } from "../../src/boot/sqlite";
 import CringeCashService from "../../src/services/cringeCashService";
 import MockDatabaseService from "../mocks/mockDatabaseService";
-import faker from "faker";
-import { CringeCashMigration } from "../../src/boot/sqlite";
+import { TestLogger } from "../testLogger";
 
 const mockDatabaseService = new MockDatabaseService();
 const regenerateUserId = (): string => Math.abs(Math.round(faker.datatype.number())).toString();

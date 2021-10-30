@@ -1,16 +1,16 @@
 import { Message } from "discord.js";
 import * as path from "path";
-import { inject, injectable } from "tsyringe";
-import { GuildScopedVoiceConnectionService } from "../services";
-import { getMediaDir } from "../utils";
-import { Command } from "./command";
+import { inject, Lifecycle, scoped } from "tsyringe";
+import { GuildScopedVoiceConnectionService } from "../../services";
+import { getMediaDir, Permission } from "../../utils";
+import { Command } from "../command";
 
 /**
- * Plays [Christopher Walken's Pulp Fiction Speech](https://www.youtube.com/watch?v=kWp6hZ-5ndc).
+ * We also saw this dog holding a banana.
  * @category Command
  */
-@injectable()
-export class GoldWatchCommand extends Command {
+@scoped(Lifecycle.ResolutionScoped, "Command")
+export class BananaDogCommand extends Command {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
         private readonly voiceConnectionService: GuildScopedVoiceConnectionService
@@ -18,17 +18,20 @@ export class GoldWatchCommand extends Command {
         super();
     }
 
-    /** Triggered by `$goldwatch`. */
-    async check(message: Message): Promise<boolean> {
-        return /^\$goldwatch$/i.test(message.content.trim());
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound]);
     }
 
-    /** Plays gold watch speech in voice channel of the user is in. */
+    /** Triggered by `$banana`. */
+    async check(message: Message): Promise<boolean> {
+        return /^\$banana$/i.test(message.content.trim());
+    }
+
     async execute(message: Message): Promise<void> {
         const currentUserVoiceChannel = message?.member?.voice?.channel;
         if (!currentUserVoiceChannel) return;
 
-        const audioFileToPlay = path.join(getMediaDir(), "sounds", "misc", "goldwatch.mp3");
+        const audioFileToPlay = path.join(getMediaDir(), "sounds", "misc", "banana-dog.mp3");
         const connection = await this.voiceConnectionService.getOrCreateConnection(currentUserVoiceChannel);
         connection.play(audioFileToPlay, {
             volume: 0.6

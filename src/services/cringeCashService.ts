@@ -1,3 +1,4 @@
+import { Check } from "@awkewainze/checkverify";
 import { inject, singleton } from "tsyringe";
 import winston from "winston";
 import { DatabaseService } from "./databaseService";
@@ -20,17 +21,37 @@ export default class CringeCashService {
      * Retrieves a user's balance.
      * If the user does not have a balance yet, will create one for them (set at 0).
      *
+     * @param {string} guildId
      * @param {string} userId
      * @returns {Promise<number>} - the user's balance
      */
-    getBalance(userId: string): Promise<number> {
-        return this.getBalanceRecord(userId).then(result => {
-            if (!result) {
-                return this.createAccount(userId);
+    getBalance(guildId: string, userId: string): Promise<number> {
+        return this.getBalanceRecord(guildId, userId).then(result => {
+            if (Check.isNullOrUndefined(result)) {
+                return this.createAccount(guildId, userId);
             }
 
             return Number(result.balance);
         });
+    }
+
+    /**
+     * Sets the user's balance
+     * @param userId
+     * @param balance
+     */
+    async setBalance(guildId: string, userId: string, balance: number): Promise<void> {
+        Check.verifyNotNegative(balance);
+        if (this.hasAccount(guildId, userId)) {
+            await this.databaseService.query(
+                "UPDATE cashBalance SET balance=? WHERE guildId=? AND discordId=?",
+                String(balance),
+                guildId,
+                userId
+            );
+        } else {
+            await this.createAccount(guildId, userId, balance);
+        }
     }
 
     /**
@@ -42,10 +63,11 @@ export default class CringeCashService {
      * @param {number} initialBalance - the balance to set the user at
      * @returns {Promise<number>} - the user's balance after creation
      */
-    async createAccount(userId: string, initialBalance = 0): Promise<number> {
-        if (await this.hasAccount(userId)) {
-            throw new Error(`User '${userId}' already has a cringeCash account, cannot recreate.`);
-        }
+    async createAccount(guildId: string, userId: string, initialBalance = 0): Promise<number> {
+        Check.verify(
+            !(await this.hasAccount(guildId, userId)),
+            `User '${userId}' already has a cringeCash account, cannot recreate.`
+        );
 
         if (initialBalance < 0) {
             initialBalance = 0;
@@ -54,7 +76,8 @@ export default class CringeCashService {
         initialBalance = Math.floor(initialBalance);
 
         await this.databaseService.insert(
-            "INSERT INTO cashBalance (discordId, balance) VALUES (?, ?)",
+            "INSERT INTO cashBalance (guildId, discordId, balance) VALUES (?, ?, ?)",
+            guildId,
             userId,
             initialBalance.toString()
         );
@@ -71,8 +94,8 @@ export default class CringeCashService {
      * @param {number} difference
      * @returns {Promise<number>} - the balance after the transaction has completed
      */
-    async makeTransaction(userId: string, difference: number): Promise<number> {
-        const balance = await this.getBalance(userId);
+    async makeTransaction(guildId: string, userId: string, difference: number): Promise<number> {
+        const balance = await this.getBalance(guildId, userId);
         const amountRounded = Math.floor(difference);
 
         if (amountRounded === 0) {
@@ -80,20 +103,10 @@ export default class CringeCashService {
         }
 
         const newBalance = balance + amountRounded;
+        Check.verifyNotNegative(newBalance);
 
-        if (newBalance < 0) {
-            throw new Error(
-                `Cannot change balance - user ${userId} created a new balance of ${newBalance}, which is negative.`
-            );
-        }
-
-        await this.databaseService.query(
-            "UPDATE cashBalance SET balance = ? WHERE discordId = ?",
-            String(newBalance),
-            userId
-        );
-
-        return this.getBalance(userId);
+        await this.setBalance(guildId, userId, newBalance);
+        return newBalance;
     }
 
     /**
@@ -102,8 +115,8 @@ export default class CringeCashService {
      * @param userId
      * @returns Promise<boolean> - true if the user has an account, false otherwise.
      */
-    async hasAccount(userId: string): Promise<boolean> {
-        return (await this.getBalanceRecord(userId)) !== null;
+    async hasAccount(guildId: string, userId: string): Promise<boolean> {
+        return (await this.getBalanceRecord(guildId, userId)) !== null;
     }
 
     /**
@@ -113,9 +126,9 @@ export default class CringeCashService {
      * @param userId
      * @returns Promise<RawBalance|null>
      */
-    private getBalanceRecord(userId: string): Promise<RawBalance | null> {
+    private getBalanceRecord(guildId: string, userId: string): Promise<RawBalance | null> {
         return this.databaseService
-            .get<RawBalance>("SELECT * FROM cashBalance WHERE discordId = ?", userId)
+            .get<RawBalance>("SELECT * FROM cashBalance WHERE guildId=? AND discordId=?", guildId, userId)
             .then(result => (!result ? null : result));
     }
 }
