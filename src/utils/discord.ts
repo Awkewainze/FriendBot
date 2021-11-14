@@ -119,7 +119,18 @@ export class Emojis {
             snowflake: "777399898310967317"
         };
     }
-
+    static get Checkmark(): StaticEmoji {
+        return {
+            name: "ballot_box_with_check",
+            snowflake: "909312949590560768"
+        };
+    }
+    static get X(): StaticEmoji {
+        return {
+            name: "x",
+            snowflake: "909313336666112020"
+        };
+    }
     static get PositiveReactionCharacters(): Array<string> {
         return ["😍", "🤩", "❤️", "💕", "😻"];
     }

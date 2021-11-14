@@ -31,6 +31,7 @@ export class ListMyPermissionsCommand extends Command {
         await message.reply(
             Array.from(myPerms)
                 .map(x => `\`${x}\``)
+                .sort((a, b) => a.localeCompare(b))
                 .join(", ")
         );
     }

@@ -1,8 +1,10 @@
 import { Duration } from "@awkewainze/simpleduration";
 import { Timer } from "@awkewainze/simpletimer";
-import { Message, MessageEmbed, MessageReaction, Snowflake, User } from "discord.js";
+import { Message, MessageEmbed, Snowflake } from "discord.js";
 import { DateTime, Duration as LuxonDuration } from "luxon";
-import { Lifecycle, scoped } from "tsyringe";
+import { filter } from "rxjs";
+import { inject, Lifecycle, scoped } from "tsyringe";
+import { GuildScopedReactionService, ReactionService } from "../services";
 import {
     BaseColor,
     Emojis,
@@ -20,6 +22,9 @@ import { Command } from "./command";
  */
 @scoped(Lifecycle.ResolutionScoped, "Command")
 export class SusCommand extends Command {
+    constructor(@inject(GuildScopedReactionService) private readonly reactionService: ReactionService) {
+        super();
+    }
     requiredPermissions(): Set<Permission> {
         return new Set([Permission.UseCommands, Permission.ModifyOtherTemporary]);
     }
@@ -54,19 +59,19 @@ export class SusCommand extends Command {
         const userVotedFor = new Map<string, Snowflake>();
 
         // Only allow 1 vote per person by removing previous votes.
-        const callback = async (reaction: MessageReaction, user: User) => {
-            if (reaction.message.id === voteMsg.id) {
-                if (userVotedFor.has(user.id)) {
-                    await voteMsg.reactions.resolve(userVotedFor.get(user.id)).users.remove(user.id);
+        const subscription = this.reactionService
+            .getObservable()
+            .pipe(filter(x => x.reaction.message.id === voteMsg.id))
+            .subscribe(async x => {
+                if (userVotedFor.has(x.user.id)) {
+                    await voteMsg.reactions.resolve(userVotedFor.get(x.user.id)).users.remove(x.user.id);
                 }
-                userVotedFor.set(user.id, reaction.emoji.id);
-            }
-        };
-        message.client.on("messageReactionAdd", callback);
+                userVotedFor.set(x.user.id, x.reaction.emoji.id);
+            });
 
         Timer.for(Duration.fromMinutes(2))
             .addCallback(() => this.tallyVotes([caller, ...susPeeps], colors, voteMsg))
-            .addCallback(() => message.client.off("messageReactionAdd", callback))
+            .addCallback(() => subscription.unsubscribe())
             .start();
     }
 

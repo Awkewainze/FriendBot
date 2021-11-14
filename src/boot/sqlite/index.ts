@@ -3,6 +3,7 @@ import { DependencyContainer } from "tsyringe";
 import { Lazy } from "../../utils";
 import { CringeCashMigration } from "./cringeCash";
 import { PermissionsMigration } from "./permissions";
+import { UserTimeZoneMigration } from "./userTimeZones";
 import RunResult = ISqlite.RunResult;
 
 export interface Migration {
@@ -15,8 +16,10 @@ export const runMigrations = async (container: DependencyContainer): Promise<voi
 
     await new CringeCashMigration().run(db);
     await new PermissionsMigration().run(db);
+    await new UserTimeZoneMigration().run(db);
 };
 
 export * from "./cringeCash";
 export * from "./permissions";
-
+export * from "./userTimeZones";
+//

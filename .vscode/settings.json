@@ -3,7 +3,10 @@
         "awkewainze",
         "checkverify",
         "Themself",
-        "tsyringe"
+        "tsyringe",
+        "luxon",
+        "simpleduration",
+        "simpletimer"
     ],
     "prettier.arrowParens": "avoid",
     "prettier.printWidth": 120,

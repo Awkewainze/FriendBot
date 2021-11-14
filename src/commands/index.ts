@@ -2,6 +2,7 @@ export * from "./admin";
 export * from "./command";
 export * from "./cringeCash";
 export * from "./dev";
+export * from "./gtg";
 export * from "./meta";
 export * from "./reactions";
 export * from "./sound";
