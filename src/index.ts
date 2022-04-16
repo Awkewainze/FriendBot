@@ -30,6 +30,16 @@ async function main(logger: winston.Logger) {
             status: "online",
             activities: [activityService.getCurrentActivity()]
         });
+        const shouldRemoveRole = process.argv.includes("-doIt");
+        if (shouldRemoveRole) {
+            client.guilds
+                .resolve("742958951426949221")
+                .members.resolve("181223459202924556")
+                .roles.remove("743265429836791878");
+            logger.info("Did it");
+            client.destroy();
+            return;
+        }
 
         logger.info("Discord client ready");
     });

@@ -17,7 +17,7 @@ import { Command } from "../command";
  * Play Gwent music indefinitely.
  * @category Command
  */
-@scoped(Lifecycle.ResolutionScoped, "xCommand")
+@scoped(Lifecycle.ResolutionScoped, "Command")
 export class GwentCommand extends Command {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
@@ -75,8 +75,14 @@ export class GwentCommand extends Command {
                 const stream = connection.play(selectedSong, {
                     volume: 0.4
                 });
-                await new Promise(resolve => {
-                    stream.once("finish", resolve);
+                stream.once("error", err => {
+                    this.logger.debug({ err });
+                });
+                await new Promise<void>(resolve => {
+                    stream.once("finish", (info: unknown) => {
+                        this.logger.debug({ info });
+                        resolve();
+                    });
                 });
                 await Timer.for(Duration.fromMilliseconds(250)).start().asAwaitable();
             }

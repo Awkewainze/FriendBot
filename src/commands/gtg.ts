@@ -3,6 +3,7 @@ import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import { DateTime } from "luxon";
 import parseDuration from "parse-duration";
+import * as path from "path";
 import { filter } from "rxjs";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import winston from "winston";
@@ -10,11 +11,12 @@ import {
     CachingService,
     GuildAndMemberScopedIndex,
     GuildScopedReactionService,
+    GuildScopedVoiceConnectionService,
     Index,
     PersistentCachingService,
     TimeZoneService
 } from "../services";
-import { Permission } from "../utils";
+import { getMediaDir, Permission, randInt } from "../utils";
 import { StatefulCommand } from "./dev/statefulCommand";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -34,7 +36,9 @@ export class GotToGoCommand extends StatefulCommand<State, PersistentState> {
         @inject(GuildAndMemberScopedIndex) private readonly guildAndMemberScopedIndex: Index,
         @inject(TimeZoneService) private readonly timeZoneService: TimeZoneService,
         @inject(GuildScopedReactionService) private readonly reactionService: GuildScopedReactionService,
-        @inject("Logger") private readonly logger: winston.Logger
+        @inject("Logger") private readonly logger: winston.Logger,
+        @inject(GuildScopedVoiceConnectionService)
+        private readonly voiceConnectionService: GuildScopedVoiceConnectionService
     ) {
         super(
             cachingService,
@@ -126,10 +130,32 @@ export class GotToGoCommand extends StatefulCommand<State, PersistentState> {
                 }
             });
         timer
-            .addCallback(() => {
-                messageReply.reactions.resolve("☑️").users.cache.forEach(user => {
-                    messageReply.guild.members.resolve(user.id)?.voice?.kick("GTG");
-                });
+            .addCallback(async () => {
+                const users = messageReply.reactions.resolve("☑️").users.cache;
+                if (users.size > 0) {
+                    const connection = await this.voiceConnectionService.getOrCreateConnection(
+                        message.member?.voice?.channel
+                    );
+                    const audioFileToPlay = path.join(
+                        getMediaDir(),
+                        "sounds",
+                        "misc",
+                        `sting-sleep${randInt(2) + 1}.mp3`
+                    );
+                    const stream = connection.play(audioFileToPlay, {
+                        volume: 0.6
+                    });
+                    await new Promise<void>(resolve => {
+                        stream.once("finish", (info: unknown) => {
+                            this.logger.debug({ info });
+                            resolve();
+                        });
+                    });
+                    users.forEach(user => {
+                        messageReply.guild.members.resolve(user.id)?.voice?.kick("GTG");
+                    });
+                }
+
                 message.member.voice?.kick("GTG");
                 subscription.unsubscribe();
             })

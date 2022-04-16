@@ -1,3 +1,4 @@
+import { Duration } from "@awkewainze/simpleduration";
 import axios, { AxiosInstance } from "axios";
 import path from "path";
 import { inject, singleton } from "tsyringe";
@@ -28,7 +29,7 @@ export class PlexService {
     public async attemptLogin(forceRefresh = false): Promise<void> {
         if (forceRefresh || !(await this.persistentCachingService.exists(PlexService.TokenCacheId))) {
             this.authToken = await this.login();
-            this.persistentCachingService.set(PlexService.TokenCacheId, this.authToken);
+            this.persistentCachingService.set(PlexService.TokenCacheId, this.authToken, Duration.fromDays(1));
         } else {
             this.authToken = await this.persistentCachingService.get(PlexService.TokenCacheId);
         }
