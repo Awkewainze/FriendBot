@@ -2,6 +2,7 @@ import { Message } from "discord.js";
 import * as path from "path";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import { GuildScopedVoiceConnectionService } from "../../services";
+import { SoundInfo } from "../../services/soundPlayer/soundQueue";
 import { getMediaDir, Permission } from "../../utils";
 import { Command } from "../command";
 
@@ -34,8 +35,6 @@ export class GoldWatchCommand extends Command {
 
         const audioFileToPlay = path.join(getMediaDir(), "sounds", "misc", "goldwatch.mp3");
         const connection = await this.voiceConnectionService.getOrCreateConnection(currentUserVoiceChannel);
-        connection.play(audioFileToPlay, {
-            volume: 0.6
-        });
+        connection.playNow(new SoundInfo("Gold Watch", "local", audioFileToPlay));
     }
 }

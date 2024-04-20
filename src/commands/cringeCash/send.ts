@@ -20,7 +20,7 @@ export class SendCommand extends Command {
 
     async execute(message: Message): Promise<void> {
         const amount = Number(/^\$cringe (send|pay) .+ (?<amount>\d+?)$/i.exec(message.content.trim()).groups.amount);
-        await this.cringeCashService.makeTransaction(message.guild.id, message.member.id, 0 - amount);
+        await this.cringeCashService.makeTransaction(message.guild.id, message.member.id, -amount);
         await this.cringeCashService.makeTransaction(message.guild.id, message.mentions.members.first().id, amount);
         message.reply(`You sent ${message.mentions.members.first().displayName} \`${amount}cc\`!`);
     }

@@ -3,6 +3,7 @@ import { delay, inject, injectAll, Lifecycle, scoped } from "tsyringe";
 import winston from "winston";
 import { Command } from "../commands";
 import { GuildMemberScopedPermissionService } from "../services";
+import { Permission } from "../utils";
 
 /**
  * Manages the order and execution of commands.
@@ -40,6 +41,10 @@ export class CommandService {
                         )
                     ) {
                         message.reply("You do not have permission to run this command!");
+                        return;
+                    }
+                    if (command.requiredPermissions().has(Permission.PlaySound)) {
+                        message.reply("Commands that require audio are currently disabled during FriendBot rewrite, sorry for the inconvenience :(");
                         return;
                     }
                     this.logger.info({

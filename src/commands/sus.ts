@@ -3,15 +3,15 @@ import { Timer } from "@awkewainze/simpletimer";
 import { Message, MessageEmbed, Snowflake } from "discord.js";
 import { DateTime, Duration as LuxonDuration } from "luxon";
 import { filter } from "rxjs";
-import { inject, Lifecycle, scoped } from "tsyringe";
-import { GuildScopedReactionService, ReactionService } from "../services";
+import { Lifecycle, inject, scoped } from "tsyringe";
+import { GuildScopedReactionService } from "../services";
 import {
     BaseColor,
     Emojis,
-    getExtraInfo,
-    makeUniqueColors,
     MemberWithExtraInfo,
     Permission,
+    getExtraInfo,
+    makeUniqueColors,
     stripQuotes
 } from "../utils";
 import { Command } from "./command";
@@ -22,7 +22,7 @@ import { Command } from "./command";
  */
 @scoped(Lifecycle.ResolutionScoped, "Command")
 export class SusCommand extends Command {
-    constructor(@inject(GuildScopedReactionService) private readonly reactionService: ReactionService) {
+    constructor(@inject(GuildScopedReactionService) private readonly reactionService: GuildScopedReactionService) {
         super();
     }
     requiredPermissions(): Set<Permission> {
@@ -46,13 +46,15 @@ export class SusCommand extends Command {
             ...susPeeps.map(x => x.colors.map(y => y.getColorEnum()))
         ]).map(BaseColor.getColor);
         const voteMsg = await message.channel.send(
-            this.createEmbed(caller, susPeeps, colors).addField(
-                "Vote closes 2 mins after this message is sent!",
-                DateTime.utc()
-                    .plus(LuxonDuration.fromObject({ minutes: 2 }))
-                    .setLocale("en-us")
-                    .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)
-            )
+            {
+                embeds: [this.createEmbed(caller, susPeeps, colors).addField(
+                    "Vote closes 2 mins after this message is sent!",
+                    DateTime.utc()
+                        .plus(LuxonDuration.fromObject({ minutes: 2 }))
+                        .setLocale("en-us")
+                        .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)
+                )]
+            }
         );
         await Promise.all(colors.map(x => voteMsg.react(x.getAmongUsDefaultEmojiSnowflake())));
         await voteMsg.react(Emojis.SkipVote.snowflake);
@@ -60,7 +62,7 @@ export class SusCommand extends Command {
 
         // Only allow 1 vote per person by removing previous votes.
         const subscription = this.reactionService
-            .getObservable()
+            .getScopedObservable()
             .pipe(filter(x => x.reaction.message.id === voteMsg.id))
             .subscribe(async x => {
                 if (userVotedFor.has(x.user.id)) {
@@ -121,11 +123,11 @@ export class SusCommand extends Command {
         const mostVotes = colors
             .map(
                 (color, index) =>
-                    ({
-                        person: peeps[index],
-                        color: color,
-                        count: msg.reactions.resolve(color.getAmongUsDefaultEmojiSnowflake()).count
-                    } as ReactionInfo)
+                ({
+                    person: peeps[index],
+                    color: color,
+                    count: msg.reactions.resolve(color.getAmongUsDefaultEmojiSnowflake()).count
+                } as ReactionInfo)
             )
             .reduce((prev, curr) => {
                 if (prev.length === 0 || curr.count > prev[0].count) return [curr];
@@ -138,12 +140,11 @@ export class SusCommand extends Command {
         const ejected = mostVotes.length === 1 && mostVotes[0].count > skipVotes ? mostVotes[0].person : null;
         let firstLine: string, secondLine: string;
         if (ejected !== null) {
-            await ejected.member.guild.members.resolve(ejected.member)?.voice.kick("User was kinda sus");
+            await ejected.member.guild.members.resolve(ejected.member)?.voice.disconnect("User was kinda sus");
             firstLine = `${ejected.name} was ejected.`;
             const isImposter = Math.random() < 0.5;
-            secondLine = `${ejected.pronouns[0].subjective} ${ejected.pronouns[0].plural ? "were" : "was"}${
-                isImposter ? " " : " not "
-            }the Imposter.`;
+            secondLine = `${ejected.pronouns[0].subjective} ${ejected.pronouns[0].plural ? "were" : "was"}${isImposter ? " " : " not "
+                }the Imposter.`;
         } else {
             let reason: string;
             if (skipVotes > mostVotes[0].count) {
@@ -155,8 +156,11 @@ export class SusCommand extends Command {
             secondLine = "";
         }
 
-        msg.channel.send(
-            new MessageEmbed().setTitle("Emergency meeting results!").setDescription(firstLine + "\n" + secondLine)
+        msg.channel.send({
+            embeds: [
+                new MessageEmbed().setTitle("Emergency meeting results!").setDescription(firstLine + "\n" + secondLine)
+            ]
+        }
         );
     }
 }

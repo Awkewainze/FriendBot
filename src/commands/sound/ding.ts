@@ -4,7 +4,7 @@ import { Message } from "discord.js";
 import * as path from "path";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../../services";
-import { getMediaDir, getRandomFileFromDir, Permission } from "../../utils";
+import { getMediaDir, Permission } from "../../utils";
 import { Command } from "../command";
 
 /**
@@ -13,7 +13,7 @@ import { Command } from "../command";
  * [This](https://www.youtube.com/watch?v=dbKwMq8OoRs) but indefinitely and dings are randomized.
  * @category Command
  */
-@scoped(Lifecycle.ResolutionScoped, "Command")
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class DingCommand extends Command {
     private static readonly DingFolder = path.join(getMediaDir(), "sounds", "dings");
 
@@ -54,16 +54,17 @@ export class DingCommand extends Command {
         await this.playDingIndefinitely();
     }
 
+    // TODO Fix
     private async playDingIndefinitely(): Promise<void> {
         try {
             while (await this.cachingService.get(this.index.getKey(Keys.Enabled))) {
                 const connection = this.voiceConnectionService.getConnection();
-                const stream = connection.play(await getRandomFileFromDir(DingCommand.DingFolder), {
-                    volume: 0.4
-                });
-                await new Promise(resolve => {
-                    stream.once("finish", resolve);
-                });
+                // const stream = connection.play(await getRandomFileFromDir(DingCommand.DingFolder), {
+                //     volume: 0.4
+                // });
+                // await new Promise(resolve => {
+                //     stream.once("finish", resolve);
+                // });
                 await Timer.immediateAwaitable(Duration.fromMilliseconds(300));
             }
         } catch (err) {

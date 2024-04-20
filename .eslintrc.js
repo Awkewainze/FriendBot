@@ -24,6 +24,7 @@ module.exports = {
         "arrow-parens": ["warn", "as-needed"],
         "@typescript-eslint/array-type": ["error", { default: "generic" }],
         quotes: ["error", "double"],
-        "eol-last": ["warn", "always"]
+        "eol-last": ["warn", "always"],
+        semicolon: "error"
     }
 };

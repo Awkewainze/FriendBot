@@ -3,7 +3,6 @@ import { Timer } from "@awkewainze/simpletimer";
 import { Message } from "discord.js";
 import { DateTime } from "luxon";
 import parseDuration from "parse-duration";
-import * as path from "path";
 import { filter } from "rxjs";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import winston from "winston";
@@ -16,7 +15,7 @@ import {
     PersistentCachingService,
     TimeZoneService
 } from "../services";
-import { getMediaDir, Permission, randInt } from "../utils";
+import { Permission } from "../utils";
 import { StatefulCommand } from "./dev/statefulCommand";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -133,30 +132,29 @@ export class GotToGoCommand extends StatefulCommand<State, PersistentState> {
             .addCallback(async () => {
                 const users = messageReply.reactions.resolve("☑️").users.cache;
                 if (users.size > 0) {
-                    const connection = await this.voiceConnectionService.getOrCreateConnection(
-                        message.member?.voice?.channel
-                    );
-                    const audioFileToPlay = path.join(
-                        getMediaDir(),
-                        "sounds",
-                        "misc",
-                        `sting-sleep${randInt(2) + 1}.mp3`
-                    );
-                    const stream = connection.play(audioFileToPlay, {
-                        volume: 0.6
-                    });
-                    await new Promise<void>(resolve => {
-                        stream.once("finish", (info: unknown) => {
-                            this.logger.debug({ info });
-                            resolve();
-                        });
-                    });
-                    users.forEach(user => {
-                        messageReply.guild.members.resolve(user.id)?.voice?.kick("GTG");
+                    // TODO Fix, need to add events that can be listened to out of the sound player
+                    // const connection = await this.voiceConnectionService.getOrCreateConnection(
+                    //     message.member?.voice?.channel
+                    // );
+                    // const audioFileToPlay = path.join(
+                    //     getMediaDir(),
+                    //     "sounds",
+                    //     "misc",
+                    //     `sting-sleep${randInt(2) + 1}.mp3`
+                    // );
+                    // connection.playNow(new SoundInfo("Sleepy", "local", audioFileToPlay));
+                    // await new Promise<void>(resolve => {
+                    //     connection.on("finish", (info: unknown) => {
+                    //         this.logger.debug({ info });
+                    //         resolve();
+                    //     });
+                    // });
+                    users.filter(user => !user.bot).forEach(user => {
+                        messageReply.guild.members.resolve(user.id)?.voice?.disconnect("GTG");
                     });
                 }
 
-                message.member.voice?.kick("GTG");
+                message.member.voice?.disconnect("GTG");
                 subscription.unsubscribe();
             })
             .start();

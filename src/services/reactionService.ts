@@ -1,11 +1,11 @@
 import { MessageReaction, PartialUser, User } from "discord.js";
-import { filter, Observable, Subject } from "rxjs";
-import { inject, Lifecycle, scoped, singleton } from "tsyringe";
+import { Observable, Subject, filter } from "rxjs";
+import { Lifecycle, inject, scoped, singleton } from "tsyringe";
 import winston from "winston";
 
 @singleton()
 export class ReactionService {
-    constructor(@inject("Logger") private readonly logger: winston.Logger) {}
+    constructor(@inject("Logger") private readonly logger: winston.Logger) { }
 
     private readonly reactionSubject = new Subject<{ reaction: MessageReaction; user: User | PartialUser }>();
     sendEvent(event: { reaction: MessageReaction; user: User | PartialUser }): void {
@@ -23,7 +23,7 @@ export class GuildScopedReactionService {
         @inject("Logger") private readonly logger: winston.Logger,
         @inject(ReactionService) private readonly reactionService: ReactionService,
         @inject("GuildId") private readonly guildId: string
-    ) {}
+    ) { }
 
     getScopedObservable(): Observable<{ reaction: MessageReaction; user: User | PartialUser }> {
         return this.reactionService.getObservable().pipe(filter(x => x.reaction.message.guild.id === this.guildId));

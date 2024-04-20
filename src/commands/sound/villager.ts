@@ -4,14 +4,14 @@ import { Message } from "discord.js";
 import * as path from "path";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import { CachingService, GuildScopedIndex, GuildScopedVoiceConnectionService, Index } from "../../services";
-import { getMediaDir, getRandomFileFromDir } from "../../utils";
+import { getMediaDir, Permission } from "../../utils";
 import { Command } from "../command";
 
 /**
  * Play villager noises indefinitely.
  * @category Command
  */
-@scoped(Lifecycle.ResolutionScoped, "Command")
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class VillagerCommand extends Command {
     private static readonly VillagerDir = path.join(getMediaDir(), "sounds", "mcsounds", "villager-no-death-sounds");
 
@@ -23,6 +23,10 @@ export class VillagerCommand extends Command {
     ) {
         super();
         this.index = index.addScope("VillagerCommand");
+    }
+
+    requiredPermissions(): Set<Permission> {
+        return new Set([Permission.UseCommands, Permission.PlaySound]);
     }
 
     /** Triggered by `$villager (start|stop)` */
@@ -48,16 +52,17 @@ export class VillagerCommand extends Command {
         this.playVillagerNoisesIndefinitely();
     }
 
+    // TODO Fix
     private async playVillagerNoisesIndefinitely(): Promise<void> {
         try {
             while (await this.cachingService.get(this.index.getKey(Keys.Enabled))) {
                 const connection = this.voiceConnectionService.getConnection();
-                const stream = connection.play(await getRandomFileFromDir(VillagerCommand.VillagerDir), {
-                    volume: 0.4
-                });
-                await new Promise(resolve => {
-                    stream.once("finish", resolve);
-                });
+                // const stream = connection.play(await getRandomFileFromDir(VillagerCommand.VillagerDir), {
+                //     volume: 0.4
+                // });
+                // await new Promise(resolve => {
+                //     stream.once("finish", resolve);
+                // });
                 await Timer.for(Duration.fromMilliseconds(250)).start().asAwaitable();
             }
         } catch (err) {

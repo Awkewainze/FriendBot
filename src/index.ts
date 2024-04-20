@@ -16,8 +16,9 @@ import { ActivityService } from "./services";
 async function main(logger: winston.Logger) {
     await boot(container);
 
+    const allIntents = new Intents(32767);
     const client = new DiscordClient({
-        intents: Intents.ALL
+        intents: allIntents
     });
     logger.info("Discord client starting");
 
@@ -30,16 +31,6 @@ async function main(logger: winston.Logger) {
             status: "online",
             activities: [activityService.getCurrentActivity()]
         });
-        const shouldRemoveRole = process.argv.includes("-doIt");
-        if (shouldRemoveRole) {
-            client.guilds
-                .resolve("742958951426949221")
-                .members.resolve("181223459202924556")
-                .roles.remove("743265429836791878");
-            logger.info("Did it");
-            client.destroy();
-            return;
-        }
 
         logger.info("Discord client ready");
     });

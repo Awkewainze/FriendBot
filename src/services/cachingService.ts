@@ -7,7 +7,7 @@ import winston from "winston";
 
 @scoped(Lifecycle.ResolutionScoped)
 export class Index {
-    constructor(private readonly path: Array<string> = []) {}
+    constructor(private readonly path: Array<string> = []) { }
 
     addScope(scope: string): Index {
         return new Index([...this.path, scope]);

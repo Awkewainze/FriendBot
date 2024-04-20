@@ -26,7 +26,7 @@ export function getExtraInfo(member: GuildMember): MemberWithExtraInfo {
         pronouns: [],
         colors: []
     };
-    for (const key of member.roles.cache.keyArray()) {
+    for (const key of member.roles.cache.keys()) {
         const role = member.roles.cache.get(key);
         const pronounInfo = PronounInfo.getFromRole(value.name, role.name);
         const color = BaseColor.getColorFromRole(role.name);

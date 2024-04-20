@@ -1,9 +1,11 @@
 import { Check } from "@awkewainze/checkverify";
 import { Duration } from "@awkewainze/simpleduration";
-import { StageChannel, VoiceChannel } from "discord.js";
+import { Client as DiscordClient, StageChannel, VoiceChannel } from "discord.js";
 import { onShutdown } from "node-graceful-shutdown";
 import { inject, Lifecycle, scoped, singleton } from "tsyringe";
-import { ActivityTrackingVoiceConnection, execute } from "../utils";
+import winston from "winston";
+import { execute } from "../utils";
+import { SoundPlayer } from "./soundPlayer/soundPlayer";
 
 /**
  * Manages mapping guild to it's respective voice connection.
@@ -14,9 +16,12 @@ import { ActivityTrackingVoiceConnection, execute } from "../utils";
  */
 @singleton()
 export class VoiceConnectionService {
-    private readonly guildConnectionMap: Map<string, ActivityTrackingVoiceConnection> = new Map();
+    private readonly guildConnectionMap: Map<string, SoundPlayer> = new Map();
 
-    constructor() {
+    constructor(
+        @inject("Logger") private readonly logger: winston.Logger,
+        @inject(DiscordClient) private readonly client: DiscordClient
+    ) {
         onShutdown("VoiceConnectionService", async () => {
             this.disconnectFromAll();
         });
@@ -30,7 +35,7 @@ export class VoiceConnectionService {
      * @param guildId Guild id to lookup voice connection for.
      * @throws If connection does not exist.
      */
-    public getConnectionForGuild(guildId: string): ActivityTrackingVoiceConnection {
+    public getConnectionForGuild(guildId: string): SoundPlayer {
         Check.verify(this.guildConnectionMap.has(guildId), "Connection does not exist");
         return this.guildConnectionMap.get(guildId);
     }
@@ -41,22 +46,20 @@ export class VoiceConnectionService {
     /**
      * Gets or creates an existing voice channel.
      *
-     * Will disconnect if inactive for {@link DisconnectAfterInactiveForDuration} seconds.
      * @param guildId Guild id to lookup voice connection for.
      * @param channelToUseIfNotInExisting Channel to join if connection does not exist.
      */
     public async getOrCreateConnectionForGuild(
         guildId: string,
         channelToUseIfNotInExisting: VoiceChannel | StageChannel
-    ): Promise<ActivityTrackingVoiceConnection> {
+    ): Promise<SoundPlayer> {
         if (!this.guildConnectionMap.has(guildId)) {
             this.guildConnectionMap.set(
                 guildId,
-                ActivityTrackingVoiceConnection.wrapConnection(
-                    await channelToUseIfNotInExisting.join()
-                ).whenInactiveForDuration(VoiceConnectionService.DisconnectAfterInactiveForDuration, self => {
-                    self.disconnect();
-                    this.guildConnectionMap.delete(guildId);
+                new SoundPlayer(this.logger, {
+                    guildId,
+                    channelId: channelToUseIfNotInExisting.id,
+                    adapterCreator: this.client.guilds.resolve(guildId).voiceAdapterCreator
                 })
             );
         }
@@ -108,15 +111,15 @@ export class GuildScopedVoiceConnectionService {
     constructor(
         @inject(VoiceConnectionService) private readonly voiceConnectionService: VoiceConnectionService,
         @inject("GuildId") private readonly guildId: string
-    ) {}
+    ) { }
 
-    public getConnection(): ActivityTrackingVoiceConnection {
+    public getConnection(): SoundPlayer {
         return this.voiceConnectionService.getConnectionForGuild(this.guildId);
     }
 
     public getOrCreateConnection(
         channelToUseIfNotInExisting: VoiceChannel | StageChannel
-    ): Promise<ActivityTrackingVoiceConnection> {
+    ): Promise<SoundPlayer> {
         return this.voiceConnectionService.getOrCreateConnectionForGuild(this.guildId, channelToUseIfNotInExisting);
     }
 

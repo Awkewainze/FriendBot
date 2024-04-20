@@ -12,6 +12,7 @@ import {
     Index,
     PersistentCachingService
 } from "../services";
+import { SoundInfo } from "../services/soundPlayer/soundQueue";
 import { getMediaDir, Permission } from "../utils";
 import { StatefulCommand } from "./dev/statefulCommand";
 
@@ -66,9 +67,7 @@ export class SprayCommand extends StatefulCommand<State, PersistentState> {
             member.edit({ mute: true });
             const audioFileToPlay = path.join(getMediaDir(), "sounds", "misc", "spray-bottle.mp3");
             const connection = await this.voiceConnectionService.getOrCreateConnection(member.voice.channel);
-            connection.play(audioFileToPlay, {
-                volume: 0.6
-            });
+            connection.playNow(new SoundInfo("Spray bottle", "local", audioFileToPlay));
 
             currentState.lastTimeCommandUsedISO = DateTime.now().toISO();
             this.setPersistentState(this.guildAndMemberScopedIndex, { lastTimeCommandUsedISO: DateTime.now().toISO() });

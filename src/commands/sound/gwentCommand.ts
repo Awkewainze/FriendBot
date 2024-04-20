@@ -17,7 +17,7 @@ import { Command } from "../command";
  * Play Gwent music indefinitely.
  * @category Command
  */
-@scoped(Lifecycle.ResolutionScoped, "Command")
+@scoped(Lifecycle.ResolutionScoped, "xCommand")
 export class GwentCommand extends Command {
     constructor(
         @inject(GuildScopedVoiceConnectionService)
@@ -61,6 +61,7 @@ export class GwentCommand extends Command {
         this.playGwentMusicIndefinitely();
     }
 
+    // TODO Fix
     private async playGwentMusicIndefinitely(): Promise<void> {
         try {
             while (await this.cachingService.get(this.index.getKey(Keys.Enabled))) {
@@ -72,18 +73,18 @@ export class GwentCommand extends Command {
                 }
                 const selectedSong = cryptoSelectRandom(gwentSongs);
                 await this.cachingService.set(this.index.getKey(Keys.LastPlayed), selectedSong);
-                const stream = connection.play(selectedSong, {
-                    volume: 0.4
-                });
-                stream.once("error", err => {
-                    this.logger.debug({ err });
-                });
-                await new Promise<void>(resolve => {
-                    stream.once("finish", (info: unknown) => {
-                        this.logger.debug({ info });
-                        resolve();
-                    });
-                });
+                // const stream = connection.play(selectedSong, {
+                //     volume: 0.4
+                // });
+                // stream.once("error", err => {
+                //     this.logger.debug({ err });
+                // });
+                // await new Promise<void>(resolve => {
+                //     stream.once("finish", (info: unknown) => {
+                //         this.logger.debug({ info });
+                //         resolve();
+                //     });
+                // });
                 await Timer.for(Duration.fromMilliseconds(250)).start().asAwaitable();
             }
         } catch (err) {

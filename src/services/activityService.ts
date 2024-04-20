@@ -1,11 +1,11 @@
 import { Duration } from "@awkewainze/simpleduration";
 import { Timer } from "@awkewainze/simpletimer";
-import { ActivityOptions, ActivityType, Client } from "discord.js";
+import { ActivityOptions, Client } from "discord.js";
 import { inject, singleton } from "tsyringe";
 import { selectRandom } from "../utils";
 
 type ActivityChoices = {
-    activity: ActivityType;
+    activity: ActivityOptions["type"];
     options: Array<string>;
 };
 
@@ -73,7 +73,7 @@ export class ActivityService {
         return this.currentActivity;
     }
 
-    isCurrentActivity(activity: ActivityType, name: string): boolean {
+    isCurrentActivity(activity: ActivityOptions["type"], name: string): boolean {
         if (this.getCurrentActivity() === null) {
             return false;
         }

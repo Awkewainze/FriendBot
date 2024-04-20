@@ -1,13 +1,15 @@
 {
-    "DISCORD" : {
-        "LOGIN_TOKEN" : "<Replace with Login Token>"
+    "DISCORD": {
+        "LOGIN_TOKEN": "<Replace with Login Token>",
+        "AUTO_DISCONNECT_TIME_MS": 60000
     },
     "REDIS": {
         "//": "See https://github.com/NodeRedis/node-redis for more options",
         "host": "127.0.0.1",
         "port": 6379,
-        "password": null,
-        "db": "dev",
-        "url": null
+        "db": "development"
+    },
+    "PLEX": {
+        "//": "Just don't run the Gwent command and it shouldn't need Plex config"
     }
 }

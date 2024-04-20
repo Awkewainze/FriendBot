@@ -1,6 +1,7 @@
 import { Message } from "discord.js";
 import { inject, Lifecycle, scoped } from "tsyringe";
 import { GuildScopedVoiceConnectionService } from "../../services";
+import { SoundInfo } from "../../services/soundPlayer/soundQueue";
 import { Permission } from "../../utils";
 import { Command } from "../command";
 
@@ -32,8 +33,6 @@ export class PlayLocalSoundCommand extends Command {
 
         const { audioFileToPlay } = /^\$devplay\s+(?<audioFileToPlay>.*)/i.exec(message.content.trim()).groups;
         const connection = await this.voiceConnectionService.getOrCreateConnection(currentUserVoiceChannel);
-        connection.play(audioFileToPlay, {
-            volume: 0.6
-        });
+        connection.playNow(new SoundInfo("[DEV]", "local", audioFileToPlay));
     }
 }

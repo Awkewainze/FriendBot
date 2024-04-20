@@ -25,7 +25,7 @@ export class InspectCommand extends Command {
             .addField(`${info.member.user.tag}`, `${info.member.user}`, true)
             .addField("Name:", info.name, true)
             .addField("ID:", `${info.member.user.id}`, true)
-            .addField("Status:", `${info.member.user.presence.status}`, true)
+            .addField("Status:", `${info.member.presence.status}`, true)
             .addField("Pronouns:", info.pronouns.map(x => x.pronounDisplayName).join(", "), true);
 
         if (info.member.user.bot) {
@@ -43,8 +43,8 @@ export class InspectCommand extends Command {
                 `${DateTime.fromJSDate(info.member.user.createdAt).setLocale("en-us").toLocaleString()}`,
                 true
             )
-            .setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`);
+            .setFooter({ text: `Replying to ${message.author.username}#${message.author.discriminator}` });
 
-        message.channel.send({ embed });
+        message.channel.send({ embeds: [embed] });
     }
 }
