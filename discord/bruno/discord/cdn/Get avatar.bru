@@ -1,0 +1,11 @@
+meta {
+  name: Get avatar
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://cdn.discordapp.com/avatars/{{user_id}}/{{user_avatar_hash}}.png
+  body: none
+  auth: none
+}

@@ -5,28 +5,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach by Process ID",
-            "processId": "${command:PickProcess}",
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node"
+            "type": "bun",
+            "request": "launch",
+            "name": "Debug File",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "watchMode": false,
+            "internalConsoleOptions": "neverOpen"
         },
         {
-            "type": "node",
+            "type": "bun",
             "request": "launch",
-            "name": "Debug",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run", "start:debug"
-            ],
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "name": "Run File",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "noDebug": true,
+            "watchMode": false,
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "bun",
+            "request": "attach",
+            "name": "Attach Bun",
+            "url": "ws://localhost:6499/",
+            "stopOnEntry": false,
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }

@@ -1,36 +1,75 @@
-# [FriendBot](https://github.com/Awkewainze/FriendBot)
+# Nuxt 3 Minimal Starter
 
-A discord bot for meme purposes and for helping out with some stuff on our server!
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Required external setup
+## Setup
 
-* [Discord Login Token](https://discord.com/developers)
-* If on Windows, [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools),
-    if you have Visual Studio installed, that should also work.
-* (Recommended) VSCode setup makes Typescript development much easier.
-* (Recommended) VSCode extensions. VSCode will asks to install them on launching this project.
+Make sure to install the dependencies:
 
-## NPM Commands
+```bash
+# npm
+npm install
 
-* Lint with `npm run lint`
-    * Installing the ESLint and Prettier extensions for VSCode will show and fix errors on save.
-* Run with `npm run start`
-* Test with `npm run test`
+# pnpm
+pnpm install
 
-## Discord Commands
+# yarn
+yarn install
 
-Voice commands at this point require $ prefix to make sure they aren't accidentally triggered, that may change in the future.
+# bun
+bun install
+```
 
-* `$ding (start|stop)`
-    * The Drifter from Destiny 2 plays the song of his people.
-* `$villager (start|stop)`
-    * Play some villager noises for ambience.
-* `$goldwatch`
-    * Christopher Walken makes says his most famous voice line.
-* `$disconnect`
-    * Disconnect the bot from current voice channel.
-* `inspect @User`
-    * Get some useful info about a user.
-* `sus` in the same sentence as a few user mentions.
-    * ex. `I am sus of @Person1 and @Person2`
-    * Starts a vote on who to eject!
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

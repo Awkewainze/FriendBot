@@ -1,0 +1,147 @@
+#0 building with "default" instance using docker driver
+
+#1 [friendbot internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.57kB done
+#1 DONE 0.0s
+
+#2 [friendbot auth] oven/bun:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [friendbot internal] load metadata for docker.io/oven/bun:1.1.4-alpine
+#3 DONE 0.6s
+
+#4 [friendbot internal] load .dockerignore
+#4 transferring context: 194B done
+#4 DONE 0.0s
+
+#5 [friendbot base 1/6] FROM docker.io/oven/bun:1.1.4-alpine@sha256:cea877ff796ad5c2c0b51cd6e1585789204343367287a150fb1c57a155f9088e
+#5 DONE 0.0s
+
+#6 [friendbot base 2/6] WORKDIR /usr/src/app
+#6 CACHED
+
+#7 [friendbot internal] load build context
+#7 transferring context: 145.97kB 0.0s done
+#7 DONE 0.0s
+
+#8 [friendbot base 3/6] RUN apk add --update --no-cache build-base
+#8 0.268 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/APKINDEX.tar.gz
+#8 0.361 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz
+#8 0.503 (1/20) Installing libstdc++ (12.2.1_git20220924-r10)
+#8 0.530 (2/20) Installing zstd-libs (1.5.5-r4)
+#8 0.544 (3/20) Installing binutils (2.40-r7)
+#8 0.598 (4/20) Installing libmagic (5.45-r0)
+#8 0.618 (5/20) Installing file (5.45-r0)
+#8 0.623 (6/20) Installing libgomp (12.2.1_git20220924-r10)
+#8 0.630 (7/20) Installing libatomic (12.2.1_git20220924-r10)
+#8 0.635 (8/20) Installing gmp (6.2.1-r3)
+#8 0.644 (9/20) Installing isl26 (0.26-r1)
+#8 0.664 (10/20) Installing mpfr4 (4.2.0_p12-r0)
+#8 0.674 (11/20) Installing mpc1 (1.3.1-r1)
+#8 0.679 (12/20) Installing gcc (12.2.1_git20220924-r10)
+#8 1.147 (13/20) Installing libstdc++-dev (12.2.1_git20220924-r10)
+#8 1.289 (14/20) Installing musl-dev (1.2.4-r2)
+#8 1.350 (15/20) Installing libc-dev (0.7.2-r5)
+#8 1.354 (16/20) Installing g++ (12.2.1_git20220924-r10)
+#8 1.513 (17/20) Installing make (4.4.1-r1)
+#8 1.520 (18/20) Installing fortify-headers (1.1-r3)
+#8 1.525 (19/20) Installing patch (2.7.6-r10)
+#8 1.530 (20/20) Installing build-base (0.5-r3)
+#8 1.535 Executing busybox-1.36.1-r5.trigger
+#8 1.539 Executing glibc-bin-2.34-r0.trigger
+#8 1.569 OK: 250 MiB in 38 packages
+#8 DONE 1.6s
+
+#9 [friendbot base 4/6] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+#9 0.424 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/APKINDEX.tar.gz
+#9 0.667 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz
+#9 0.985 (1/15) Installing libbz2 (1.0.8-r5)
+#9 0.991 (2/15) Installing libexpat (2.6.2-r0)
+#9 0.999 (3/15) Installing libffi (3.4.4-r2)
+#9 1.003 (4/15) Installing gdbm (1.23-r1)
+#9 1.009 (5/15) Installing xz-libs (5.4.3-r0)
+#9 1.019 (6/15) Installing mpdecimal (2.5.1-r2)
+#9 1.029 (7/15) Installing ncurses-terminfo-base (6.4_p20230506-r0)
+#9 1.040 (8/15) Installing libncursesw (6.4_p20230506-r0)
+#9 1.055 (9/15) Installing libpanelw (6.4_p20230506-r0)
+#9 1.060 (10/15) Installing readline (8.2.1-r1)
+#9 1.073 (11/15) Installing sqlite-libs (3.41.2-r3)
+#9 1.115 (12/15) Installing python3 (3.11.8-r0)
+#9 1.538 (13/15) Installing python3-pycache-pyc0 (3.11.8-r0)
+#9 1.689 (14/15) Installing pyc (0.1-r0)
+#9 1.693 (15/15) Installing python3-pyc (3.11.8-r0)
+#9 1.698 Executing busybox-1.36.1-r5.trigger
+#9 1.701 Executing glibc-bin-2.34-r0.trigger
+#9 1.731 OK: 291 MiB in 53 packages
+#9 DONE 1.8s
+
+#10 [friendbot base 5/6] RUN python3 -m ensurepip
+#10 1.500 Looking in links: /tmp/tmpu7einmga
+#10 1.503 Processing /tmp/tmpu7einmga/setuptools-65.5.0-py3-none-any.whl
+#10 1.506 Processing /tmp/tmpu7einmga/pip-24.0-py3-none-any.whl
+#10 1.545 Installing collected packages: setuptools, pip
+#10 2.657 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#10 2.657 Successfully installed pip-24.0 setuptools-65.5.0
+#10 DONE 2.7s
+
+#11 [friendbot base 6/6] RUN pip3 install --no-cache --upgrade pip setuptools
+#11 0.596 Requirement already satisfied: pip in /usr/lib/python3.11/site-packages (24.0)
+#11 0.652 Requirement already satisfied: setuptools in /usr/lib/python3.11/site-packages (65.5.0)
+#11 0.749 Collecting setuptools
+#11 0.830   Downloading setuptools-69.5.1-py3-none-any.whl.metadata (6.2 kB)
+#11 0.873 Downloading setuptools-69.5.1-py3-none-any.whl (894 kB)
+#11 0.961    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 894.6/894.6 kB 10.8 MB/s eta 0:00:00
+#11 1.000 Installing collected packages: setuptools
+#11 1.000   Attempting uninstall: setuptools
+#11 1.002     Found existing installation: setuptools 65.5.0
+#11 1.012     Uninstalling setuptools-65.5.0:
+#11 1.059       Successfully uninstalled setuptools-65.5.0
+#11 1.423 Successfully installed setuptools-69.5.1
+#11 1.423 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#11 DONE 1.6s
+
+#12 [friendbot install 1/6] RUN mkdir -p /temp/dev
+#12 DONE 0.4s
+
+#13 [friendbot install 2/6] COPY package.json bun.lockb /temp/dev/
+#13 DONE 0.1s
+
+#14 [friendbot install 3/6] RUN cd /temp/dev && bun install --frozen-lockfile
+#14 0.323 bun install v1.1.4 (fbe2fe0c)
+#14 4.429 
+#14 4.429 $ husky
+#14 4.448 .git can't be found
+#14 4.450  + @types/bun@1.1.0
+#14 4.450  + @typescript-eslint/eslint-plugin@7.7.0
+#14 4.450  + @typescript-eslint/parser@7.7.0
+#14 4.450  + eslint@9.1.0
+#14 4.450  + eslint-config-prettier@9.1.0
+#14 4.450  + husky@9.0.11
+#14 4.450  + lint-staged@15.2.2
+#14 4.450  + prettier@3.2.5
+#14 4.450  + @discordjs/voice@0.16.1
+#14 4.450  + @prisma/client@5.12.1
+#14 4.450  + @trpc/server@10.45.2
+#14 4.450  + bufferutil@4.0.8
+#14 4.450  + discord.js@14.14.1
+#14 4.450  + prisma@5.12.1
+#14 4.450  + rxjs@7.8.1
+#14 4.450  + timezones-list@3.0.3
+#14 4.450  + utf-8-validate@6.0.3
+#14 4.450  + uuid@9.0.1
+#14 4.450  + winston@3.13.0
+#14 4.450  + winston-transport@4.7.0
+#14 4.450  + zod@3.22.5
+#14 4.450 
+#14 4.450  239 packages installed [4.13s]
+#14 DONE 4.6s
+
+#15 [friendbot install 4/6] RUN mkdir -p /temp/prod
+#15 DONE 0.3s
+
+#16 [friendbot install 5/6] COPY package.json bun.lockb /temp/prod/
+#16 DONE 0.1s
+
+#17 [friendbot install 6/6] RUN cd /temp/prod && bun install --frozen-lockfile --production
+#17 0.345 bun install v1.1.4 (fbe2fe0c)
+#17 CANCELED

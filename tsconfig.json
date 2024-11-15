@@ -1,23 +1,4 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "target": "ES2019",
-        "noImplicitAny": true,
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "outDir": "dist",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "strictNullChecks": false
-    },
-    "include": [
-        "src/**/*",
-    ],
-    "exclude": [
-        "tests/**/*.ts"
-    ],
-    "linterOptions": {
-    }
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json"
 }

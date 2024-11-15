@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Achievement {
+  id        String    @id @unique @default(uuid())
+  name      String
+  progress  Int?
+  goal      Int?
+  grantedOn DateTime?
+  userId    String
+  guildId   String
+
+  @@map("achievements")
+}
+
+enum PermissionName {
+  UseCommands
+  ModifySelf
+  ModifyOtherTemporary
+  ModifyOther
+  PlaySound
+  CringeCash
+  CringeCashAdmin
+  ModifyPermissions
+}
+
+model Permission {
+  id         String         @id @unique @default(uuid())
+  userId     String
+  guildId    String
+  grant      Boolean
+  permission PermissionName
+  target     Json?
+
+  @@map("permissions")
+}
+
+model Guild {
+  id              String  @id @unique
+  pinnedChannelId String?
+
+  @@map("guilds")
+}
+
+enum Severity {
+  functional @map("functional")
+  error      @map("error")
+  warn       @map("warn")
+  info       @map("info")
+  http       @map("http")
+  verbose    @map("verbose")
+  debug      @map("debug")
+  silly      @map("silly")
+}
+
+model Event {
+  id            String   @id @unique @default(uuid())
+  correlationId String   @default(uuid())
+  dateTime      DateTime @default(now())
+  type          String
+  message       String
+  meta          Json
+  severity      Severity
+  userId        String?
+  guildId       String?
+
+  @@map("events")
+}
+
+model KVStore {
+  key   String @id @unique @default(uuid())
+  value Json
+
+  @@map("key_value_store")
+}
+
+model TimedEvent {
+  id            String    @id @unique @default(uuid())
+  correlationId String    @default(uuid())
+  type          String
+  executeAt     DateTime
+  executedAt    DateTime?
+  userId        String?
+  guildId       String?
+  meta          Json?
+
+  @@map("timed_events")
+}

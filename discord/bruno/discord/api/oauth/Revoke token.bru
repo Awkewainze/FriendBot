@@ -1,0 +1,21 @@
+meta {
+  name: Revoke token
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://discord.com/api/oauth2/token/revoke
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{client_id}}
+  password: {{client_secret}}
+}
+
+body:form-urlencoded {
+  token_type_hint: access_token
+  token: 
+}
