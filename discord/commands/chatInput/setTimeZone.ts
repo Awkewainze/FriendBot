@@ -7,6 +7,7 @@ import { ChatInputCommand } from "../command";
 
 @scoped(Lifecycle.ResolutionScoped, "ChatInputCommand")
 export class SetTimeZoneCommand extends ChatInputCommand {
+	private static SortedTimeZones = TimeZones.toSorted((a, b) => a.tzCode.localeCompare(b.tzCode));
 	get name(): string {
 		return "set_time_zone";
 	}
@@ -49,7 +50,7 @@ export class SetTimeZoneCommand extends ChatInputCommand {
 
 	async autoComplete(interaction: AutocompleteInteraction): Promise<void> {
 		const focusedValue = interaction.options.getFocused();
-		const choices = TimeZones.filter(x => x.tzCode.toLocaleLowerCase().includes(focusedValue.toLocaleLowerCase())).splice(0, 10);
+		const choices = SetTimeZoneCommand.SortedTimeZones.filter(x => x.tzCode.toLocaleLowerCase().includes(focusedValue.toLocaleLowerCase())).splice(0, 10);
 		await interaction.respond(
 			choices.map(choice => ({ name: choice.tzCode, value: choice.tzCode })),
 		);

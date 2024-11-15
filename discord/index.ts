@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient, Severity } from "@prisma/client";
 import { AutocompleteInteraction, BaseInteraction, ButtonInteraction, Client, CommandInteraction, Events, REST, Routes, VoiceState } from "discord.js";
-import { bufferTime, debounceTime, filter, fromEvent, Observable } from "rxjs";
+import { bufferTime, debounceTime, filter, fromEvent, groupBy, mergeMap, Observable } from "rxjs";
 import { container, type DependencyContainer } from "tsyringe";
 import { v4 } from "uuid";
 import { Logger } from "winston";
@@ -143,7 +143,7 @@ onInteractionCreate
 
 onInteractionCreate
 	.pipe(filter(x => x.isAutocomplete()))
-	.pipe(debounceTime(250))
+	.pipe(groupBy(x => x.user.id), mergeMap(x => x.pipe(debounceTime(100))))
 	.subscribe((autoCompleteInteraction: AutocompleteInteraction) => {
 		createChildContainerFromInteraction(autoCompleteInteraction)
 			.resolve(CommandService)

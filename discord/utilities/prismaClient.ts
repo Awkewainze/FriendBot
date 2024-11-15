@@ -32,6 +32,3 @@ export function createPrismaClient(logger: Logger) {
 		}
 	});
 }
-
-// elizabeth@colibrifamilyandhealingtherapyinc.com
-
