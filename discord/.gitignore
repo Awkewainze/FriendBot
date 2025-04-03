@@ -175,3 +175,7 @@ dist
 .DS_Store
 
 node_modules
+
+third-party-licenses.txt
+
+pgdata/

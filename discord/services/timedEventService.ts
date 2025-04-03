@@ -10,19 +10,34 @@ import { createPrismaLogger } from "../utilities/prismaLogger";
 export class TimedEventService {
 	constructor(
 		@inject(PrismaClient) private readonly prismaClient: PrismaClient,
-		@inject("CorrelationId") private readonly correlationId: string) { }
+		@inject("CorrelationId") private readonly correlationId: string
+	) {}
 
 	async loadUnhandledEventsFromDb(): Promise<void> {
 		const unhandledEvents = await this.prismaClient.timedEvent.findMany({
 			where: {
-				executedAt: null
+				AND: {
+					executedAt: null,
+					OR: [
+						{
+							cancelExecuteAfter: {
+								gte: new Date()
+							}
+						},
+						{
+							cancelExecuteAfter: null
+						}
+					]
+				}
 			}
 		});
 
-		unhandledEvents.forEach(x => this.handleEventInternal(x))
+		unhandledEvents.forEach((x) => this.handleEventInternal(x));
 	}
 
-	async handleEvent(timedEventInfo: Pick<TimedEvent, "executeAt" | "type" | "guildId" | "userId" | "meta">): Promise<TimedEvent> {
+	async handleEvent(
+		timedEventInfo: Pick<TimedEvent, "executeAt" | "type" | "guildId" | "userId" | "meta">
+	): Promise<TimedEvent> {
 		const created = await this.prismaClient.timedEvent.create({
 			data: {
 				executeAt: timedEventInfo.executeAt,
@@ -52,7 +67,7 @@ export class TimedEventService {
 
 	// Do this on process exit
 	static async cancelAllEvents(): Promise<void> {
-		this.waitingEvents.forEach(value => {
+		this.waitingEvents.forEach((value) => {
 			clearTimeout(value);
 		});
 	}
@@ -62,7 +77,7 @@ export class TimedEventService {
 		const eventContainer = this.createChildContainerForTimedEvent(timedEventInfo);
 		const event = eventContainer
 			.resolveAll<TimedEventHandler>("TimedEventHandler")
-			.find(x => x.eventType === timedEventInfo.type);
+			.find((x) => x.eventType === timedEventInfo.type);
 
 		if (!event) {
 			throw new Error("No matching event type");
@@ -70,9 +85,12 @@ export class TimedEventService {
 
 		const executeInMillis = Math.max(dayjs(timedEventInfo.executeAt).diff(dayjs()), 0);
 		if (!TimedEventService.waitingEvents.has(timedEventInfo.id)) {
-			TimedEventService.waitingEvents.set(timedEventInfo.id, setTimeout(() => {
-				event.handle(timedEventInfo);
-			}, executeInMillis));
+			TimedEventService.waitingEvents.set(
+				timedEventInfo.id,
+				setTimeout(() => {
+					event.handle(timedEventInfo);
+				}, executeInMillis)
+			);
 		}
 	}
 
@@ -80,9 +98,14 @@ export class TimedEventService {
 	 * Create a new container scope so logger is attached to correct correlation id.
 	 */
 	private createChildContainerForTimedEvent(timedEventInfo: TimedEvent): DependencyContainer {
-		const _logger = createPrismaLogger({ guildId: timedEventInfo.guildId, userId: timedEventInfo.userId ?? undefined, correlationId: timedEventInfo.correlationId });
+		const _logger = createPrismaLogger({
+			guildId: timedEventInfo.guildId,
+			userId: timedEventInfo.userId ?? undefined,
+			correlationId: timedEventInfo.correlationId
+		});
 		const _prismaClient = createPrismaClient(_logger);
-		return container.createChildContainer()
+		return container
+			.createChildContainer()
 			.register("CorrelationId", { useValue: timedEventInfo.correlationId })
 			.register(Logger, { useValue: _logger })
 			.register(PrismaClient, { useValue: _prismaClient as any });

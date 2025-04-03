@@ -1,0 +1,5 @@
+{
+	"inputs": ["./package.json"],
+	"output": "./third-party-licenses.txt",
+	"lineEncoding": "lf"
+}

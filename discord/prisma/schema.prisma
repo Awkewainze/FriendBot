@@ -41,13 +41,6 @@ model Permission {
   @@map("permissions")
 }
 
-model Guild {
-  id              String  @id @unique
-  pinnedChannelId String?
-
-  @@map("guilds")
-}
-
 enum Severity {
   functional @map("functional")
   error      @map("error")
@@ -81,14 +74,24 @@ model KVStore {
 }
 
 model TimedEvent {
-  id            String    @id @unique @default(uuid())
-  correlationId String    @default(uuid())
-  type          String
-  executeAt     DateTime
-  executedAt    DateTime?
-  userId        String?
-  guildId       String?
-  meta          Json?
+  id                 String    @id @unique @default(uuid())
+  correlationId      String    @default(uuid())
+  type               String
+  executeAt          DateTime
+  cancelExecuteAfter DateTime?
+  executedAt         DateTime?
+  userId             String?
+  guildId            String?
+  meta               Json?
 
   @@map("timed_events")
+}
+
+model AutoReaction {
+  id           String   @id @unique @default(uuid())
+  guildId      String
+  requirements Json
+  reactions    String[]
+
+  @@map("auto_reactions")
 }

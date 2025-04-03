@@ -1,60 +1,62 @@
 {
-  "name": "friendbot",
-  "module": "index.ts",
-  "type": "module",
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
-  },
-  "scripts": {
-    "prestart": "bun run prisma-generate",
-    "pretest": "bun run prisma-generate",
-    "dev": "bun run prisma-migrate-dev && bun run start",
-    "start": "bun run index.ts",
-    "production": "bun --env-file=.env.production run start",
-    "test": "bun test",
-    "test-watch": "bun test --watch",
-    "prisma-migrate": "prisma migrate",
-    "prisma-migrate-reset": "prisma migrate reset",
-    "prisma-migrate-dev": "prisma migrate dev",
-    "prisma-generate": "prisma generate",
-    "prettier-format": "bun prettier . -w",
-    "prettier-check": "bun prettier . -c",
-    "typedoc": "bunx typedoc -excludePrivate --excludeExternals --out docs index.ts",
-    "prepare": "husky"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^9.13.0",
-    "eslint-config-prettier": "^9.1.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "prettier": "3.2.5"
-  },
-  "peerDependencies": {
-    "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "@awkewainze/simpleduration": "^1.0.1",
-    "@awkewainze/simpletimer": "^1.0.0",
-    "@discordjs/voice": "^0.16.1",
-    "@prisma/client": "^5.21.1",
-    "@trpc/server": "^10.45.2",
-    "bufferutil": "^4.0.8",
-    "dayjs": "^1.11.13",
-    "discord.js": "^14.16.3",
-    "jose": "^5.9.4",
-    "prisma": "^5.21.1",
-    "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1",
-    "timezones-list": "^3.0.3",
-    "tsyringe": "^4.8.0",
-    "utf-8-validate": "^6.0.4",
-    "uuid": "^9.0.1",
-    "winston": "^3.15.0",
-    "winston-transport": "^4.8.0",
-    "zod": "^3.23.8"
-  }
+	"name": "friendbot",
+	"module": "index.ts",
+	"type": "module",
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	},
+	"scripts": {
+		"prestart": "bun run prisma-generate",
+		"pretest": "bun run prisma-generate",
+		"dev": "bun run prisma-migrate-dev && bun run start",
+		"start": "bun run index.ts",
+		"production": "bun --env-file=.env.production run start",
+		"test": "bun test",
+		"test-watch": "bun test --watch",
+		"prisma-migrate": "prisma migrate",
+		"prisma-migrate-reset": "prisma migrate reset",
+		"prisma-migrate-dev": "prisma migrate dev",
+		"prisma-generate": "prisma generate",
+		"prettier-format": "bun prettier . -w",
+		"prettier-check": "bun prettier . -c",
+		"typedoc": "bunx typedoc -excludePrivate --excludeExternals --out docs index.ts",
+		"prepare": "husky",
+		"generate-license-file": "bunx generate-license-file",
+		"generate-license-file-ci": "bunx generate-license-file --ci --overwrite --no-spinner"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/uuid": "^10.0.0",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"eslint": "^9.17.0",
+		"eslint-config-prettier": "^9.1.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.11",
+		"prettier": "3.2.5"
+	},
+	"peerDependencies": {
+		"typescript": "^5.4.5"
+	},
+	"dependencies": {
+		"@awkewainze/simpleduration": "^1.0.1",
+		"@awkewainze/simpletimer": "^1.0.0",
+		"@discordjs/voice": "^0.16.1",
+		"@prisma/client": "^5.22.0",
+		"@trpc/server": "^10.45.2",
+		"bufferutil": "^4.0.8",
+		"dayjs": "^1.11.13",
+		"discord.js": "^14.16.3",
+		"jose": "^5.9.6",
+		"prisma": "^5.22.0",
+		"reflect-metadata": "^0.2.2",
+		"rxjs": "^7.8.1",
+		"timezones-list": "^3.0.3",
+		"tsyringe": "^4.8.0",
+		"utf-8-validate": "^6.0.5",
+		"uuid": "^9.0.1",
+		"winston": "^3.17.0",
+		"winston-transport": "^4.9.0",
+		"zod": "^3.24.1"
+	}
 }
